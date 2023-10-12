@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['']">
+      <img
+        id="logoNavBar"
+        src="https://img.icons8.com/dusk/64/000000/pokemon.png"
+        alt="Logo Ma Poke Collection"
+      />
+    </a>
+
+    <div class="ml-auto mx-auto text-center">
+      <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link custom-font-solid large-text" 
+              routerLinkActive="ma-classe-active"
+              [routerLink]="['']"
+            >
+              <img class="logoOnglet" src="" alt="" />
+              Accueil</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link custom-font-solid large-text text-curved"
+              routerLinkActive="ma-classe-active"
+              [routerLink]="['/pokemons']"
+            >
+              <img class="logoOnglet" src="" alt="" />Pokemons</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link custom-font-solid large-text"
+              routerLinkActive="ma-classe-active"
+              [routerLink]="['/profil-utilisateur']"
+            >
+              <img class="logoOnglet" src="" alt="" />Mon PC Pokemon</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>

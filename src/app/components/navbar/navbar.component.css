@@ -1,0 +1,47 @@
+nav {
+    background-color: #e61515;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item {
+    margin-right: 4rem;
+}
+
+
+.nav-link {
+    font-size: 22px;
+    margin: 15px;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+    cursor: pointer;
+    color: yellow;
+    animation: swing 1s ease infinite;
+}
+
+.large-text {
+    font-size: 2rem;
+}
+
+.text-curved {
+    transform: skewY(-5deg);
+    /* Ajustez l'angle selon vos préférences */
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

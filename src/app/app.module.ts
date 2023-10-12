@@ -7,6 +7,7 @@ import { AccueilComponent } from './pages/accueil/accueil.component';
 import { PokemonsComponent } from './pages/pokemons/pokemons.component';
 import { PersonalComponent } from './pages/personal/personal.component';
 import { CardComponent } from './components/card/card.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CardComponent } from './components/card/card.component';
     AccueilComponent,
     PokemonsComponent,
     PersonalComponent,
-    CardComponent
+    CardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

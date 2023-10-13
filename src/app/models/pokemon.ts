@@ -1,5 +1,5 @@
-import { Generation } from "./generation";
-import { Type } from "./type";
+import { Generation } from './generation';
+import { Type } from './type';
 
 export interface Pokemon {
   pokedexid: number;
@@ -8,7 +8,7 @@ export interface Pokemon {
   pre_evolution: number;
   height: string;
   weight: string;
-    id_generation: number;
-    generation: Generation;
-    types: Type[]
+  id_generation: number;
+  generation: Generation;
+  types: Type[];
 }

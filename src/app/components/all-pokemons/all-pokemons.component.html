@@ -1,0 +1,7 @@
+<div class="container-plants">
+    <div class="row">
+        <div class="col-4" *ngFor="let pokemon of allPokemons">
+            <app-card [pokemonToDisplay]="pokemon"></app-card>
+        </div>
+    </div>
+</div>

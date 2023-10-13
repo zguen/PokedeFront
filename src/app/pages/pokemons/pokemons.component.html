@@ -1,1 +1,5 @@
-<p>pokemons works!</p>
+<div class="container">
+    <h1 class="title custom-font-solid">ATTRAPEZ LES TOUS !!!</h1>
+    <app-filters (searchFilter)="onSearchValue($event)"></app-filters>
+    <app-all-pokemons [allPokemons]="pokemonsToDisplayFilter"></app-all-pokemons>
+</div>

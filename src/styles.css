@@ -15,6 +15,17 @@
 
 .custom-font-hollow {
   font-family: "Pokemon Hollow", sans-serif;
+  font-size: 24px;
+    /* Ajustez la taille de police selon vos préférences */
+    color: #003a70;
+    /* Couleur du texte */
+    text-shadow:
+      -1px -1px 0 #003a70, 1px -1px 0 #003a70,
+      -1px 1px 0 #003a70, 1px 1px 0 #003a70,
+      -1px 0 0 #003a70, 1px 0 0 #003a70,
+      0 -1px 0 #003a70, 0 1px 0 #003a70,
+      -2px -2px 0 blue, 2px -2px 0 blue,
+      -2px 2px 0 blue, 2px 2px 0 blue;
 }
 
 .custom-font-solid {

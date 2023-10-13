@@ -100,7 +100,23 @@ body {
 }
 
 p {
-  margin-top: 1px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+.type-container {
+  display: flex;
+  flex-direction: column;
+  /* Afficher les éléments en colonne au lieu de ligne */
+  align-items: center;
+  /* Centrer horizontalement les éléments */
+  text-align: center;
+  /* Centrer le texte horizontalement */
+}
+
+.type-container img {
+  margin-bottom: 5px;
+  /* Ajoute de l'espace en dessous de l'image pour l'espacement */
 }
 
 .container .card .content a {

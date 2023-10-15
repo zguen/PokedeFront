@@ -11,6 +11,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AllPokemonsComponent } from './components/all-pokemons/all-pokemons.component';
 import { FiltersComponent } from './components/filters/filters.component';
+import { MasterComponent } from './pages/master/master.component';
+import { LoginMasterComponent } from './components/login-master/login-master.component';
+import { RegisterMasterComponent } from './components/register-master/register-master.component';
+import { FormsModule } from '@angular/forms';
+import { ProfilMasterComponent } from './components/profil-master/profil-master.component';
+
 
 @NgModule({
   declarations: [
@@ -21,12 +27,18 @@ import { FiltersComponent } from './components/filters/filters.component';
     CardComponent,
     NavbarComponent,
     AllPokemonsComponent,
-    FiltersComponent
+    FiltersComponent,
+    MasterComponent,
+    LoginMasterComponent,
+    RegisterMasterComponent,
+    ProfilMasterComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

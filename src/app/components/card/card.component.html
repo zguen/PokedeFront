@@ -8,7 +8,7 @@
       <p>
         <ng-container *ngFor="let type of pokemonToDisplay.types">
           <div class="type-container">
-            <img [src]="type.picture" alt="{{ type.wording }}" />
+            <img [src]="type.picture" alt="{{ type.wording }}" loading="lazy" />
             <span>{{ type.wording }}</span>
           </div>
         </ng-container>

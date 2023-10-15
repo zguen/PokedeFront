@@ -1,0 +1,7 @@
+<ng-container *ngIf="display">
+  <div *ngIf="master" class="background">
+    <app-profil-master [profil]="master"></app-profil-master>
+  </div>
+
+  <app-login-master *ngIf="!master"></app-login-master>
+</ng-container>

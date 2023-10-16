@@ -31,16 +31,22 @@ export class PokemonsComponent {
         pokemon.types.forEach((type) => {
           const tabAlreadyIn = this.tabTypes.some((t) => t === type.wording);
           if (!tabAlreadyIn) {
-            this.tabTypes.push(type.wording)
+            this.tabTypes.push(type.wording);
           }
         });
       });
+      this.saveFilterTab = {
+        type: this.tabTypes,
+        valeur: '',
+      };
     });
   }
 
   onSearchValue(value: string) {
     this.saveFilterTab.valeur = value;
     this.saveFilter(this.saveFilterTab);
+
+    console.log(value)
   }
 
   onFilterTypes(filterType: string[]) {
@@ -59,8 +65,8 @@ export class PokemonsComponent {
 
   saveFilter(saveFilter: any) {
     if (
-      this.saveFilterTab.valeur.length >= 1 ||
-      this.saveFilterTab.type.length >= 1
+      this.saveFilterTab.type.length >= 1 ||
+      this.saveFilterTab.valeur.length >= 1
     ) {
       this.pokemonsToDisplayFilter = this.pokemonsToDisplay
         .filter((e) =>

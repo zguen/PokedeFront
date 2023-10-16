@@ -3,7 +3,7 @@ import { Trainer } from './trainer';
 export interface Master {
   id?: number;
   lastname: string;
-  fistname: string;
+  firstname: string;
   nickname: string;
   email: string;
   password?: string;

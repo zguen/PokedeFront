@@ -9,24 +9,23 @@ import { MasterService } from 'src/app/services/master.service';
   styleUrls: ['./master.component.css'],
 })
 export class MasterComponent {
-    master!: Master;
+  master!: Master;
   display: boolean = false;
-  
+
   trainer?: Trainer[];
-  
+
   constructor(private masterService: MasterService) {}
-  
 
   ngOnInit(): void {
     this.masterService.getMasterProfil().subscribe({
       next: (response) => {
         this.display = true;
         this.master = response;
-        this.trainer = response.trainer
+        this.trainer = response.trainer;
       },
       error: (error) => {
-        this.display = true
-      }
-    })
+        this.display = true;
+      },
+    });
   }
 }

@@ -1,37 +1,132 @@
 <div class="main-forms">
-    <div class="signup-form">
-        <form class="sign-back" action="" method="">
-            <h1>sign UP</h1>
-            <div class="signup-row">
-                <i class="fa fa-user"></i>
-                <input type="text" name="" value="" placeholder="FULL NAME" />
-            </div>
-            <div class="signup-row">
-                <i class="fa fa-envelope-o"></i>
-                <input type="text" name="" value="" placeholder="EMAIL" />
-            </div>
-            <div class="signup-row">
-                <i class="fa fa-phone"></i>
-                <input type="text" name="" value="" placeholder="MOBILE" />
-            </div>
-            <div class="signup-row">
-                <i class="fa fa-key"></i>
-                <input type="password" name="" value="" placeholder="PASSWORD" />
-            </div>
-            <div class="signup-row">
-                <a href="#">
-                    <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="form-bottom">
-                <div class="remember">
-                    <input type="checkbox" name="" value="" />
-                    <span>Remember</span>
-                </div>
-                <div class="remember">
-                    <a href="#">Already Have Account ?</a>
-                </div>
-            </div>
-        </form>
-    </div>
+  <div class="signup-form">
+    <form #register="ngForm" (ngSubmit)="registerMaster(register)" class="sign-back">
+      <h1>INSCRIPTION</h1>
+
+      <div class="signup-row">
+        <input
+          type="text"
+          required
+          [(ngModel)]="master.lastname"
+          name="lastname"
+          #lastname="ngModel"
+          [class.input-error]="lastname.invalid && isFormSubmit"
+          placeholder="NOM"
+        />
+        <div *ngIf="lastname.invalid && isFormSubmit" class="alert">
+          <div *ngIf="lastname.errors?.['required']">
+            Ce champ est obligatoire.
+          </div>
+        </div>
+      </div>
+
+      <div class="signup-row">
+        <input
+          type="text"
+          required
+          [(ngModel)]="master.firstname"
+          name="firstname"
+          #firstname="ngModel"
+          [class.input-error]="firstname.invalid && isFormSubmit"
+          placeholder="PRÉNOM"
+        />
+        <div *ngIf="firstname.invalid && isFormSubmit" class="alert">
+          <div *ngIf="firstname.errors?.['required']">
+            Ce champ est obligatoire.
+          </div>
+        </div>
+      </div>
+
+      <div class="signup-row">
+        <input
+          type="text"
+          required
+          [(ngModel)]="master.nickname"
+          name="nickname"
+          #nickname="ngModel"
+          [class.input-error]="nickname.invalid && isFormSubmit"
+          placeholder="TON NOM DE DRESSEUR"
+        />
+        <div *ngIf="nickname.invalid && isFormSubmit" class="alert">
+          <div *ngIf="nickname.errors?.['required']">
+            Ce champ est obligatoire.
+          </div>
+        </div>
+      </div>
+
+      <div class="signup-row">
+        <input
+          type="email"
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+          [(ngModel)]="master.email"
+          name="email"
+          #email="ngModel"
+          [class.input-error-email]="!registerOk"
+          [class.input-error]="email.invalid && isFormSubmit"
+          placeholder="EMAIL (example@mail.fr)"
+        />
+        <div *ngIf="email.invalid && isFormSubmit" class="alert">
+          <div *ngIf="email.errors?.['required']">L'email est obligatoire.</div>
+          <div *ngIf="email.errors?.['pattern']">
+            Veuillez entrer une adresse email valide.
+          </div>
+        </div>
+        <div *ngIf="!registerOk" class="alert">Cet email est déjà utilisé.</div>
+      </div>
+
+      <div class="signup-row">
+        <input
+          type="password"
+          required
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
+          [(ngModel)]="master.password"
+          name="password"
+          #password="ngModel"
+          [class.input-error]="password.invalid && isFormSubmit"
+          placeholder="MOT DE PASSE"
+        />
+        <div *ngIf="password.invalid && isFormSubmit" class="alert">
+          <div *ngIf="password.errors?.['required']">
+            Le mot de passe est obligatoire.
+          </div>
+          <div class="errorMdp" *ngIf="password.errors?.['pattern']">
+            Au moins 12 caractères, 1 majuscule, 1 chiffre et 1 symbole.
+          </div>
+        </div>
+      </div>
+
+      <div class="signup-row">
+        <input
+          type="password"
+          required
+          [(ngModel)]="master.password_confirm"
+          name="password_confirm"
+          #password_confirm="ngModel"
+          [class.input-error]="
+            master.password !== master.password_confirm && isFormSubmit
+          "
+          placeholder="CONFIRMATION DU MOT DE PASSE"
+        />
+        <div
+          *ngIf="master.password !== master.password_confirm && isFormSubmit"
+          class="alert"
+        >
+          <div class="errorConfirme">
+            Les mots de passe ne correspondent pas.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-bottom">
+        <div class="remember">
+          <button type="submit">S'inscrire</button>
+        </div>
+
+        <div class="remember">
+          <a [routerLink]="['/master']">J'ai déjà un compte</a>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

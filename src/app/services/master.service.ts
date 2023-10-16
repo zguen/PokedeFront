@@ -21,6 +21,12 @@ export class MasterService {
     return headers;
   }
 
+  registerMaster(data: Master): Observable<Master> {
+    return this.http.post<Master>(
+      `${this.baseApiUrl}/auth/register`, data
+    );
+  }
+
   loginMaster(data: LoginMaster): Observable<LoginAnswer> {
     return this.http.post<LoginAnswer>(`${this.baseApiUrl}/auth/login`, data);
   }

@@ -14,6 +14,19 @@
   font-style: normal;
 }
 
+body {
+  
+  background-image: linear-gradient(rgba(255, 202, 0, 0.4), #FFCA00 150%), url('../src/assets/img/imgdefont.jpg');
+  /* Chemin de l'image depuis la racine du projet */
+  background-size: cover;
+  /* Ajuste l'image pour couvrir tout l'écran */
+  background-position: center;
+  /* Centre l'image horizontalement et verticalement */
+  background-repeat: no-repeat;
+  /* Empêche la répétition de l'image */
+  height: 100vh;
+}
+
 .custom-font-hollow {
   font-family: "Pokemon Hollow", sans-serif;
   font-size: 24px;

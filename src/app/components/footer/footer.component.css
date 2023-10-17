@@ -1,0 +1,58 @@
+* {
+    background-color: #e61515;
+    color: yellow;
+}
+
+.planDuSite {
+    margin-left: 1rem;
+}
+
+ul {
+    margin-left: 1rem;
+}
+
+li {
+    list-style: none;
+    font-size: 0.88rem;
+    line-height: 1rem;
+}
+
+.droitReserve {
+    margin-right: 1rem;
+    font-size: 0.88rem;
+}
+
+/* Styles CSS pour le footer */
+
+.footer {
+    background-color: #f2f2f2;
+}
+
+.footer h5 {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.footer li {
+    margin: 0;
+}
+
+.droitReserve {
+    text-align: right;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 48rem) {
+    .droitReserve {
+        width: 40%;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}

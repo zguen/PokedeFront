@@ -11,12 +11,6 @@ nav {
     margin-right: 4rem;
 }
 
-
-.nav-link {
-    font-size: 22px;
-    margin: 15px;
-}
-
 .nav-link:hover, .navbar-brand:hover {
     cursor: pointer;
     color: yellow;

@@ -1,1 +1,7 @@
-<p>profil-master works!</p>
+<div class="profil-banner mb-3 shadow">
+    <div class="zoneProfil">
+        <h1 class="custom-font-solid">Bienvenue aux dresseurs!</h1>
+        <span class="admin-indicator" *ngIf="profil.admin">#Admin</span>
+        <button class="btnDeconnect" (click)="logout()">Déconnexion</button>
+    </div>
+</div>

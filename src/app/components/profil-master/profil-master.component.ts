@@ -8,4 +8,9 @@ import { Master } from 'src/app/models/master';
 })
 export class ProfilMasterComponent {
   @Input() profil!: Master;
+
+  logout() {
+    sessionStorage.clear();
+    location.reload();
+  }
 }

@@ -3,38 +3,23 @@
     <form #loginForm="ngForm" class="sign-back" (ngSubmit)="login(loginForm)">
       <h1>Connection</h1>
       <div class="signup-row">
-        <input
-          type="email"
-          required
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          [(ngModel)]="master.email"
-          name="email"
-          #email="ngModel"
-          [class.input-error]="email.invalid && isFormValidate"
-          [class.input-error-log]="loginNone"
-          placeholder="EMAIL (example@mail.fr)"
-        />
+        <input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="master.email"
+          name="email" #email="ngModel" [class.input-error]="email.invalid && isFormValidate"
+          [class.input-error-log]="loginNone" placeholder="EMAIL (example@mail.fr)" />
       </div>
-
+    
       <div *ngIf="email.invalid && isFormValidate" class="alert">
         <div *ngIf="email.errors?.['required']">L'email est obligatoire.</div>
         <div *ngIf="email.errors?.['pattern']">
           Veuillez entrer une adresse email valide.
         </div>
       </div>
-
+    
       <div class="signup-row">
-        <input
-          type="password"
-          required
-          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
-          [(ngModel)]="master.password"
-          name="password"
-          #password="ngModel"
-          [class.input-error]="password.invalid && isFormValidate"
-          [class.input-error-email]="loginNone"
-          placeholder="Mot de Passe"
-        />
+        <input type="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
+          [(ngModel)]="master.password" name="password" #password="ngModel"
+          [class.input-error]="password.invalid && isFormValidate" [class.input-error-email]="loginNone"
+          placeholder="Mot de Passe" />
       </div>
       <div *ngIf="password.invalid && isFormValidate" class="alert">
         <div *ngIf="password.errors?.['required']">
@@ -50,7 +35,7 @@
       <div class="form-bottom">
         <div class="remember">
           <button type="submit" name="" value="">
-          Se Connecter</button>
+            Se Connecter</button>
         </div>
         <div class="remember">
           <a href="/master/register">Pas encore inscrit?</a>

@@ -16,6 +16,7 @@ import { LoginMasterComponent } from './components/login-master/login-master.com
 import { RegisterMasterComponent } from './components/register-master/register-master.component';
 import { FormsModule } from '@angular/forms';
 import { ProfilMasterComponent } from './components/profil-master/profil-master.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ProfilMasterComponent } from './components/profil-master/profil-master.
     MasterComponent,
     LoginMasterComponent,
     RegisterMasterComponent,
-    ProfilMasterComponent
+    ProfilMasterComponent,
+    FooterComponent
  
   ],
   imports: [

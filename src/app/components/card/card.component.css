@@ -1,17 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #11131e;
-}
-
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
+  width: 300px;
   max-width: 100%;
   height: 300px;
   background: rgb(44, 62, 80);
@@ -47,7 +33,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
   transition: 0.5s;
-  background: #e61515;
+  background: #adb9c0;
 }
 
 .card:hover .img-box {
@@ -103,7 +89,7 @@ body {
   text-transform: uppercase;
 }
 
-a {
+.btn-pokemon {
   position: relative;
   top: 15px;
   display: inline-block;
@@ -113,6 +99,8 @@ a {
   color: white;
   font-weight: 500;
   cursor: pointer;
+  background-color: #e61515;
+  border-radius: 12px;
 }
 
 a:hover {

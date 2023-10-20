@@ -1,6 +1,19 @@
 <ng-container *ngIf="display">
   <div *ngIf="master" class="background">
     <app-profil-master [profil]="master"></app-profil-master>
+    <div class="d-flex flex-wrap justify-content-center container-principal">
+      <div class="card-mobile d-flex flex-wrap justify-content-center">
+        <app-trainer *ngFor="let trainer of trainer" [trainer]="trainer"></app-trainer>
+    
+        <button id="btnAjoutEnfant" class="card d-flex justify-content-center align-items-center button-shadow-hover"
+          [routerLink]="'/master/trainer/add'">
+          <div class="plusAjouter d-flex flex-wrap align-items-center">
+            <p id="pAjouter">Nouveau Dresseur</p>
+          </div>
+        </button>
+    
+      </div>
+    </div>
   </div>
 
   <app-login-master *ngIf="!master" class="background"></app-login-master>

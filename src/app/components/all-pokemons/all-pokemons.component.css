@@ -1,0 +1,19 @@
+.contain {
+    margin-bottom: 50px;
+}
+
+.container-pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-top: 85px;
+    margin-bottom: 50px;
+}
+
+.pokemon-card {
+    flex: 1 0 100%;
+    /* Par défaut, les cartes prennent toute la largeur du conteneur */
+    max-width: 100%;
+
+}

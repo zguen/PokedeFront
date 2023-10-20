@@ -1,12 +1,8 @@
-.background-image {
-
-    background-image: linear-gradient(rgba(255, 202, 0, 0.4), #FFCA00 60%), url('/src/assets/img/imgdefont.jpg');
-    /* Chemin de l'image depuis la racine du projet */
-    background-size: cover;
-    /* Ajuste l'image pour couvrir tout l'écran */
-    background-position: center;
-    /* Centre l'image horizontalement et verticalement */
-    background-repeat: no-repeat;
-    /* Empêche la répétition de l'image */
-    height: 100vh;
+.contain {
+    position: relative;
+    /* Assurez-vous que la position est relative pour que l'élément enfant utilise cette position comme point de référence */
+    max-height: 100vh;
+    /* Définit une hauteur maximale en pourcentage de la hauteur de la vue (viewport height) */
+    overflow-y: auto;
+    /* Active la barre de défilement verticale lorsque le contenu dépasse la hauteur maximale */
 }

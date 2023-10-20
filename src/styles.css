@@ -14,9 +14,15 @@
   font-style: normal;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  
-  background-image: linear-gradient(rgba(255, 202, 0, 0.4), #FFCA00 150%), url('../src/assets/img/imgdefont.jpg');
+  background-image: linear-gradient(rgba(255, 202, 0, 0.4), #ffca00 150%),
+    url("../src/assets/img/imgdefont.jpg");
   /* Chemin de l'image depuis la racine du projet */
   background-size: cover;
   /* Ajuste l'image pour couvrir tout l'écran */
@@ -24,35 +30,32 @@ body {
   /* Centre l'image horizontalement et verticalement */
   background-repeat: no-repeat;
   /* Empêche la répétition de l'image */
-  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .custom-font-hollow {
   font-family: "Pokemon Hollow", sans-serif;
   font-size: 24px;
-    /* Ajustez la taille de police selon vos préférences */
-    color: #003a70;
-    /* Couleur du texte */
-    text-shadow:
-      -1px -1px 0 #003a70, 1px -1px 0 #003a70,
-      -1px 1px 0 #003a70, 1px 1px 0 #003a70,
-      -1px 0 0 #003a70, 1px 0 0 #003a70,
-      0 -1px 0 #003a70, 0 1px 0 #003a70,
-      -2px -2px 0 blue, 2px -2px 0 blue,
-      -2px 2px 0 blue, 2px 2px 0 blue;
+  /* Ajustez la taille de police selon vos préférences */
+  color: #003a70;
+  /* Couleur du texte */
+  text-shadow: -1px -1px 0 #003a70, 1px -1px 0 #003a70, -1px 1px 0 #003a70,
+    1px 1px 0 #003a70, -1px 0 0 #003a70, 1px 0 0 #003a70, 0 -1px 0 #003a70,
+    0 1px 0 #003a70, -2px -2px 0 blue, 2px -2px 0 blue, -2px 2px 0 blue,
+    2px 2px 0 blue;
 }
 
 .custom-font-solid {
-font-family: 'Pokemon Solid', sans-serif;
+  font-family: "Pokemon Solid", sans-serif;
   font-size: 24px;
   /* Ajustez la taille de police selon vos préférences */
   color: yellow;
   /* Couleur du texte */
-  text-shadow:
-    -1px -1px 0 #003a70, 1px -1px 0 #003a70,
-    -1px 1px 0 #003a70, 1px 1px 0 #003a70,
-    -1px 0 0 #003a70, 1px 0 0 #003a70,
-    0 -1px 0 #003a70, 0 1px 0 #003a70,
-    -2px -2px 0 blue, 2px -2px 0 blue,
-    -2px 2px 0 blue, 2px 2px 0 blue;
+  text-shadow: -1px -1px 0 #003a70, 1px -1px 0 #003a70, -1px 1px 0 #003a70,
+    1px 1px 0 #003a70, -1px 0 0 #003a70, 1px 0 0 #003a70, 0 -1px 0 #003a70,
+    0 1px 0 #003a70, -2px -2px 0 blue, 2px -2px 0 blue, -2px 2px 0 blue,
+    2px 2px 0 blue;
 }

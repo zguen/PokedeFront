@@ -24,13 +24,18 @@ export class RegisterMasterComponent {
   registerOk = true;
   isFormSubmit = false;
 
-  constructor(private masterService: MasterService, private router: Router) { }
+  constructor(private masterService: MasterService, private router: Router) {}
 
   registerMaster(form: NgForm) {
     this.isFormSubmit = true;
 
     this.passwordConfirmError =
       this.master.password !== this.master.password_confirm;
+    
+    if (!this.master.nickname) {
+      // Si le champ "surnom" est vide, remplissez-le avec la valeur du champ "prénom"
+      this.master.nickname = this.master.firstname;
+    }
 
     if (form.valid && !this.passwordConfirmError) {
       this.masterService.registerMaster(this.master).subscribe({
@@ -43,4 +48,5 @@ export class RegisterMasterComponent {
       });
     }
   }
+
 }

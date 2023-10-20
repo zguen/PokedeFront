@@ -1,8 +1,10 @@
-<div class="container background-image">
+<div class="contain">
   <app-filters
     (searchFilter)="onSearchValue($event)"
     [tabTypes]="tabTypes"
     (newTypeEvent)="onFilterTypes($event)"
+    [tabGenerations]="tabGenerations"
+    (newGenerationEvent)="onFilterGeneration($event)"
   ></app-filters>
   <app-all-pokemons [allPokemons]="pokemonsToDisplayFilter"></app-all-pokemons>
 </div>

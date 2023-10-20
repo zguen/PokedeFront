@@ -1,20 +1,20 @@
 <div class="container">
   <div class="card" style="--clr: #009688">
     <div class="img-box">
-      <img src="{{ pokemonToDisplay.picture }}" />
+      <img src="{{ pokemon.picture }}" />
     </div>
     <div class="content">
-      <h2>{{ pokemonToDisplay.name }} #{{ pokemonToDisplay.pokedexid }}</h2>
+      <h2>{{ pokemon.name }} #{{ pokemon.pokedexid }}</h2>
       <p>
-        <ng-container *ngFor="let type of pokemonToDisplay.types">
+        <ng-container *ngFor="let type of pokemon.types">
           <div class="type-container">
-            <img [src]="type.picture" alt="{{ type.wording }}" loading="lazy" />
+            <img [src]="type.picture" alt="{{ type.wording }}" />
             <span>{{ type.wording }}</span>
           </div>
         </ng-container>
       </p>
 
-      <a href="">Fiche Complete</a>
+      <button class="btn-pokemon" [routerLink]="['/pokemons/', pokemon.pokedexid]">Fiche Complete</button>
     </div>
   </div>
 </div>

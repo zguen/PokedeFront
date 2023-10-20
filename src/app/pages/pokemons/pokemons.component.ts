@@ -11,11 +11,13 @@ export class PokemonsComponent {
   pokemonsToDisplay: Pokemon[] = [];
 
   tabTypes: string[] = [];
+  tabGenerations: string[] = [];
 
   pokemonsToDisplayFilter: Pokemon[] = [];
 
   saveFilterTab = {
     type: ['a'],
+    generation: [''],
     valeur: '',
   };
 
@@ -35,8 +37,16 @@ export class PokemonsComponent {
           }
         });
       });
+
+      this.tabGenerations = [
+        ...new Set(
+          this.pokemonsToDisplay.map((pokemon) => pokemon.generation.wording)
+        ),
+      ];
+
       this.saveFilterTab = {
         type: this.tabTypes,
+        generation: this.tabGenerations,
         valeur: '',
       };
     });
@@ -46,11 +56,16 @@ export class PokemonsComponent {
     this.saveFilterTab.valeur = value;
     this.saveFilter(this.saveFilterTab);
 
-    console.log(value)
+    console.log(value);
   }
 
   onFilterTypes(filterType: string[]) {
     this.saveFilterTab.type = [...filterType];
+    this.saveFilter(this.saveFilterTab);
+  }
+
+  onFilterGeneration(filterGeneration: string[]) {
+    this.saveFilterTab.generation = [...filterGeneration];
     this.saveFilter(this.saveFilterTab);
   }
 
@@ -63,10 +78,18 @@ export class PokemonsComponent {
     return false;
   }
 
+  filterGeneration(e: Pokemon): boolean {
+    return (
+      this.saveFilterTab.generation.length === 0 ||
+      this.saveFilterTab.generation.includes(e.generation.wording)
+    );
+  }
+
   saveFilter(saveFilter: any) {
     if (
       this.saveFilterTab.type.length >= 1 ||
-      this.saveFilterTab.valeur.length >= 1
+      this.saveFilterTab.valeur.length >= 1 ||
+      this.saveFilterTab.generation.length >= 1
     ) {
       this.pokemonsToDisplayFilter = this.pokemonsToDisplay
         .filter((e) =>
@@ -74,7 +97,8 @@ export class PokemonsComponent {
             .toLowerCase()
             .startsWith(this.saveFilterTab.valeur.toLocaleLowerCase())
         )
-        .filter((e) => this.filterType(e));
+        .filter((e) => this.filterType(e))
+        .filter((e) => this.filterGeneration(e));
     } else {
       // Si la valeur de recherche est vide, réinitialisez la liste filtrée pour afficher tous les Pokémon.
       this.pokemonsToDisplayFilter = [...this.pokemonsToDisplay];

@@ -8,7 +8,7 @@ import { Pokemon } from 'src/app/models/pokemon';
 })
 export class CardComponent implements OnInit {
 
-  @Input() pokemonToDisplay!: Pokemon;
+  @Input() pokemon!: Pokemon;
 
   ngOnInit(): void {
     

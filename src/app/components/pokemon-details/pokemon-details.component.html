@@ -1,0 +1,26 @@
+<div id="cards">
+  <div class="card card--normal row">
+    <ng-container *ngFor="let type of pokemons.types" >
+      <div class="type-container">
+        <img [src]="type.picture" alt="{{ type.wording }}" />
+        <span>{{ type.wording }}</span>
+      </div>
+    </ng-container>
+
+    <h1 class="card__name">{{ pokemons.name }}</h1>
+    <div class="card__image-container">
+      <img src="{{ pokemons.picture }}" />
+    </div>
+
+    <div class="card__abilities">
+      <p class="card__ability">
+        {{ pokemons.description }}
+      </p>
+
+      <p></p>
+      <h4 class="card__ability">
+        {{ pokemons.height }}
+      </h4>
+    </div>
+</div>
+</div>

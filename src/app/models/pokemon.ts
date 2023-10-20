@@ -11,4 +11,5 @@ export interface Pokemon {
   id_generation: number;
   generation: Generation;
   types: Type[];
+  description: string
 }

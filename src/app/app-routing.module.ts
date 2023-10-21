@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'personal', component: PersonalComponent },
   { path: 'login', component: LoginMasterComponent },
   { path: 'master', component: MasterComponent },
-  { path: 'master/register', component: RegisterMasterComponent}
+  { path: 'master/register', component: RegisterMasterComponent }
 ];
 
 @NgModule({

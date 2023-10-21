@@ -5,14 +5,14 @@
     </div>
     <div class="content">
       <h2>{{ pokemon.name }} #{{ pokemon.pokedexid }}</h2>
-      <p>
-        <ng-container *ngFor="let type of pokemon.types">
+      <div id="flex">
+        <ng-container *ngFor="let type of pokemon.types" >
           <div class="type-container">
             <img [src]="type.picture" alt="{{ type.wording }}" />
-            <span>{{ type.wording }}</span>
+            <p>{{ type.wording }}</p>
           </div>
         </ng-container>
-      </p>
+      </div>
 
       <button class="btn-pokemon" [routerLink]="['/pokemons/', pokemon.pokedexid]">Fiche Complete</button>
     </div>

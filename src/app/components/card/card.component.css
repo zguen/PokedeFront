@@ -126,3 +126,11 @@ a:hover {
     font-size: 0.9rem;
   }
 }
+
+/* css flex type */
+
+#flex {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}

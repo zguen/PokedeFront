@@ -1,26 +1,54 @@
-<div id="cards">
-  <div class="card card--normal row">
-    <ng-container *ngFor="let type of pokemons.types" >
-      <div class="type-container">
-        <img [src]="type.picture" alt="{{ type.wording }}" />
-        <span>{{ type.wording }}</span>
+<div class="pokemon-card container">
+  
+  <div class="typesOf"  [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">
+    <h2>{{ pokemon.name }}</h2>
+  </div>
+
+  <div class="d-flex justify-content-evenly types">
+
+    <ng-container *ngFor="let type of pokemon.types">
+      <div>
+        <img [src]="type.picture" alt="{{ type.wording }}" class="img-fluid" />
+        <p>Type {{ type.wording }}</p>
       </div>
     </ng-container>
+  </div>
 
-    <h1 class="card__name">{{ pokemons.name }}</h1>
-    <div class="card__image-container">
-      <img src="{{ pokemons.picture }}" />
-    </div>
+  <img src="{{ pokemon.picture }}" />
+  {{ pokemon.description }}
 
-    <div class="card__abilities">
-      <p class="card__ability">
-        {{ pokemons.description }}
-      </p>
+  {{ pokemon.height }}, {{pokemon.weight}}
 
-      <p></p>
-      <h4 class="card__ability">
-        {{ pokemons.height }}
-      </h4>
-    </div>
-</div>
+  {{pokemon.pre_evolution}}
+
+  {{pokemon.generation.wording}}
+
+  <div *ngIf="preEvolution">
+    <h3>Pre-Evolution</h3>
+    <p>Name: {{ preEvolution.name }}</p>
+    <img [src]="preEvolution.picture" alt="Pre-Evolution Image">
+    <!-- Affichez d'autres détails de la pré-évolution ici -->
+  </div>
+  <div *ngIf="prePreEvolution">
+    <h3>Pre-Evolution</h3>
+    <p>Name: {{ prePreEvolution.name }}</p>
+    <img [src]="prePreEvolution.picture" alt="Pre-Evolution Image">
+    <!-- Affichez d'autres détails de la pré-évolution ici -->
+  </div>
+  <div *ngIf="evolutions.length > 0">
+    <h3>Évolutions :</h3>
+    <ul>
+      <li *ngFor="let evolution of evolutions">
+        {{ evolution.name }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="postEvolutions.length > 0">
+    <ul>
+      <li *ngFor="let postEvolutions of postEvolutions">
+        {{postEvolutions.name}}
+      </li>
+    </ul>
+  </div>
+  
 </div>

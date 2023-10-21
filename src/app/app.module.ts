@@ -23,6 +23,7 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,7 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
     FooterComponent,
     TrainerComponent,
     TrainerAddComponent,
-    PokemonDetailsComponent, 
+    PokemonDetailsComponent,
   ],
   imports: [
     BrowserModule,

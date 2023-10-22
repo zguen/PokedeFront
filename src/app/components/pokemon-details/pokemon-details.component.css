@@ -1,41 +1,158 @@
-
 .pokemon-card {
-  
   background: #adb9c0;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
   margin-top: 1rem;
   padding-top: 20px;
   clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+  width: 65%;
 }
 
 img {
   height: 150px;
+  border: 3px solid white;
 }
 
 .typesOf {
-  
   text-transform: uppercase;
   font: bolder;
   text-align: center;
   margin-left: -12px;
   margin-right: -12px;
   border-top: 3px solid white;
-    /* Ajoute une bordure blanche de 2 pixels en haut */
+  /* Ajoute une bordure blanche de 2 pixels en haut */
   border-bottom: 3px solid white;
-    /* Ajoute une bordure blanche de 2 pixels en haut */
+  /* Ajoute une bordure blanche de 2 pixels en haut */
 }
 
 .type-plante {
   background-color: #3fa129;
 }
 
+.type-feu {
+  background-color: #e62b2c;
+}
+
+.type-eau {
+  background-color: #2980ef;
+}
+
+.type-insecte {
+  background-color: #91a119;
+}
+
+.type-poison {
+  background-color: #8f41cb;
+}
+
+.type-électrik {
+  background-color: #fac000;
+}
+
+.type-combat {
+  background-color: #ff8000;
+}
+
+.type-vol {
+  background-color: #81b9ef;
+}
+
+.type-sol {
+  background-color: #915121;
+}
+
+.type-fée {
+  background-color: #ef71ef;
+}
+
+.type-psy {
+  background-color: #ef4179;
+}
+
+.type-roche {
+  background-color: #afa981;
+}
+
+.type-acier {
+  background-color: #60a1b8;
+}
+
+.type-glace {
+  background-color: #3fd8ff;
+}
+
+.type-spectre {
+  background-color: #704170;
+}
+
+.type-dragon {
+  background-color: #5061e1;
+}
+
+.type-ténèbres {
+  background-color: #50413f;
+}
+
 .types {
   text-transform: uppercase;
-  height: 50px
+  height: 50px;
+  margin-top: 20px;
+}
+
+
+#type {
+  font: bold;
 }
 
 .img-fluid {
   max-height: 100%;
   max-width: 100%;
   border-radius: 50%;
+  border: 3px solid white;
+}
+
+.imgMain {
+  margin-top: 20px;
+}
+
+.imgPoke {
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+  border: 3px solid white;
+}
+
+.allPokemons {
+  display: flex;
+  /* Utilise un modèle d'affichage flex pour centrer les éléments */
+  justify-content: center;
+  /* Centre horizontalement le contenu */
+  text-align: center;
+  /* Centre le texte à l'intérieur */
+}
+
+ul {
+  display: flex;
+  width: 100%;
+  list-style: none;
+}
+
+li {
+  margin: 1rem;
+}
+
+.actualPokemon {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.actualPicture {
+  border: 3px solid black;
 }

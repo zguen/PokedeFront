@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
@@ -17,8 +18,14 @@ export class PokemonDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private pokemonService: PokemonsService
+    private pokemonService: PokemonsService,
+    private router: Router
   ) {}
+
+  navigateToPokemon(pokemonId: number) {
+    // Utilisez le router pour naviguer vers la page du Pokémon
+    this.router.navigate(['/pokemon', this.pokemon.pokedexid]);
+  }
 
   ngOnInit(): void {
     const pokemonIdFromRoute = Number(

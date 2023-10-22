@@ -1,54 +1,80 @@
 <div class="pokemon-card container">
-  
-  <div class="typesOf"  [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">
+  <div class="typesOf" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">
     <h2>{{ pokemon.name }}</h2>
   </div>
 
   <div class="d-flex justify-content-evenly types">
-
     <ng-container *ngFor="let type of pokemon.types">
       <div>
         <img [src]="type.picture" alt="{{ type.wording }}" class="img-fluid" />
-        <p>Type {{ type.wording }}</p>
+        <p id="type">{{ type.wording }}</p>
       </div>
     </ng-container>
   </div>
 
-  <img src="{{ pokemon.picture }}" />
-  {{ pokemon.description }}
-
-  {{ pokemon.height }}, {{pokemon.weight}}
-
-  {{pokemon.pre_evolution}}
-
-  {{pokemon.generation.wording}}
-
-  <div *ngIf="preEvolution">
-    <h3>Pre-Evolution</h3>
-    <p>Name: {{ preEvolution.name }}</p>
-    <img [src]="preEvolution.picture" alt="Pre-Evolution Image">
-    <!-- Affichez d'autres détails de la pré-évolution ici -->
+  <div class="d-flex justify-content-center imgMain">
+    <img src="{{ pokemon.picture }}" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" class="imgPoke" />
   </div>
-  <div *ngIf="prePreEvolution">
-    <h3>Pre-Evolution</h3>
-    <p>Name: {{ prePreEvolution.name }}</p>
-    <img [src]="prePreEvolution.picture" alt="Pre-Evolution Image">
-    <!-- Affichez d'autres détails de la pré-évolution ici -->
+
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Contenu de la première colonne -->
+      {{ pokemon.description }}
+    </div>
+    <div class="col-md-6">
+      {{ pokemon.height }}
+      {{ pokemon.weight }}
+      {{ pokemon.generation.wording }}
+    </div>
   </div>
-  <div *ngIf="evolutions.length > 0">
-    <h3>Évolutions :</h3>
+
+  <div class="allPokemons">
     <ul>
-      <li *ngFor="let evolution of evolutions">
-        {{ evolution.name }}
+      <li>
+        <div *ngIf="preEvolution">
+          <img [src]="preEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            alt="Pre-Evolution 'Image'" (click)="navigateToPokemon(pokemon.pokedexid)" />
+          <p>{{ preEvolution.name }}</p>
+        </div>
       </li>
     </ul>
-  </div>
-  <div *ngIf="postEvolutions.length > 0">
     <ul>
-      <li *ngFor="let postEvolutions of postEvolutions">
-        {{postEvolutions.name}}
+      <li>
+        <div *ngIf="prePreEvolution">
+          <img [src]="prePreEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            alt="Pre-Evolution Image" (click)="navigateToPokemon(pokemon.pokedexid)" />
+          <p>{{ prePreEvolution.name }}</p>
+        </div>
       </li>
     </ul>
+
+    <div class="actualPokemon">
+      <ul>
+        <li>
+          <img [src]="pokemon.picture" class="actualPicture"
+            [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" alt="pokemon Image" />
+          <p>{{ pokemon.name }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="allPokemons" *ngIf="evolutions.length > 0">
+      <ul>
+        <li *ngFor="let evolution of evolutions">
+          <img [src]="evolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            alt="Evolution Image" (click)="navigateToPokemon(pokemon.pokedexid)"/>
+          <p>{{ evolution.name }}</p>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="postEvolutions.length > 0">
+      <ul>
+        <li *ngFor="let postEvolutions of postEvolutions">
+          <img [src]="postEvolutions.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            alt="Evolution Image" (click)="navigateToPokemon(pokemon.pokedexid)"/>
+          <p>{{ postEvolutions.name }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
-  
 </div>

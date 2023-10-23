@@ -3,15 +3,80 @@
     <app-profil-master [profil]="master"></app-profil-master>
     <div class="d-flex flex-wrap justify-content-center container-principal">
       <div class="card-mobile d-flex flex-wrap justify-content-center">
-        <app-trainer *ngFor="let trainer of trainer" [trainer]="trainer"></app-trainer>
-    
-        <button id="btnAjoutEnfant" class="card d-flex justify-content-center align-items-center button-shadow-hover"
-          [routerLink]="'/master/trainer/add'">
-          <div class="plusAjouter d-flex flex-wrap align-items-center">
-            <p id="pAjouter">Nouveau Dresseur</p>
-          </div>
+        <app-trainer
+          *ngFor="let trainer of trainer"
+          [trainer]="trainer"
+        ></app-trainer>
+
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Nouveau dresseur, GO
         </button>
-    
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <form (ngSubmit)="addTrainer()">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Présentes toi!
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group position-input">
+                    <input
+                      [(ngModel)]="newTrainer.firstname"
+                      type="text"
+                      class="form-control shadow-sm style-input"
+                      name="firstname"
+                      placeholder="Prénom *"
+                      required
+                    />
+                  </div>
+                  <div class="form-group position-input">
+                    <input
+                      [(ngModel)]="newTrainer.nickname"
+                      type="text"
+                      class="form-control shadow-sm style-input"
+                      name="nickname"
+                      placeholder="Ton nom de dresseur"
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

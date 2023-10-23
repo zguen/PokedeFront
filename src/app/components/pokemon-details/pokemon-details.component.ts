@@ -22,11 +22,6 @@ export class PokemonDetailsComponent implements OnInit {
     private router: Router
   ) {}
 
-  navigateToPokemon(pokemonId: number) {
-    // Utilisez le router pour naviguer vers la page du Pokémon
-    this.router.navigate(['/pokemon', this.pokemon.pokedexid]);
-  }
-
   ngOnInit(): void {
     const pokemonIdFromRoute = Number(
       this.route.snapshot.paramMap.get('pokedexid')
@@ -51,6 +46,7 @@ export class PokemonDetailsComponent implements OnInit {
                   this.prePreEvolution = prePreEvolution;
                 });
             }
+            console.log(preEvolution.pokedexid);
           });
       }
       this.pokemonService.getPokemons().subscribe((allPokemons) => {

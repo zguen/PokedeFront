@@ -11,11 +11,12 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'pokemons', component: PokemonsComponent },
-  {path : 'pokemons/:pokedexid', component : PokemonDetailsComponent},
+  { path: 'pokemons/:pokedexid', component: PokemonDetailsComponent },
+  { path: 'pokemons/navigate/:pokedexid', component: PokemonDetailsComponent },
   { path: 'personal', component: PersonalComponent },
   { path: 'login', component: LoginMasterComponent },
   { path: 'master', component: MasterComponent },
-  { path: 'master/register', component: RegisterMasterComponent }
+  { path: 'master/register', component: RegisterMasterComponent },
 ];
 
 @NgModule({

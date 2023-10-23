@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { LoginMaster } from '../models/login-master';
 import { LoginAnswer } from '../models/login-answer';
 import { Master } from '../models/master';
+import { Trainer } from '../models/trainer';
 
 @Injectable({
   providedIn: 'root',
@@ -43,5 +44,18 @@ export class MasterService {
           );
         })
       );
+  }
+
+  addTrainerByMaster(trainer: Trainer): Observable<Master> {
+    const headers = this.setHeaders();
+
+    return this.http.post<Master>(
+      `http://localhost:3000/api/trainer`,
+      trainer,
+      {
+        headers,
+      }
+    );
+
   }
 }

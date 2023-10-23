@@ -18,7 +18,6 @@ import { FormsModule } from '@angular/forms';
 import { ProfilMasterComponent } from './components/profil-master/profil-master.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TrainerComponent } from './components/trainer/trainer.component';
-import { TrainerAddComponent } from './components/trainer-add/trainer-add.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 
 
@@ -40,7 +39,6 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
     ProfilMasterComponent,
     FooterComponent,
     TrainerComponent,
-    TrainerAddComponent,
     PokemonDetailsComponent,
   ],
   imports: [

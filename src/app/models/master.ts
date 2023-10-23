@@ -9,5 +9,5 @@ export interface Master {
   password?: string;
   password_confirm?: string;
   admin: boolean;
-  trainer?: Trainer[];
+  trainers?: Trainer[];
 }

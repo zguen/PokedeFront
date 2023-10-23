@@ -4,7 +4,7 @@
     <div class="d-flex flex-wrap justify-content-center container-principal">
       <div class="card-mobile d-flex flex-wrap justify-content-center">
         <app-trainer
-          *ngFor="let trainer of trainer"
+          *ngFor="let trainer of trainers"
           [trainer]="trainer"
         ></app-trainer>
 
@@ -27,7 +27,7 @@
           aria-hidden="true"
         >
           <div class="modal-dialog modal-dialog-centered">
-            <form (ngSubmit)="addTrainer()">
+            <form (ngSubmit)="addTrainer()" class="modal-content">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">

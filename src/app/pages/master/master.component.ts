@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Master } from 'src/app/models/master';
 import { Trainer } from 'src/app/models/trainer';
 import { MasterService } from 'src/app/services/master.service';
@@ -12,8 +11,7 @@ import { MasterService } from 'src/app/services/master.service';
 export class MasterComponent {
   master!: Master;
   display: boolean = false;
-
-  trainer?: Trainer[];
+  trainers?: Trainer[];
 
   newTrainer: Trainer = {
     firstname: '',
@@ -23,14 +21,14 @@ export class MasterComponent {
 
   statutCreate = true;
 
-  constructor(private masterService: MasterService, private router: Router) {}
+  constructor(private masterService: MasterService) {}
 
   ngOnInit(): void {
     this.masterService.getMasterProfil().subscribe({
       next: (response) => {
         this.display = true;
         this.master = response;
-        this.trainer = response.trainer;
+        this.trainers = response.trainers;
       },
       error: (error) => {
         this.display = true;
@@ -41,11 +39,11 @@ export class MasterComponent {
   addTrainer() {
     this.masterService.addTrainerByMaster(this.newTrainer).subscribe({
       next: (response) => {
-        console.log(this.trainer);
+        console.log(this.trainers);
       },
       error: (error) => {
         this.statutCreate = false;
       },
     });
-    }
+  }
 }

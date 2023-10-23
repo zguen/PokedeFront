@@ -7,6 +7,7 @@ import { LoginMasterComponent } from './components/login-master/login-master.com
 import { MasterComponent } from './pages/master/master.component';
 import { RegisterMasterComponent } from './components/register-master/register-master.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
+import { TrainerComponent } from './components/trainer/trainer.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginMasterComponent },
   { path: 'master', component: MasterComponent },
   { path: 'master/register', component: RegisterMasterComponent },
+  { path: 'trainer', component: TrainerComponent}
 ];
 
 @NgModule({

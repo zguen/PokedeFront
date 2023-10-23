@@ -23,9 +23,7 @@ export class MasterService {
   }
 
   registerMaster(data: Master): Observable<Master> {
-    return this.http.post<Master>(
-      `${this.baseApiUrl}/auth/register`, data
-    );
+    return this.http.post<Master>(`${this.baseApiUrl}/auth/register`, data);
   }
 
   loginMaster(data: LoginMaster): Observable<LoginAnswer> {
@@ -34,16 +32,11 @@ export class MasterService {
 
   getMasterProfil(): Observable<Master> {
     const headers = this.setHeaders();
-    return this.http
-      .get<Master>(`${this.baseApiUrl}/master`, { headers })
-      .pipe(
-        tap((master: Master) => {
-          sessionStorage.setItem(
-            'profilMaster',
-            master.admin.toString()
-          );
-        })
-      );
+    return this.http.get<Master>(`${this.baseApiUrl}/master`, { headers }).pipe(
+      tap((master: Master) => {
+        sessionStorage.setItem('profilMaster', master.admin.toString());
+      })
+    );
   }
 
   addTrainerByMaster(trainer: Trainer): Observable<Master> {
@@ -56,6 +49,5 @@ export class MasterService {
         headers,
       }
     );
-
   }
 }

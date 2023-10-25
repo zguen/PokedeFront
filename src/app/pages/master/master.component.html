@@ -3,22 +3,21 @@
     <app-profil-master [profil]="master"></app-profil-master>
     <div class="d-flex flex-wrap justify-content-center container-principal">
       <div class="card-mobile d-flex flex-wrap justify-content-center">
-        
+        <app-trainer
+          *ngFor="let trainer of trainers"
+          [trainer]="trainer"
+        ></app-trainer>
+
         <!-- Button trigger modal -->
         <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
         >
-        Nouveau dresseur, GO
-      </button>
-      
-      <app-card-trainer
-        *ngFor="let trainer of trainers"
-        [trainer]="trainer"
-      ></app-card-trainer>
-      
+          Nouveau dresseur, GO
+        </button>
+
         <!-- Modal -->
         <div
           class="modal fade"
@@ -44,43 +43,43 @@
                 <div class="modal-body">
                   <div class="form-group position-input">
                     <input
-                    [(ngModel)]="newTrainer.firstname"
-                    type="text"
-                    class="form-control shadow-sm style-input"
-                    name="firstname"
-                    placeholder="Prénom *"
-                    required
+                      [(ngModel)]="newTrainer.firstname"
+                      type="text"
+                      class="form-control shadow-sm style-input"
+                      name="firstname"
+                      placeholder="Prénom *"
+                      required
                     />
                   </div>
                   <div class="form-group position-input">
                     <input
-                    [(ngModel)]="newTrainer.nickname"
-                    type="text"
-                    class="form-control shadow-sm style-input"
-                    name="nickname"
-                    placeholder="Ton nom de dresseur"
+                      [(ngModel)]="newTrainer.nickname"
+                      type="text"
+                      class="form-control shadow-sm style-input"
+                      name="nickname"
+                      placeholder="Ton nom de dresseur"
                     />
                   </div>
                 </div>
                 <div class="modal-footer">
                   <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
                   >
-                  Close
-                </button>
-                <button type="submit" class="btn btn-primary">
-                  Save changes
-                </button>
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<app-login-master *ngIf="!master" class="background"></app-login-master>
+  <app-login-master *ngIf="!master" class="background"></app-login-master>
 </ng-container>

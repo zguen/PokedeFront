@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginMasterComponent },
   { path: 'master', component: MasterComponent },
   { path: 'master/register', component: RegisterMasterComponent },
-  { path: 'trainer', component: TrainerComponent}
+  { path: 'master/trainer/:id', component: TrainerComponent },
 ];
 
 @NgModule({

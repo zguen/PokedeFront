@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { Trainer } from 'src/app/models/trainer';
 
 @Component({
@@ -7,7 +7,7 @@ import { Trainer } from 'src/app/models/trainer';
   styleUrls: ['./trainer.component.css'],
 })
 export class TrainerComponent {
-  @Input() trainer!: Trainer;
+ trainer!: Trainer;
 
   constructor() {}
 

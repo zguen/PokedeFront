@@ -19,6 +19,7 @@ import { ProfilMasterComponent } from './components/profil-master/profil-master.
 import { FooterComponent } from './components/footer/footer.component';
 import { TrainerComponent } from './components/trainer/trainer.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
+import { CardTrainerComponent } from './components/card-trainer/card-trainer.component';
 
 
 
@@ -40,6 +41,7 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
     FooterComponent,
     TrainerComponent,
     PokemonDetailsComponent,
+    CardTrainerComponent,
   ],
   imports: [
     BrowserModule,

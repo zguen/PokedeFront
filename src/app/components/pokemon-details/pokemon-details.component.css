@@ -4,12 +4,7 @@
   margin-top: 1rem;
   padding-top: 20px;
   clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
-  width: 65%;
-}
-
-img {
-  height: 150px;
-  border: 3px solid white;
+  width: 85%;
 }
 
 .typesOf {
@@ -22,6 +17,10 @@ img {
   /* Ajoute une bordure blanche de 2 pixels en haut */
   border-bottom: 3px solid white;
   /* Ajoute une bordure blanche de 2 pixels en haut */
+}
+
+.row {
+  margin-top: 2rem;
 }
 
 .type-plante {
@@ -94,7 +93,6 @@ img {
 
 .types {
   text-transform: uppercase;
-  height: 50px;
   margin-top: 20px;
 }
 
@@ -103,38 +101,34 @@ img {
   font: bold;
 }
 
-.img-fluid {
+.allPokemons {
+  max-height: 100px;
+  /* Ajustez la valeur en fonction de la hauteur souhaitée */
+}
+
+.allPokemons img {
   max-height: 100%;
-  max-width: 100%;
+  width: auto;
+}
+
+.evolution-img {
+  max-height: 100%;
+  width: auto;
+}
+
+.img-fluid {
   border-radius: 50%;
   border: 3px solid white;
 }
 
 .imgMain {
-  margin-top: 20px;
+  height: 150px;
 }
 
 .imgPoke {
-  clip-path: polygon(
-    30% 0%,
-    70% 0%,
-    100% 30%,
-    100% 70%,
-    70% 100%,
-    30% 100%,
-    0% 70%,
-    0% 30%
-  );
-  border: 3px solid white;
-}
-
-.allPokemons {
-  display: flex;
-  /* Utilise un modèle d'affichage flex pour centrer les éléments */
-  justify-content: center;
-  /* Centre horizontalement le contenu */
-  text-align: center;
-  /* Centre le texte à l'intérieur */
+  border: 3px solid black;
+  width: 40%;
+  height: auto;
 }
 
 ul {
@@ -145,14 +139,4 @@ ul {
 
 li {
   margin: 1rem;
-}
-
-.actualPokemon {
-  display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.actualPicture {
-  border: 3px solid black;
 }

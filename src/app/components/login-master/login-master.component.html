@@ -7,14 +7,14 @@
           name="email" #email="ngModel" [class.input-error]="email.invalid && isFormValidate"
           [class.input-error-log]="loginNone" placeholder="EMAIL (example@mail.fr)" />
       </div>
-    
+
       <div *ngIf="email.invalid && isFormValidate" class="alert">
         <div *ngIf="email.errors?.['required']">L'email est obligatoire.</div>
         <div *ngIf="email.errors?.['pattern']">
           Veuillez entrer une adresse email valide.
         </div>
       </div>
-    
+
       <div class="signup-row">
         <input type="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
           [(ngModel)]="master.password" name="password" #password="ngModel"
@@ -34,7 +34,7 @@
       </div>
       <div class="form-bottom">
         <div class="remember">
-          <button type="submit" name="" value="">
+          <button class="btn-pokemon" type="submit" name="" value="">
             Se Connecter</button>
         </div>
         <div class="remember">

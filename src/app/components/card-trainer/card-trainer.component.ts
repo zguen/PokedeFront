@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Trainer } from 'src/app/models/trainer';
 
 @Component({
-  selector: 'app-trainer',
-  templateUrl: './trainer.component.html',
-  styleUrls: ['./trainer.component.css'],
+  selector: 'app-card-trainer',
+  templateUrl: './card-trainer.component.html',
+  styleUrls: ['./card-trainer.component.css'],
 })
-export class TrainerComponent {
+export class CardTrainerComponent {
   @Input() trainer!: Trainer;
 
   constructor() {}

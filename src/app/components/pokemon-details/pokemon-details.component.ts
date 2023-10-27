@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Master } from 'src/app/models/master';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
+import { MasterService } from 'src/app/services/master.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -10,6 +12,9 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   styleUrls: ['./pokemon-details.component.css'],
 })
 export class PokemonDetailsComponent implements OnInit {
+
+  isMasterConnected: boolean = false;
+
   pokemon!: Pokemon;
   preEvolution!: Pokemon;
   prePreEvolution!: Pokemon;
@@ -19,13 +24,19 @@ export class PokemonDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private pokemonService: PokemonsService,
-    private router: Router
+    private router: Router,
+    private masterService: MasterService
   ) {}
 
   ngOnInit(): void {
     const pokemonIdFromRoute = Number(
       this.route.snapshot.paramMap.get('pokedexid')
     );
+    
+    this.masterService.getMasterConnected().subscribe((master: Master) => {
+      // Vérifiez si le Master est connecté (vous devrez définir une condition appropriée ici)
+      this.isMasterConnected = true;
+    });
 
     this.pokemonService.getPokemonById(pokemonIdFromRoute).subscribe((data) => {
       this.pokemon = data;

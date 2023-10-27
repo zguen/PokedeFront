@@ -1,5 +1,11 @@
 nav {
     background-color: #e61515;
+    height: 70px;
+}
+
+#logoNavBar {
+    height: 3rem;
+    width: auto;
 }
 
 .navbar-nav {
@@ -18,7 +24,7 @@ nav {
 }
 
 .large-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .text-curved {

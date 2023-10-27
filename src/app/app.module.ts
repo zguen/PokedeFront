@@ -38,7 +38,7 @@ import { CardTrainerComponent } from './components/card-trainer/card-trainer.com
     FooterComponent,
     TrainerComponent,
     PokemonDetailsComponent,
-    CardTrainerComponent
+    CardTrainerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

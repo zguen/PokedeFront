@@ -39,6 +39,11 @@ export class MasterService {
     );
   }
 
+  getMasterConnected(): Observable<Master> {
+    const headers = this.setHeaders();
+    return this.http.get<Master>(`${this.baseApiUrl}/master`, { headers });
+  }
+
   addTrainerByMaster(trainer: Trainer): Observable<Master> {
     const headers = this.setHeaders();
 

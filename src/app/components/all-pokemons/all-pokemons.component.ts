@@ -9,10 +9,10 @@ import { Pokemon } from 'src/app/models/pokemon';
 export class AllPokemonsComponent implements OnInit {
   @Input() allPokemons!: Pokemon[];
 
-  public displayedPokemonCount: number = 8; // Commencez avec les 20 premiers
+  public displayedPokemonCount: number = 5; // Commencez avec les 20 premiers
 
   public loadMorePokemon() {
-    this.displayedPokemonCount += 8; // Par exemple, ajoutez 20 de plus à chaque clic sur le bouton
+    this.displayedPokemonCount += 5; // Par exemple, ajoutez 20 de plus à chaque clic sur le bouton
   }
 
   ngOnInit(): void {}

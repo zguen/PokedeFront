@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Master } from 'src/app/models/master';
 import { Trainer } from 'src/app/models/trainer';
 import { MasterService } from 'src/app/services/master.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-master',
@@ -16,12 +17,13 @@ export class MasterComponent {
   newTrainer: Trainer = {
     firstname: '',
     nickname: '',
+    password: '',
     id_master: 1,
   };
 
   statutCreate = true;
 
-  constructor(private masterService: MasterService) {}
+  constructor(private masterService: MasterService, private router: Router) {}
 
   ngOnInit(): void {
     this.masterService.getMasterProfil().subscribe({
@@ -39,7 +41,7 @@ export class MasterComponent {
   addTrainer() {
     this.masterService.addTrainerByMaster(this.newTrainer).subscribe({
       next: (response) => {
-        console.log(this.trainers);
+        this.router.navigate([`/master`]);
       },
       error: (error) => {
         this.statutCreate = false;

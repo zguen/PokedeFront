@@ -1,8 +1,10 @@
-<div class="contain ">
+<div class="contain">
     <div class="container-pokemon">
         <div *ngFor="let pokemon of allPokemons.slice(0, displayedPokemonCount)">
             <app-card [pokemon]="pokemon"></app-card>
         </div>
     </div>
-    <button (click)="loadMorePokemon()" class="btn-pokemon">Charger plus</button>
+    <div class="center-button">
+        <button (click)="loadMorePokemon()" class="btn-pokemon">Plus de Pokemons!!!</button>
+    </div>
 </div>

@@ -1,14 +1,26 @@
-<div class="pokemon-card container">
-  <div [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" class="typesOf">
+<div class="pokemon-card container" *ngIf="pokemon">
+  <div
+    [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+    class="typesOf"
+  >
     <h2>{{ pokemon.name }}</h2>
   </div>
 
   <div class="row">
-    <div class="col">
-      <button *ngIf="isMasterConnected">Capturez ce Pokémon</button>
+    <div class="col picturePoke">
+      <div class="pokeball-container">
+        <button *ngIf="isTrainerConnected" class="pokeball"></button>
+        <button class="btn btn-primary" *ngIf="isAdmin">
+          Editer ce pokemon
+        </button>
+      </div>
+
       <div class="d-flex justify-content-center align-self-center">
-        <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-          class="imgPoke img-fluid " />
+        <img
+          [src]="pokemon.picture"
+          [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+          class="imgPoke img-fluid"
+        />
       </div>
     </div>
 
@@ -16,59 +28,87 @@
       <div class="d-flex justify-content-evenly types">
         <ng-container *ngFor="let type of pokemon.types">
           <div>
-            <img [src]="type.picture" alt="{{ type.wording }}" class="img-fluid" />
+            <img
+              [src]="type.picture"
+              alt="{{ type.wording }}"
+              class="img-fluid"
+            />
             <p>{{ type.wording }}</p>
           </div>
         </ng-container>
       </div>
 
-      <p>{{ pokemon.description}}</p>
-      <p>{{ pokemon.height }}</p>
-      <p>{{ pokemon.weight }}</p>
-      <p>{{ pokemon.generation.wording }}</p>
+      <p>Description: {{ pokemon.description }}</p>
+      <p>Taille: {{ pokemon.height }}</p>
+      <p>Poids: {{ pokemon.weight }}</p>
+      <p>Generation: {{ pokemon.generation.wording }}</p>
     </div>
   </div>
 
   <div class="d-flex allPokemons">
     <ul class="justify-content-center">
-      <li *ngIf="prePreEvolution">
-        <a [routerLink]="['/pokemons/navigate', prePreEvolution.pokedexid]">
-          <img [src]="prePreEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-            class="imgEvo img-fluid" alt="Pre-Evolution Image" />
-          <p>{{ prePreEvolution.name }}</p>
-        </a>
-      </li>
+      <ng-container *ngIf="prePreEvolution">
+        <li>
+          <a [routerLink]="['/pokemons/navigate', prePreEvolution.pokedexid]">
+            <img
+              [src]="prePreEvolution.picture"
+              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+              class="imgEvo img-fluid"
+              alt="Pre-Evolution Image"
+            />
+            <p>{{ prePreEvolution.name }}</p>
+          </a>
+        </li>
+      </ng-container>
 
-      <li *ngIf="preEvolution">
-        <a [routerLink]="['/pokemons/navigate', preEvolution.pokedexid]">
-          <img [src]="preEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-            class="imgEvo img-fluid" alt="Pre-Evolution Image" />
-          <p>{{ preEvolution.name }}</p>
-        </a>
-      </li>
+      <ng-container *ngIf="preEvolution">
+        <li>
+          <a [routerLink]="['/pokemons/navigate', preEvolution.pokedexid]">
+            <img
+              [src]="preEvolution.picture"
+              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+              class="imgEvo img-fluid"
+              alt="Pre-Evolution Image"
+            />
+            <p>{{ preEvolution.name }}</p>
+          </a>
+        </li>
+      </ng-container>
 
       <li>
-        <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-          class="imgEvo img-fluid" alt="Pokemon Image" />
-        <p>{{ pokemon.name }}</p>
+        <a [routerLink]="['/pokemons/navigate', pokemon.pokedexid]">
+          <img
+            [src]="pokemon.picture"
+            [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            class="imgEvo img-fluid"
+            alt="Pokemon Image"
+          />
+          <p>{{ pokemon.name }}</p>
+        </a>
       </li>
 
       <li *ngFor="let evolution of evolutions">
         <a [routerLink]="['/pokemons/navigate', evolution.pokedexid]">
-          <img class="evolution-img img-fluid" [src]="evolution.picture"
-            [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" alt="Evolution Image" />
+          <img
+            class="evolution-img img-fluid"
+            [src]="evolution.picture"
+            [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            alt="Evolution Image"
+          />
           <p>{{ evolution.name }}</p>
         </a>
       </li>
 
-      <li *ngIf="postEvolutions.length > 0">
-        <ul>
-          <li *ngFor="let postEvolution of postEvolutions">
-            <img [src]="postEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              class="imgEvo img-fluid" alt="Evolution Image" />
-            <p>{{ postEvolution.name }}</p>
-          </li>
-        </ul>
+      <li *ngFor="let postEvolution of postEvolutions">
+        <a [routerLink]="['/pokemons/navigate', postEvolution.pokedexid]">
+          <img
+            [src]="postEvolution.picture"
+            [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            class="evolution-img img-fluid"
+            alt="Evolution Image"
+          />
+          <p>{{ postEvolution.name }}</p>
+        </a>
       </li>
     </ul>
   </div>

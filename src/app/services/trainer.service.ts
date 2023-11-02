@@ -21,7 +21,10 @@ export class TrainerService {
   }
 
   loginTrainer(data: LoginTrainer): Observable<LoginAnswer> {
-    return this.http.post<LoginAnswer>(`${this.baseApiUrl}/auth-trainer/login`, data);
+    return this.http.post<LoginAnswer>(
+      `${this.baseApiUrl}/auth-trainer/login`,
+      data
+    );
   }
 
   getTrainer(idTrainer: number): Observable<Trainer> {
@@ -29,6 +32,11 @@ export class TrainerService {
     return this.http.get<Trainer>(`${this.baseApiUrl}/trainer/${idTrainer}`, {
       headers,
     });
+  }
+
+  getTrainerConnected(): Observable<Trainer> {
+    const headers = this.setHeaders();
+    return this.http.get<Trainer>(`${this.baseApiUrl}/trainer`, { headers });
   }
 
   setHeaders() {

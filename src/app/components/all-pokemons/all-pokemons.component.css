@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 85px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .pokemon-card {
@@ -17,4 +17,14 @@
     /* Par défaut, les cartes prennent toute la largeur du conteneur */
     max-width: 100%;
 
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement (facultatif) */
+    height: 100px;
+    /* Ajustez la hauteur si nécessaire */
 }

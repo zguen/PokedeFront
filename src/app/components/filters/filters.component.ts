@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MasterService } from 'src/app/services/master.service';
 
 @Component({
   selector: 'app-filters',
@@ -7,13 +8,22 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class FiltersComponent {
   @Input() tabTypes!: Array<string>;
-  @Input() tabGenerations!: Array<string>
+  @Input() tabGenerations!: Array<string>;
   @Output() searchFilter = new EventEmitter<string>();
   @Output() newTypeEvent = new EventEmitter<string[]>();
   @Output() newGenerationEvent = new EventEmitter<string[]>();
+  isAdmin: boolean = false;
 
   typeFilter: string[] = [];
   generationFilter: string[] = [];
+
+  constructor(private masterService: MasterService) {}
+
+  ngOnInit() {
+    this.masterService.getMasterProfil().subscribe((master) => {
+      this.isAdmin = master.admin;
+    });
+  }
 
   onSearch(value: string) {
     this.searchFilter.emit(value);

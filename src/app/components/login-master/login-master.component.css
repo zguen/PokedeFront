@@ -1,58 +1,64 @@
 .signup-form {
-    background-size: cover;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .sign-back h1 {
-    text-transform: uppercase;
-    text-align: center;
-    color: #fff;
-    margin-top: 0;
-    letter-spacing: 5px;
-    text-shadow:1px 1px 1px #333
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  margin-top: 0;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 1px #333;
 }
 
 .signup-row {
-    text-align: center;
-    margin: 20px 0;
-    position: relative;
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
 }
 
 .signup-row input {
-    padding: 5px 0;
-    border: 0;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    width: 50%;
-    text-align: center;
-    outline: none;
-    color: #fff;
-    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+  padding: 5px 0;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .signup-row input::-webkit-input-placeholder {
-    color: #fff;
-  text-shadow:1px 1px 1px rgba(51, 51, 51, 0.6)
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.6);
 }
 
 .signup-row i {
-    color: #fff;
-    position: relative;
-    left: 20px;
-    text-shadow:1px 1px 1px rgba(51, 51, 51, 0.6)
+  color: #fff;
+  position: relative;
+  left: 20px;
+  text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.6);
 }
 
 .signup-row a {
-    font-size: 40px;
-    text-decoration: none;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.sign-back {
+    width: 50%;
 }
 
 .signup-row a i {
-    left: 0;
+  left: 0;
 }
 
 .form-bottom {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .remember:not(:last-child) {
@@ -60,7 +66,26 @@
     color: #af942d;
 }
 
+.remember a {
+    text-decoration: none;
+    color: #e61515;
+    transition: all 500ms;
+}
+
+.remember a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
 input[type="checkbox"] {
-    position: relative;
-    top: 1px;
+  position: relative;
+  top: 1px;
+}
+
+.alert {
+  color: #982312;
+  font-size: 0.8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }

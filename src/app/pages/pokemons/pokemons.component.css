@@ -4,5 +4,5 @@
     max-height: 100vh;
     /* Définit une hauteur maximale en pourcentage de la hauteur de la vue (viewport height) */
     overflow-y: auto;
-    /* Active la barre de défilement verticale lorsque le contenu dépasse la hauteur maximale */
+    /* Active la barre de défilement verticale lorsque le contenu dépasse la hauteur maximale */    
 }

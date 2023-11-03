@@ -1,0 +1,196 @@
+<div class="container">
+  <div class="">
+    <div class="">
+      <form>
+        <h1>Ajouter un Pokémon</h1>
+        <p class="letterSpacing">Remplissez les information ci-dessous</p>
+
+        <!-- Champ "Pokedexid" -->
+        <div class="form-group">
+          <input
+            #pokedexid
+            type="number"
+            class="form-control inputStyle"
+            id="Pokedexid"
+            placeholder="Numéro du Pokédex national *"
+            required
+          />
+        </div>
+
+        <!-- Champ "Nom" -->
+        <div class="form-group">
+          <input
+            #name
+            type="text"
+            class="form-control inputStyle"
+            id="Name"
+            placeholder="Nom *"
+            required
+          />
+        </div>
+
+        <!-- Champ "Image" -->
+        <div class="form-group">
+          <input
+            #picture
+            type="text"
+            class="form-control inputStyle"
+            id="Picture"
+            placeholder="URL de l'image *"
+            required
+          />
+        </div>
+
+        <!-- Champ "Pré-Évolution" -->
+        <div class="form-group">
+          <input
+            #pre_evolution
+            type="number"
+            class="form-control inputStyle"
+            id="Pre_evolution"
+            placeholder="Pré-Évolution (ID)"
+          />
+        </div>
+
+        <!-- Champ "Taille" -->
+        <div class="form-group">
+          <input
+            #height
+            type="text"
+            class="form-control inputStyle"
+            id="Height"
+            placeholder="Taille *"
+            required
+          />
+        </div>
+
+        <!-- Champ "Poids" -->
+        <div class="form-group">
+          <input
+            #weight
+            type="text"
+            class="form-control inputStyle"
+            id="Weight"
+            placeholder="Poids *"
+            required
+          />
+        </div>
+
+        <!-- Champ "Génération" -->
+        <div class="form-group">
+          <ng-select
+            [items]="generation"
+            placeholder="Génération *"
+            [multiple]="true"
+            bindLabel="wording"
+            [(ngModel)]="selectedGeneration"
+            [ngModelOptions]="{ standalone: true }"
+            [maxSelectedItems]="1"
+            bindValue="id"
+            class="custom"
+          >
+          </ng-select>
+        </div>
+
+        <!-- Champ "Types" -->
+        <div class="form-group">
+          <ng-select
+            [items]="types"
+            [multiple]="true"
+            bindLabel="wording"
+            [(ngModel)]="selectedTypes"
+            [ngModelOptions]="{ standalone: true }"
+            [maxSelectedItems]="2"
+            placeholder="Types *"
+            class="custom"
+          >
+          </ng-select>
+        </div>
+
+        <!-- Champ "Description" -->
+        <div class="form-group">
+          <textarea
+            #description
+            class="form-control inputStyle"
+            id="Description"
+            placeholder="Description *"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Bouton "Ajouter" -->
+        <div class="form-group testfont d-flex justify-content-center">
+          <button
+            type="button"
+            class="btn btnModele"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmationModal"
+          >
+            Ajouter
+          </button>
+        </div>
+
+        <!-- Modal de Confirmation -->
+        <div
+          class="modal fade"
+          id="confirmationModal"
+          tabindex="-1"
+          aria-labelledby="confirmationModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">
+                  Confirmation
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                Voulez-vous vraiment ajouter ce Pokémon ?
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  (click)="
+                    createPokemon(
+                      +pokedexid.value,
+                      name.value,
+                      picture.value,
+                      +pre_evolution.value,
+                      height.value,
+                      weight.value,
+                      selectedGeneration,
+                      selectedTypes,
+                      description.value
+                    )
+                  "
+                >
+                  Confirmer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-color btn-block btnModeleRed">
+          Retour
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

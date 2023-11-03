@@ -20,6 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TrainerComponent } from './components/trainer/trainer.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 import { CardTrainerComponent } from './components/card-trainer/card-trainer.component';
+import { PokemonEditComponent } from './components/pokemon-edit/pokemon-edit.component';
+import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -39,8 +42,10 @@ import { CardTrainerComponent } from './components/card-trainer/card-trainer.com
     TrainerComponent,
     PokemonDetailsComponent,
     CardTrainerComponent,
+    PokemonEditComponent,
+    PokemonAddComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

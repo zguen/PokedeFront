@@ -1,7 +1,6 @@
-import { Generation } from './generation';
 import { Type } from './type';
 
-export interface Pokemon {
+export interface CreatePokemon {
   pokedexid: number;
   name: string;
   picture: string;
@@ -9,7 +8,6 @@ export interface Pokemon {
   height: string;
   weight: string;
   id_generation: number;
-  generation: Generation;
   types: Type[];
-  description: string
+  description: string;
 }

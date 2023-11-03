@@ -32,6 +32,10 @@ p {
   height: 50%;
 }
 
+.btn {
+  width: 100%;
+}
+
 .typesOf {
   text-transform: uppercase;
   font: bolder;

@@ -1,0 +1,173 @@
+.pokemon-card {
+    background: #adb9c0;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    margin-top: 1rem;
+    padding-top: 20px;
+    clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+    width: 85%;
+    justify-content: center;
+}
+
+p {
+    font-weight: bold;
+}
+
+.picturePoke {
+    border-right: thick double black;
+    display: flex;
+}
+
+.pokeball-container {
+    width: 20%;
+    /* Ajustez la largeur du conteneur pour réduire sa taille */
+}
+
+.pokeball {
+    background-image: url('../../../assets/img/pokeball.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 50%;
+}
+
+.btn {
+    width: 100%;
+}
+
+.typesOf {
+    text-transform: uppercase;
+    font: bolder;
+    text-align: center;
+    margin-left: -12px;
+    margin-right: -12px;
+    border-top: 3px solid white;
+    /* Ajoute une bordure blanche de 2 pixels en haut */
+    border-bottom: 3px solid white;
+    /* Ajoute une bordure blanche de 2 pixels en haut */
+}
+
+.row {
+    margin-top: 2rem;
+}
+
+.type-plante {
+    background-color: #3fa129;
+}
+
+.type-feu {
+    background-color: #e62b2c;
+}
+
+.type-eau {
+    background-color: #2980ef;
+}
+
+.type-insecte {
+    background-color: #91a119;
+}
+
+.type-poison {
+    background-color: #8f41cb;
+}
+
+.type-électrik {
+    background-color: #fac000;
+}
+
+.type-combat {
+    background-color: #ff8000;
+}
+
+.type-vol {
+    background-color: #81b9ef;
+}
+
+.type-sol {
+    background-color: #915121;
+}
+
+.type-fée {
+    background-color: #ef71ef;
+}
+
+.type-psy {
+    background-color: #ef4179;
+}
+
+.type-roche {
+    background-color: #afa981;
+}
+
+.type-acier {
+    background-color: #60a1b8;
+}
+
+.type-glace {
+    background-color: #3fd8ff;
+}
+
+.type-spectre {
+    background-color: #704170;
+}
+
+.type-dragon {
+    background-color: #5061e1;
+}
+
+.type-ténèbres {
+    background-color: #50413f;
+}
+
+.types {
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+#type {
+    font: bold;
+}
+
+.allPokemons {
+    max-height: 100px;
+    /* Ajustez la valeur en fonction de la hauteur souhaitée */
+    border-top: black thick double;
+    border-top-width: 75%;
+    margin-top: 1rem;
+}
+
+.allPokemons img {
+    max-height: 100%;
+    width: auto;
+}
+
+.evolution-img {
+    max-height: 100%;
+    width: auto;
+}
+
+.img-fluid {
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.imgMain {
+    height: 150px;
+}
+
+.imgPoke {
+    border: 3px solid black;
+    width: 50%;
+    height: auto;
+}
+
+ul {
+    display: flex;
+    width: 100%;
+    list-style: none;
+}
+
+li {
+    margin: 1rem;
+}

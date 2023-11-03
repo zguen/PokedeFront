@@ -1,0 +1,63 @@
+<div class="pokemon-card container" *ngIf="pokemon">
+    <div [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" class="typesOf">
+        <h2>
+            <input [(ngModel)]="pokemon.name" [ngModelOptions]="{standalone: true}" />
+        </h2>
+    </div>
+
+    <div class="row">
+        <div class="col picturePoke">
+            <div class="pokeball-container">
+                <button *ngIf="isTrainerConnected" class="pokeball"></button>
+                <button class="btn btn-primary" *ngIf="isAdmin">
+                    Editer ce pokemon
+                </button>
+            </div>
+
+            <div class="d-flex justify-content-center align-self-center">
+                <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+                    class="imgPoke img-fluid" />
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="d-flex justify-content-evenly types">
+                <ng-container *ngFor="let type of pokemon.types">
+                    <div>
+                        <img [src]="type.picture" alt="{{ type.wording }}" class="img-fluid" />
+                        <p>{{ type.wording }}</p>
+                    </div>
+                </ng-container>
+            </div>
+
+            <!-- Formulaire pour éditer les informations du Pokémon -->
+            <form >
+                <div class="form-group">
+                    <label>Picture URL:</label>
+                    <input [(ngModel)]="pokemon.picture" [ngModelOptions]="{standalone: true}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Taille:</label>
+                    <input [(ngModel)]="pokemon.height" [ngModelOptions]="{standalone: true}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Poids:</label>
+                    <input [(ngModel)]="pokemon.weight" [ngModelOptions]="{standalone: true}" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Numéro de Génération:</label>
+                    <input [(ngModel)]="pokemon.generation.id" [ngModelOptions]="{standalone: true}"
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea [(ngModel)]="pokemon.description" [ngModelOptions]="{standalone: true}"
+                        class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+
+            <!-- Le reste du code pour les évolutions reste inchangé -->
+        </div>
+    </div>
+</div>

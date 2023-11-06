@@ -35,13 +35,11 @@ export class PokemonDetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe((params) => {
       const pokemonIdFromRoute = Number(params.get('pokedexid'));
-      console.log(pokemonIdFromRoute); // Vérifiez que l'ID est correctement récupéré
 
       this.pokemonService.getPokemonById(pokemonIdFromRoute).subscribe((data) => {
         this.pokemon = data;
 
         this.trainerService.getTrainerConnected().subscribe((trainer: Trainer) => {
-          // Vérifiez si le Trainer est connecté (vous devrez définir une condition appropriée ici)
           this.isTrainerConnected = true;
         });
 

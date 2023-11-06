@@ -60,7 +60,17 @@ export class PokemonAddComponent implements OnInit {
       types,
       description,
     };
-
-    this.pokemonService.createPokemon(newPokemon).subscribe();
+    if (
+      !pokedexid ||
+      !this.selectedGeneration ||
+      !name ||
+      this.selectedTypes.length === 0 || this.selectedTypes.length > 2
+    ) {
+      alert(`Merci de renseigner les champs vides`);
+    } else {
+      this.pokemonService.createPokemon(newPokemon).subscribe(() => {
+        this.router.navigate([`/pokemons`]);
+      });
+    }
   }
 }

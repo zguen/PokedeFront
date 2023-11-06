@@ -1,63 +1,159 @@
-<div class="pokemon-card container" *ngIf="pokemon">
-    <div [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" class="typesOf">
-        <h2>
-            <input [(ngModel)]="pokemon.name" [ngModelOptions]="{standalone: true}" />
-        </h2>
-    </div>
+<div class="container">
+  <div class="">
+    <div class="">
+      <form>
+        <h1 class="title custom-font-solid">Modifier le Pokémon</h1>
 
-    <div class="row">
-        <div class="col picturePoke">
-            <div class="pokeball-container">
-                <button *ngIf="isTrainerConnected" class="pokeball"></button>
-                <button class="btn btn-primary" *ngIf="isAdmin">
-                    Editer ce pokemon
+        <!-- Champ "Pré-Évolution" (modifiable) -->
+        <div class="form-group">
+          <input
+            #pre_evolution
+            type="number"
+            class="form-control inputStyle"
+            id="Pre_evolution"
+            placeholder="Pré-Évolution (ID)"
+          />
+        </div>
+
+        <!-- Champ "Image" (modifiable) -->
+        <div class="form-group">
+          <input
+            #picture
+            type="text"
+            class="form-control inputStyle"
+            id="Picture"
+            placeholder="URL de l'image *"
+          />
+        </div>
+
+        <!-- Champ "Types" (modifiable) -->
+        <div class="form-group">
+          <ng-select
+            [items]="types"
+            [multiple]="true"
+            bindLabel="wording"
+            [(ngModel)]="selectedTypes"
+            [ngModelOptions]="{ standalone: true }"
+            [maxSelectedItems]="2"
+            placeholder="Types *"
+            class="custom"
+          >
+          </ng-select>
+        </div>
+
+        <!-- Champ "Description" (modifiable) -->
+        <div class="form-group">
+          <textarea
+            #description
+            class="form-control inputStyle"
+            id="Description"
+            placeholder="Description *"
+          ></textarea>
+        </div>
+
+        <div class="row justify-content-md-center">
+          <!-- Bouton "Modifier" -->
+          <div
+            class="form-group testfont d-flex justify-content-center col-md-6"
+          >
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#confirmationModal"
+            >
+              Modifier
+            </button>
+          </div>
+          <button
+            type="button"
+            class="btn btn-color btn-block col-md-6"
+            [routerLink]="'/pokemon-list'"
+          >
+            Retour
+          </button>
+        </div>
+
+        <!-- Modal de Confirmation -->
+        <div
+          class="modal fade"
+          id="confirmationModal"
+          tabindex="-1"
+          aria-labelledby="confirmationModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">
+                  Confirmation
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                Voulez-vous vraiment modifier ce Pokémon ?
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Annuler
                 </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  (click)="
+                    updatePokemon(
+                      +pre_evolution.value,
+                      picture.value,
+                      selectedTypes,
+                      description.value
+                    )
+                  "
+                >
+                  Confirmer
+                </button>
+              </div>
             </div>
-
-            <div class="d-flex justify-content-center align-self-center">
-                <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-                    class="imgPoke img-fluid" />
-            </div>
+          </div>
         </div>
-
-        <div class="col">
-            <div class="d-flex justify-content-evenly types">
-                <ng-container *ngFor="let type of pokemon.types">
-                    <div>
-                        <img [src]="type.picture" alt="{{ type.wording }}" class="img-fluid" />
-                        <p>{{ type.wording }}</p>
-                    </div>
-                </ng-container>
+      </form>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+        Supprimer ce Pokémon
+      </button>
+      
+      <!-- Modal de Confirmation pour la suppression -->
+      <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                Confirmation de Suppression
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-            <!-- Formulaire pour éditer les informations du Pokémon -->
-            <form >
-                <div class="form-group">
-                    <label>Picture URL:</label>
-                    <input [(ngModel)]="pokemon.picture" [ngModelOptions]="{standalone: true}" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Taille:</label>
-                    <input [(ngModel)]="pokemon.height" [ngModelOptions]="{standalone: true}" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Poids:</label>
-                    <input [(ngModel)]="pokemon.weight" [ngModelOptions]="{standalone: true}" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Numéro de Génération:</label>
-                    <input [(ngModel)]="pokemon.generation.id" [ngModelOptions]="{standalone: true}"
-                        class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Description:</label>
-                    <textarea [(ngModel)]="pokemon.description" [ngModelOptions]="{standalone: true}"
-                        class="form-control"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
-            </form>
-
-            <!-- Le reste du code pour les évolutions reste inchangé -->
+            <div class="modal-body">
+              Êtes-vous sûr de vouloir supprimer ce Pokémon ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Annuler
+              </button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deletePokemon(pokemon)">
+                Confirmer la Suppression
+              </button>
+            </div>
+          </div>
         </div>
     </div>
+  </div>
 </div>

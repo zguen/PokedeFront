@@ -2,19 +2,31 @@
   <div class="">
     <div class="">
       <form>
-        <h1>Ajouter un Pokémon</h1>
-        <p class="letterSpacing">Remplissez les information ci-dessous</p>
+        <h1 class="title custom-font-solid">Ajouter un Pokémon</h1>
 
-        <!-- Champ "Pokedexid" -->
-        <div class="form-group">
-          <input
-            #pokedexid
-            type="number"
-            class="form-control inputStyle"
-            id="Pokedexid"
-            placeholder="Numéro du Pokédex national *"
-            required
-          />
+        <div class="row">
+          <!-- Champ "Pokedexid" -->
+          <div class="form-group col-md-6">
+            <input
+              #pokedexid
+              type="number"
+              class="form-control inputStyle"
+              id="Pokedexid"
+              placeholder="Numéro du Pokédex national *"
+              required
+            />
+          </div>
+
+          <!-- Champ "Pré-Évolution" -->
+          <div class="form-group col-md-6">
+            <input
+              #pre_evolution
+              type="number"
+              class="form-control inputStyle"
+              id="Pre_evolution"
+              placeholder="Pré-Évolution (ID)"
+            />
+          </div>
         </div>
 
         <!-- Champ "Nom" -->
@@ -41,39 +53,30 @@
           />
         </div>
 
-        <!-- Champ "Pré-Évolution" -->
-        <div class="form-group">
-          <input
-            #pre_evolution
-            type="number"
-            class="form-control inputStyle"
-            id="Pre_evolution"
-            placeholder="Pré-Évolution (ID)"
-          />
-        </div>
+        <div class="row">
+          <!-- Champ "Taille" -->
+          <div class="form-group col-md-6">
+            <input
+              #height
+              type="text"
+              class="form-control inputStyle"
+              id="Height"
+              placeholder="Taille *"
+              required
+            />
+          </div>
 
-        <!-- Champ "Taille" -->
-        <div class="form-group">
-          <input
-            #height
-            type="text"
-            class="form-control inputStyle"
-            id="Height"
-            placeholder="Taille *"
-            required
-          />
-        </div>
-
-        <!-- Champ "Poids" -->
-        <div class="form-group">
-          <input
-            #weight
-            type="text"
-            class="form-control inputStyle"
-            id="Weight"
-            placeholder="Poids *"
-            required
-          />
+          <!-- Champ "Poids" -->
+          <div class="form-group col-md-6">
+            <input
+              #weight
+              type="text"
+              class="form-control inputStyle"
+              id="Weight"
+              placeholder="Poids *"
+              required
+            />
+          </div>
         </div>
 
         <!-- Champ "Génération" -->
@@ -118,15 +121,20 @@
           ></textarea>
         </div>
 
-        <!-- Bouton "Ajouter" -->
-        <div class="form-group testfont d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btnModele"
-            data-bs-toggle="modal"
-            data-bs-target="#confirmationModal"
-          >
-            Ajouter
+        <div class="row justify-content-md-center">
+          <!-- Bouton "Ajouter" -->
+          <div class="form-group testfont d-flex justify-content-center col-md-6">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#confirmationModal"
+            >
+              Ajouter
+            </button>
+          </div>
+          <button type="button" class="btn btn-color btn-block col-md-6">
+            Retour
           </button>
         </div>
 
@@ -186,10 +194,6 @@
             </div>
           </div>
         </div>
-
-        <button type="button" class="btn btn-color btn-block btnModeleRed">
-          Retour
-        </button>
       </form>
     </div>
   </div>

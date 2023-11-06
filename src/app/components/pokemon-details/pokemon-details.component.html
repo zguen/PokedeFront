@@ -10,7 +10,7 @@
     <div class="col picturePoke">
       <div class="pokeball-container">
         <button *ngIf="isTrainerConnected" class="pokeball"></button>
-        <button class="btn btn-primary" *ngIf="isAdmin">
+        <button class="btn btn-primary" *ngIf="isAdmin" [routerLink]="['/pokemons/edit/', pokemon.pokedexid]">
           Editer ce pokemon
         </button>
       </div>
@@ -38,10 +38,10 @@
         </ng-container>
       </div>
 
-      <p>Description: {{ pokemon.description }}</p>
-      <p>Taille: {{ pokemon.height }}</p>
-      <p>Poids: {{ pokemon.weight }}</p>
-      <p>Generation: {{ pokemon.generation.wording }}</p>
+      <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Description:</span> {{ pokemon.description }}</p>
+      <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Taille:</span> {{ pokemon.height }}</p>
+      <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Poids:</span> {{ pokemon.weight }}</p>
+      <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Generation:</span> {{ pokemon.generation.wording }}</p>
     </div>
   </div>
 

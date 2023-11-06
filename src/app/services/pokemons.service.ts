@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Pokemon } from '../models/pokemon';
 import { Observable } from 'rxjs';
 import { CreatePokemon } from '../models/create-pokemon';
+import { UpdatePokemon } from '../models/update-pokemon';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,29 @@ export class PokemonsService {
     // Utilisez l'ID de la pré-évolution pour obtenir les détails de la pré-évolution
     return this.http.get<Pokemon>(
       `http://localhost:3000/api/pokemon/${pokedexid}`
+    );
+  }
+
+  updatePokemon(
+    pokedexid: number,
+    pokemon: UpdatePokemon
+  ): Observable<Pokemon> {
+    const headers = this.setHeaders();
+    return this.http.patch<Pokemon>(
+      `http://localhost:3000/api/pokemon/${pokedexid}`,
+      pokemon,
+      {
+        headers,
+      }
+    );
+  }
+
+  deletePokemon(pokemon: Pokemon): Observable<Pokemon> {
+    // recup le token dans le sessionstorage
+    const headers = this.setHeaders();
+    return this.http.delete<Pokemon>(
+      `http://localhost:3000/api/pokemon/${pokemon.pokedexid}`,
+      { headers }
     );
   }
 }

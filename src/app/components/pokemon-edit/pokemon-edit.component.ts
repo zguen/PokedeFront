@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Generation } from 'src/app/models/generation';
+import { Type } from 'src/app/models/type';
 import { Pokemon } from 'src/app/models/pokemon';
+import { TypeService } from 'src/app/services/type.service';
 import { PokemonsService } from 'src/app/services/pokemons.service';
-import { TrainerService } from 'src/app/services/trainer.service';
-import { Trainer } from 'src/app/models/trainer';
-import { MasterService } from 'src/app/services/master.service';
 
 @Component({
   selector: 'app-pokemon-edit',
@@ -12,88 +12,83 @@ import { MasterService } from 'src/app/services/master.service';
   styleUrls: ['./pokemon-edit.component.css'],
 })
 export class PokemonEditComponent implements OnInit {
-  isAdmin: boolean = false;
-  isTrainerConnected: boolean = false;
-
+  generation: Generation[] = [];
+  selectedGeneration: number[] = [];
+  types: Type[] = [];
+  selectedTypes: Type[] = [];
   pokemon!: Pokemon;
-  preEvolution: Pokemon | undefined;
-  prePreEvolution: Pokemon | undefined;
-  evolutions: Pokemon[] = [];
-  postEvolutions: Pokemon[] = [];
 
   constructor(
-    private route: ActivatedRoute,
     private pokemonService: PokemonsService,
-    private trainerService: TrainerService,
-    private masterService: MasterService
+    private router: Router,
+    private typeService: TypeService,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.masterService.getMasterProfil().subscribe((master) => {
-      this.isAdmin = master.admin;
+  ngOnInit() {
+    // Réoriente vers 404 si pas admin
+    if (sessionStorage.getItem('profilMaster') !== 'true') {
+      this.router.navigate(['/**']);
+    }
+
+    // Récupère les informations du Pokémon à partir de votre service ou API
+    const pokemonIdFromRoute = Number(
+      this.route.snapshot.paramMap.get('pokedexid')
+    );
+
+    // Utilisez l'ID récupéré pour obtenir l'objet pokemon correspondant
+    this.pokemonService.getPokemonById(pokemonIdFromRoute).subscribe((data) => {
+      this.pokemon = data;
+      console.log(this.pokemon.name);
     });
+    this.typeService.getTypes().subscribe((data) => {
+      this.types = data;
+    });
+  }
 
-    this.route.paramMap.subscribe((params) => {
-      const pokemonIdFromRoute = Number(params.get('pokedexid'));
-      console.log(pokemonIdFromRoute); // Vérifiez que l'ID est correctement récupéré
+  updatePokemon(
+    pre_evolution: number,
+    picture: string,
+    types: Type[],
+    description: string
+  ) {
+    let updatePokemon = {
+      pre_evolution: pre_evolution,
+      picture: picture,
+      types: types,
+      description: description,
+    };
 
-      this.pokemonService
-        .getPokemonById(pokemonIdFromRoute)
-        .subscribe((data) => {
-          this.pokemon = data;
+    if (!pre_evolution) {
+      pre_evolution = this.pokemon.pre_evolution;
+    }
 
-          this.trainerService
-            .getTrainerConnected()
-            .subscribe((trainer: Trainer) => {
-              // Vérifiez si le Trainer est connecté (vous devrez définir une condition appropriée ici)
-              this.isTrainerConnected = true;
-            });
+    if (!picture) {
+      picture = this.pokemon.picture;
+    }
 
-          // Effacez les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
-          this.evolutions = [];
-          this.preEvolution = undefined;
-          this.prePreEvolution = undefined;
-          this.postEvolutions = []; // Réinitialisez les post-évolutions ici
+    if (types.length === 0) {
+      types = this.pokemon.types;
+    }
 
-          if (this.pokemon.pre_evolution) {
-            // Si le Pokémon a une pré-évolution:
-            this.pokemonService
-              .getPokemonById(this.pokemon.pre_evolution)
-              .subscribe((preEvolution) => {
-                this.preEvolution = preEvolution;
+    if (!description) {
+      description = this.pokemon.description;
+    }
 
-                if (this.preEvolution.pre_evolution) {
-                  // Si la pré-évolution a elle-même une pré-évolution:
-                  this.pokemonService
-                    .getPokemonById(this.preEvolution.pre_evolution)
-                    .subscribe((prePreEvolution) => {
-                      this.prePreEvolution = prePreEvolution;
-                    });
-                }
-                console.log(preEvolution.pokedexid);
-              });
-          }
+    // Appelez votre service
+    this.pokemonService
+      .updatePokemon(this.pokemon.pokedexid, updatePokemon)
+      .subscribe(() => {
+        this.router.navigate([`/pokemons`]);
+      });
+  }
 
-          this.pokemonService.getPokemons().subscribe((allPokemons) => {
-            for (const otherPokemon of allPokemons) {
-              if (
-                otherPokemon.pre_evolution &&
-                otherPokemon.pre_evolution === this.pokemon.pokedexid
-              ) {
-                this.evolutions.push(otherPokemon);
-              }
-            }
-            for (const otherPokemon of allPokemons) {
-              if (otherPokemon.pre_evolution) {
-                for (const evolution of this.evolutions) {
-                  if (otherPokemon.pre_evolution === evolution.pokedexid) {
-                    this.postEvolutions.push(otherPokemon);
-                  }
-                }
-              }
-            }
-          });
-        });
+  deletePokemon(Pokemon: Pokemon) {
+    this.pokemonService.deletePokemon(Pokemon).subscribe({
+      next: (response) => {
+        this.router.navigate([`/pokemons`]);
+      },
+      error: (error) => {},
     });
   }
 }

@@ -39,7 +39,7 @@ export class PokemonEditComponent implements OnInit {
     // Utilisez l'ID récupéré pour obtenir l'objet pokemon correspondant
     this.pokemonService.getPokemonById(pokemonIdFromRoute).subscribe((data) => {
       this.pokemon = data;
-      console.log(this.pokemon.name);
+      console.log(this.pokemon.pre_evolution);
     });
     this.typeService.getTypes().subscribe((data) => {
       this.types = data;
@@ -52,14 +52,7 @@ export class PokemonEditComponent implements OnInit {
     types: Type[],
     description: string
   ) {
-    let updatePokemon = {
-      pre_evolution: pre_evolution,
-      picture: picture,
-      types: types,
-      description: description,
-    };
-
-    if (!pre_evolution) {
+       if (!pre_evolution) {
       pre_evolution = this.pokemon.pre_evolution;
     }
 
@@ -75,6 +68,12 @@ export class PokemonEditComponent implements OnInit {
       description = this.pokemon.description;
     }
 
+     let updatePokemon = {
+       pre_evolution: pre_evolution,
+       picture: picture,
+       types: types,
+       description: description,
+     };
     // Appelez votre service
     this.pokemonService
       .updatePokemon(this.pokemon.pokedexid, updatePokemon)

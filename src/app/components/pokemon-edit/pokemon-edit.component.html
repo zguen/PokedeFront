@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" *ngIf="pokemon">
   <div class="">
     <div class="">
       <form>
-        <h1 class="title custom-font-solid">Modifier le Pokémon</h1>
+        <h1 class="title custom-font-solid">Modifier le Pokémon {{pokemon.name }}</h1>
 
         <!-- Champ "Pré-Évolution" (modifiable) -->
         <div class="form-group">

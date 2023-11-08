@@ -2,6 +2,6 @@
     <div class="zoneProfil">
         <h1 class="custom-font-solid">Bienvenue aux dresseurs!</h1>
         <span class="admin-indicator" *ngIf="profil.admin">#Admin</span>
-        <button class="btnDeconnect" (click)="logout()">Déconnexion</button>
+        <button class="btnDeconnect" (click)="logout()" [routerLink]="['']">Déconnexion</button>
     </div>
 </div>

@@ -24,7 +24,6 @@ import { PokemonEditComponent } from './components/pokemon-edit/pokemon-edit.com
 import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
-import { MasterComponent } from './components/master/master.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,6 @@ import { MasterComponent } from './components/master/master.component';
     PokemonEditComponent,
     PokemonAddComponent,
     PageTrainerComponent,
-    MasterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule],
   providers: [],

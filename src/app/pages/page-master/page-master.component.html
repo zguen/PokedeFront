@@ -1,5 +1,4 @@
 <div class="mainContainer">
-  <ng-container *ngIf="display">
     <div *ngIf="master" class="background">
       <app-profil-master [profil]="master"></app-profil-master>
       <div class="d-flex flex-wrap justify-content-center container-principal">
@@ -91,7 +90,4 @@
       *ngFor="let trainer of trainers"
       [trainer]="trainer"
     ></app-card-trainer>
-
-    <app-login-master *ngIf="!master" class="background"></app-login-master>
-  </ng-container>
 </div>

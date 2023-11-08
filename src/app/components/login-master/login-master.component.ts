@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginMaster } from 'src/app/models/login-master';
 import { MasterService } from 'src/app/services/master.service';
 
@@ -18,7 +19,7 @@ export class LoginMasterComponent {
   loginNone = false;
 
 
-  constructor(private masterService: MasterService) { }
+  constructor(private masterService: MasterService, private router: Router) { }
   
   login(loginForm: NgForm) {
     this.isFormValidate = true
@@ -26,6 +27,7 @@ export class LoginMasterComponent {
       this.masterService.loginMaster(this.master).subscribe({
         next: (response) => {
           sessionStorage.setItem('token', response.accessToken);
+          this.router.navigate(['/master']);
         },
         error: (error) => {
           this.loginNone = true;

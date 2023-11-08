@@ -1,1 +1,5 @@
 <h1 class="title custom-font-solid">ATTRAPEZ LES TOUS !!!</h1>
+<div id="app-container">
+    <app-login-master *ngIf="!isConnected"></app-login-master>
+    <p *ngIf="isConnected">Tu es déjà connecté <a href="/master">Cliquez ici pour accéder à la page Master</a></p>
+</div>

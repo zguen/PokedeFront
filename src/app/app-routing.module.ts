@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'personal', component: PersonalComponent },
   { path: 'login', component: LoginMasterComponent },
   { path: 'master', component: PageMasterComponent },
-  { path: 'master/register', component: RegisterMasterComponent },
+  { path: 'register', component: RegisterMasterComponent },
   { path: 'master/trainer/:id', component: TrainerComponent },
 ];
 

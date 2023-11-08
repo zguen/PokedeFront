@@ -23,6 +23,7 @@ import { CardTrainerComponent } from './components/card-trainer/card-trainer.com
 import { PokemonEditComponent } from './components/pokemon-edit/pokemon-edit.component';
 import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CardTrainerComponent,
     PokemonEditComponent,
     PokemonAddComponent,
+    PageTrainerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule],
   providers: [],

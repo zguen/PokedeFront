@@ -31,6 +31,7 @@ export class MasterComponent {
         this.display = true;
         this.master = response;
         this.trainers = response.trainers;
+        this.newTrainer.id_master = this.master.id
       },
       error: (error) => {
         this.display = true;

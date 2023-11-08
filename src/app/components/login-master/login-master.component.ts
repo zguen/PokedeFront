@@ -9,12 +9,14 @@ import { MasterService } from 'src/app/services/master.service';
   styleUrls: ['./login-master.component.css']
 })
 export class LoginMasterComponent {
+  
   master: LoginMaster = {
     email: '',
     password: ''
   }
   isFormValidate = false;
   loginNone = false;
+
 
   constructor(private masterService: MasterService) { }
   
@@ -24,7 +26,6 @@ export class LoginMasterComponent {
       this.masterService.loginMaster(this.master).subscribe({
         next: (response) => {
           sessionStorage.setItem('token', response.accessToken);
-          location.reload();
         },
         error: (error) => {
           this.loginNone = true;

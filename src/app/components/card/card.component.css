@@ -93,30 +93,59 @@ a:hover {
   opacity: 0.8;
 }
 
-@media (max-width: 480px) {
-  .card {
-    width: 230px;
-    border-radius: 15px;
-  }
-
-  .img-box {
-    width: 185px;
-    border-radius: 10px;
-  }
-
-  .content p {
-    font-size: 0.8rem;
-  }
-
-  a {
-    font-size: 0.9rem;
-  }
-}
-
-/* css flex type */
-
 #flex {
   margin-top: 1rem;
   display: flex;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 768px) {
+  .type-container {
+    display: none;
+    /* Cacher les types */
+  }
+  .card {
+    transition: none;
+    /* Supprimer la transition */
+    height: 250px;
+    /* Rétablir la hauteur initiale */
+  }
+
+  .card:hover {
+    height: 250px;
+    /* Annuler l'animation au survol */
+  }
+
+  .card .img-box {
+    top: 20px;
+    /* Rétablir la position initiale */
+    transform: none;
+    /* Annuler la transformation */
+    box-shadow: none;
+    /* Supprimer l'ombre */
+  }
+
+  .card:hover .img-box {
+    top: 20px;
+    /* Annuler la transition au survol */
+    transform: none;
+    box-shadow: none;
+  }
+
+  .content {
+    top: 160px;
+    /* Rétablir la position initiale */
+    height: 35px;
+    /* Rétablir la hauteur initiale */
+  }
+
+  .card:hover .content {
+    top: 160px;
+    /* Annuler l'animation au survol */
+    height: 35px;
+  }
+  .img-box {
+    height: 130px;
+    width: 80%;
+  }
 }

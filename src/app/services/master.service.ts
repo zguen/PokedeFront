@@ -48,7 +48,7 @@ export class MasterService {
     const headers = this.setHeaders();
 
     return this.http.post<Master>(
-      `http://localhost:3000/api/trainer`,
+      `http://localhost:3000/api/auth-trainer/register`,
       trainer,
       {
         headers,

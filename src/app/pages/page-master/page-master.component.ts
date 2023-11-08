@@ -5,11 +5,11 @@ import { MasterService } from 'src/app/services/master.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-master',
-  templateUrl: './master.component.html',
-  styleUrls: ['./master.component.css'],
+  selector: 'app-page-master',
+  templateUrl: './page-master.component.html',
+  styleUrls: ['./page-master.component.css'],
 })
-export class MasterComponent {
+export class PageMasterComponent {
   master!: Master;
   display: boolean = false;
   trainers?: Trainer[];

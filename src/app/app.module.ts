@@ -11,7 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AllPokemonsComponent } from './components/all-pokemons/all-pokemons.component';
 import { FiltersComponent } from './components/filters/filters.component';
-import { MasterComponent } from './pages/master/master.component';
+import { PageMasterComponent } from './pages/page-master/page-master.component';
 import { LoginMasterComponent } from './components/login-master/login-master.component';
 import { RegisterMasterComponent } from './components/register-master/register-master.component';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +24,7 @@ import { PokemonEditComponent } from './components/pokemon-edit/pokemon-edit.com
 import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
+import { MasterComponent } from './components/master/master.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { PageTrainerComponent } from './pages/page-trainer/page-trainer.componen
     NavbarComponent,
     AllPokemonsComponent,
     FiltersComponent,
-    MasterComponent,
+    PageMasterComponent,
     LoginMasterComponent,
     RegisterMasterComponent,
     ProfilMasterComponent,
@@ -46,6 +47,7 @@ import { PageTrainerComponent } from './pages/page-trainer/page-trainer.componen
     PokemonEditComponent,
     PokemonAddComponent,
     PageTrainerComponent,
+    MasterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule],
   providers: [],

@@ -1,10 +1,97 @@
 <div class="container-card">
-    <button class="card-enfant d-flex justify-content-start button-shadow-hover"
-        [routerLink]="['/master/trainer/',trainer.id]">
-        <div class="card d-flex flex-wrap justify-content-center">
-            <div>
-                <p>{{trainer.nickname}}</p>
+  <button
+    class="card-enfant d-flex justify-content-start button-shadow-hover"
+    data-bs-toggle="modal"
+    [attr.data-bs-target]="'#loginModal' + trainer.id"
+  >
+    <div class="card d-flex flex-wrap justify-content-center">
+      <div>
+        <p>{{ trainer.nickname }}</p>
+      </div>
+    </div>
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  [attr.id]="'loginModal' + trainer.id"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Connexion</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #connexion="ngForm" (ngSubmit)="login(connexion)">
+          <div class="mb-3">
+            <label for="username" class="col-form-label">Nom du dresseur</label>
+            <input
+              type="text"
+              required
+              class="form-control"
+              [(ngModel)]="trainerLog.nickname"
+              name="nickname"
+              #nickname="ngModel"
+              [class.input-error]="nickname.invalid && isFormValidate"
+              [class.input-error-log]="loginNone"
+            />
+            <div *ngIf="nickname.invalid && isFormValidate" class="alert">
+                <div *ngIf="nickname.errors?.['required']">Le pseudo est obligatoire.</div>
+                <div *ngIf="nickname.errors?.['pattern']">Veuillez entrer un pseudo valide.</div>
             </div>
-        </div>
-    </button>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="col-form-label">Mot de passe:</label>
+            <input
+              type="password"
+              class="form-control"
+              required
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}"
+              [(ngModel)]="trainerLog.password"
+              name="password"
+              #password="ngModel"
+              [class.input-error]="password.invalid && isFormValidate"
+              [class.input-error-nickname]="loginNone"
+              placeholder="Mot de passe"
+            />
+            <div *ngIf="password.invalid && isFormValidate" class="alert">
+              <div *ngIf="password.errors?.['required']">
+                Le mot de passe est obligatoire.
+              </div>
+              <div class="errorMdp" *ngIf="password.errors?.['pattern']">
+                Au moins 6 caractères, 1 majuscule, 1 chiffre et 1 symbole.
+              </div>
+            <div>{{ trainerLog | json }}</div>
+            </div>
+            <div *ngIf="loginNone" class="alert">
+              Vérifiez votre pseudo et votre mot de passe.
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Connexion</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

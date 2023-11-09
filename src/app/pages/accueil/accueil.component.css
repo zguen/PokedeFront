@@ -12,3 +12,20 @@
 
     color: #e61515;
 }
+
+.card-container {
+    display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 85px;
+        margin-bottom: 30px;
+}
+
+.card-wrapper {
+    flex: 0 0 calc(33.33% - 10px);
+    /* Ajustez selon vos préférences */
+    margin-right: 10px;
+    /* Ajustez selon vos préférences */
+}

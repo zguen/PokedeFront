@@ -30,6 +30,13 @@ export class MasterService {
     return this.http.post<LoginAnswer>(`${this.baseApiUrl}/auth/login`, data);
   }
 
+  getMaster(idMaster: number): Observable<Master> {
+    const headers = this.setHeaders();
+    return this.http.get<Master>(`${this.baseApiUrl}/master/${idMaster}`, {
+      headers,
+    });
+  }
+
   getMasterProfil(): Observable<Master> {
     const headers = this.setHeaders();
     return this.http.get<Master>(`${this.baseApiUrl}/master`, { headers }).pipe(

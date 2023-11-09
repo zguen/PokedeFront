@@ -11,11 +11,11 @@ import { MasterService } from 'src/app/services/master.service';
   templateUrl: './pokemon-details.component.html',
   styleUrls: ['./pokemon-details.component.css'],
 })
-export class PokemonDetailsComponent implements OnInit {
+export class PokemonDetailsComponent implements OnInit {  
   isAdmin: boolean = false;
   isTrainerConnected: boolean = false;
 
-  pokemon!: Pokemon;
+  @Input()  pokemon!: Pokemon;
   preEvolution: Pokemon | undefined;
   prePreEvolution: Pokemon | undefined;
   evolutions: Pokemon[] = [];

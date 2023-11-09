@@ -1,5 +1,33 @@
 <h1 class="title custom-font-solid">ATTRAPEZ LES TOUS !!!</h1>
-<div id="app-container">
+<div id="app-container" class="row mx-auto">
+
+    <!-- Affichage de la carte Pokémon aléatoire -->
+    <div class="col-md-4" *ngIf="randomPokemon">
+        <app-card [pokemon]="randomPokemon"></app-card>
+    </div>
+    <div class="col-md-4">
+        <p>Bienvenue dans le Monde Pokémon !</p>
+
+        <p>Plongez dans l'univers captivant des Pokémon avec notre application unique. Explorez une vaste collection de
+            créatures
+            fascinantes, chacune avec ses propres pouvoirs et charmes uniques.</p>
+
+        <p>🔍 Explorez les Pokémon : Parcourez notre Pokédex pour découvrir des informations détaillées, des images
+            éclatantes, et des faits intéressants sur vos Pokémon préférés.</p>
+
+        <p>🏆 Attrapez vos Pokémon favoris : En créant un compte, vous pourrez constituer votre propre équipe de
+            Pokémon.
+            Choisissez parmi une myriade de créatures et créez une collection personnalisée qui reflète votre style de
+            dresseur.</p>
+
+
+        <p>Rejoignez-nous dans cette aventure épique où la découverte, la collection, et la passion Pokémon vous
+            attendent à chaque
+            coin du monde !</p>
+    </div>
     <app-login-master *ngIf="!isConnected"></app-login-master>
-    <p *ngIf="isConnected">Tu es déjà connecté <a href="/master">Cliquez ici pour accéder à la page Master</a></p>
+    <p *ngIf="isConnected">
+        Tu es déjà connecté
+        <button [routerLink]="['/master']">Cliquez ici pour accéder à la page Master</button>
+    </p>
 </div>

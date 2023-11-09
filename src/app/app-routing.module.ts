@@ -17,16 +17,16 @@ const routes: Routes = [
   { path: 'pokemons/:pokedexid', component: PokemonDetailsComponent },
   { path: 'pokemons/navigate/:pokedexid', component: PokemonDetailsComponent },
   { path: 'pokemons/edit/:pokedexid', component: PokemonEditComponent },
-  { path: 'pokemons/list/add', component: PokemonAddComponent},
+  { path: 'pokemons/list/add', component: PokemonAddComponent },
   { path: 'personal', component: PersonalComponent },
   { path: 'login', component: LoginMasterComponent },
-  { path: 'master', component: PageMasterComponent },
   { path: 'register', component: RegisterMasterComponent },
-  { path: 'master/trainer/:id', component: TrainerComponent },
+  { path: 'master', component: PageMasterComponent },
+  { path: 'trainer/:id', component: TrainerComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

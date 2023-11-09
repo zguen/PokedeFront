@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Master } from 'src/app/models/master';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
+
+  master! : Master
   textLargeScreen: string = 'Mon PC Pokemon';
   textSmallScreen: string = 'Mes Pokemon';
 

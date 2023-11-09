@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Trainer } from '../models/trainer';
 import { LoginTrainer } from '../models/login-trainer';
-import { LoginAnswer } from '../models/login-answer';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +19,8 @@ export class TrainerService {
     );
   }
 
-  loginTrainer(data: LoginTrainer): Observable<LoginAnswer> {
-    return this.http.post<LoginAnswer>(
+  loginTrainer(data: LoginTrainer): Observable<void> {
+    return this.http.post<void>(
       `${this.baseApiUrl}/auth-trainer/login`,
       data
     );

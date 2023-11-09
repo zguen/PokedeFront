@@ -12,7 +12,7 @@ export class AllPokemonsComponent implements OnInit {
   public displayedPokemonCount: number = 5; // Commencez avec les 20 premiers
 
   public loadMorePokemon() {
-    this.displayedPokemonCount += 5; // Par exemple, ajoutez 20 de plus à chaque clic sur le bouton
+    this.displayedPokemonCount += 5; // Ajoute a chaque clic
   }
 
   ngOnInit(): void {}

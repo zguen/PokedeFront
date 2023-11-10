@@ -10,6 +10,7 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
 import { TrainerComponent } from './components/trainer/trainer.component';
 import { PokemonEditComponent } from './components/pokemon-edit/pokemon-edit.component';
 import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -22,7 +23,11 @@ const routes: Routes = [
   { path: 'login', component: LoginMasterComponent },
   { path: 'register', component: RegisterMasterComponent },
   { path: 'master', component: PageMasterComponent },
-  { path: 'trainer/:id', component: TrainerComponent },
+  {
+    path: 'trainer/:id',
+    component: TrainerComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

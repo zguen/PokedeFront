@@ -19,8 +19,8 @@ export class TrainerService {
     );
   }
 
-  loginTrainer(data: LoginTrainer): Observable<void> {
-    return this.http.post<void>(
+  loginTrainer(data: LoginTrainer): Observable<{ trainer: Trainer }> {
+    return this.http.post<{ trainer: Trainer }>(
       `${this.baseApiUrl}/auth-trainer/login`,
       data
     );

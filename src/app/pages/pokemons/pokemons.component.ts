@@ -55,8 +55,6 @@ export class PokemonsComponent {
   onSearchValue(value: string) {
     this.saveFilterTab.valeur = value;
     this.saveFilter(this.saveFilterTab);
-
-    console.log(value);
   }
 
   onFilterTypes(filterType: string[]) {
@@ -103,6 +101,5 @@ export class PokemonsComponent {
       // Si la valeur de recherche est vide, réinitialisez la liste filtrée pour afficher tous les Pokémon.
       this.pokemonsToDisplayFilter = [...this.pokemonsToDisplay];
     }
-    console.log(this.pokemonsToDisplayFilter);
   }
 }

@@ -60,7 +60,7 @@ export class PokemonDetailsComponent implements OnInit {
                 this.prePreEvolution = prePreEvolution;
               }
           )}
-            console.log(preEvolution.pokedexid);
+      
           });
         }
 

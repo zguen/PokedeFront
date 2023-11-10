@@ -39,7 +39,6 @@ export class PokemonEditComponent implements OnInit {
     // Utilisez l'ID récupéré pour obtenir l'objet pokemon correspondant
     this.pokemonService.getPokemonById(pokemonIdFromRoute).subscribe((data) => {
       this.pokemon = data;
-      console.log(this.pokemon.pre_evolution);
     });
     this.typeService.getTypes().subscribe((data) => {
       this.types = data;

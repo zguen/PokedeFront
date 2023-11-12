@@ -9,7 +9,7 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   styleUrls: ['./accueil.component.css'],
 })
 export class AccueilComponent implements OnInit {
-  isConnected = false;
+  
   randomPokemon: Pokemon | null = null; // Utilisation d'un seul Pokémon au lieu d'un tableau
 
   constructor(
@@ -18,9 +18,6 @@ export class AccueilComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.masterService.getMasterConnected().subscribe((master) => {
-      this.isConnected = !!master;
-    });
 
     this.getRandomPokemon(); // Modification ici
   }

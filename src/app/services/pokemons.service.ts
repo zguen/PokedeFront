@@ -67,4 +67,12 @@ export class PokemonsService {
       { headers }
     );
   }
+
+  capturePokemon(pokemonId: number, trainerId: number): Observable<void> {
+    // Logique pour capturer le Pokémon avec l'ID spécifié
+    return this.http.post<void>(`http://localhost:3000/api/pokemon/capture`, {
+      id_pokemon: pokemonId,
+      id_trainer: trainerId,
+    });
+  }
 }

@@ -86,6 +86,7 @@
         </div>
       </div>
     </div>
+    <app-login-master *ngIf="!isConnected"></app-login-master>
     <app-card-trainer
       *ngFor="let trainer of trainers"
       [trainer]="trainer"

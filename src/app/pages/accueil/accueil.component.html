@@ -25,9 +25,4 @@
             attendent à chaque
             coin du monde !</p>
     </div>
-    <app-login-master *ngIf="!isConnected"></app-login-master>
-    <p *ngIf="isConnected">
-        Tu es déjà connecté
-        <button [routerLink]="['/master']">Cliquez ici pour accéder à la page Master</button>
-    </p>
 </div>

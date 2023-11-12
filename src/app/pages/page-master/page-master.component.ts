@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PageMasterComponent {
   master!: Master;
   trainers?: Trainer[];
+  isConnected = false;
 
   newTrainer: Trainer = {
     firstname: '',
@@ -32,7 +33,10 @@ export class PageMasterComponent {
 
   ngOnInit(): void {
 
-
+    this.masterService.getMasterConnected().subscribe((master) => {
+      this.isConnected = !!master;
+    });
+    
     this.masterService.getMasterProfil().subscribe({
       next: (response) => {
         this.master = response;

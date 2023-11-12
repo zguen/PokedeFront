@@ -8,9 +8,12 @@ export class AuthService {
   private loggedInTrainer: Trainer | null = null;
 
   loginTrainer(trainer: Trainer): void {
-    // Logique de connexion
     this.loggedInTrainer = trainer;
-    console.log('dans service', this.loggedInTrainer);
+
+    // Déclenche la déconnexion automatique après 30 minutes d'inactivité
+    setTimeout(() => {
+      this.logoutTrainer();
+    }, 30 * 60 * 1000); // 30 minutes en millisecondes
   }
 
   logoutTrainer(): void {
@@ -24,10 +27,6 @@ export class AuthService {
   }
 
   getLoggedInTrainer(): Trainer | null {
-    console.log(
-      'Logged in trainer du service getLogged:',
-      this.loggedInTrainer
-    );
     return this.loggedInTrainer;
   }
 

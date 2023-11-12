@@ -7,10 +7,10 @@ import { LoginMasterComponent } from './components/login-master/login-master.com
 import { PageMasterComponent } from './pages/page-master/page-master.component';
 import { RegisterMasterComponent } from './components/register-master/register-master.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
-import { TrainerComponent } from './components/trainer/trainer.component';
 import { PokemonEditComponent } from './components/pokemon-edit/pokemon-edit.component';
 import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.component';
 import { AuthGuard } from './auth.guard';
+import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'master', component: PageMasterComponent },
   {
     path: 'trainer/:id',
-    component: TrainerComponent,
+    component: PageTrainerComponent,
     canActivate: [AuthGuard],
   },
 ];

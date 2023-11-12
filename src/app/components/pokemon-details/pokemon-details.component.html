@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col picturePoke">
       <div class="pokeball-container">
-        <button *ngIf="isTrainerConnected" class="pokeball"></button>
+        <button *ngIf="isTrainerConnected" class="pokeball" (click)="capturePokemon(pokemon)"></button>
         <button class="btn btn-primary" *ngIf="isAdmin" [routerLink]="['/pokemons/edit/', pokemon.pokedexid]">
           Editer ce pokemon
         </button>

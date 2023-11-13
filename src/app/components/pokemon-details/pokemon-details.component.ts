@@ -43,11 +43,7 @@ export class PokemonDetailsComponent implements OnInit {
         .subscribe((data) => {
           this.pokemon = data;
 
-          this.trainerService
-            .getTrainerConnected()
-            .subscribe((trainer: Trainer) => {
-              this.isTrainerConnected = true;
-            });
+          this.verifierConnexionTrainer();
 
           // Effacez les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
           this.evolutions = [];
@@ -96,11 +92,15 @@ export class PokemonDetailsComponent implements OnInit {
     });
   }
 
+  verifierConnexionTrainer(): void {
+    this.isTrainerConnected = this.authService.isAuthenticated();
+  }
+
   capturePokemon(pokemon: Pokemon): void {
     // Obtenez le dresseur connecté
     if (this.authService.isAuthenticated()) {
       const loggedInTrainerId = this.authService.getLoggedInTrainer()?.id;
-      console.log(loggedInTrainerId)
+      console.log(loggedInTrainerId);
 
       // Vérifiez si loggedInTrainerId est défini
       if (loggedInTrainerId !== undefined) {
@@ -117,13 +117,7 @@ export class PokemonDetailsComponent implements OnInit {
               // Gérer l'erreur, afficher un message à l'utilisateur, etc.
             }
           );
-      } else {
-        console.error('ID du dresseur non défini.');
-        // Gérer le cas où l'ID du dresseur n'est pas défini, afficher un message à l'utilisateur, etc.
       }
-    } else {
-      console.error("L'utilisateur n'est pas authentifié.");
-      // Gérer le cas où l'utilisateur n'est pas authentifié, afficher un message à l'utilisateur, etc.
     }
   }
 }

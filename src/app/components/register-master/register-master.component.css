@@ -1,6 +1,9 @@
-
 .signup-form {
-    background-size: cover;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
 }
 
 .sign-back h1 {
@@ -9,7 +12,7 @@
     color: #fff;
     margin-top: 0;
     letter-spacing: 5px;
-    text-shadow: 1px 1px 1px #333
+    text-shadow: 1px 1px 1px #333;
 }
 
 .signup-row {
@@ -19,32 +22,36 @@
 }
 
 .signup-row input {
+    width: 100%;
     padding: 5px 0;
     border: 0;
     border-bottom: 1px solid #fff;
     background: transparent;
-    width: 50%;
     text-align: center;
     outline: none;
     color: #fff;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .signup-row input::-webkit-input-placeholder {
     color: #fff;
-    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.6)
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.6);
 }
 
 .signup-row i {
     color: #fff;
     position: relative;
     left: 20px;
-    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.6)
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.6);
 }
 
 .signup-row a {
     font-size: 40px;
     text-decoration: none;
+}
+
+.sign-back {
+    width: 50%;
 }
 
 .signup-row a i {
@@ -74,4 +81,13 @@
 
 input[type="checkbox"] {
     position: relative;
+    top: 1px;
+}
+
+.alert {
+    color: #982312;
+    font-size: 0.8rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }

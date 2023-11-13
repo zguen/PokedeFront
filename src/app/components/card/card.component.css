@@ -9,9 +9,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px;
+  width: 277px;
   max-width: 100%;
-  height: 250px;
+  height: 277px;
   background: rgb(44, 62, 80);
   border-radius: 20px;
   transition: 0.5s;
@@ -99,7 +99,7 @@ a:hover {
   justify-content: space-evenly;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   .type-container {
     display: none;
     /* Cacher les types */
@@ -107,9 +107,8 @@ a:hover {
   .card {
     transition: none;
     /* Supprimer la transition */
-    height: 250px;
-    /* Rétablir la hauteur initiale */
     position: relative;
+    height: 250px;
   }
 
   .card:hover {
@@ -149,8 +148,9 @@ a:hover {
     height: 130px;
     width: 80%;
   }
+
   .boutOn {
-    position: absolute;
-      z-index: 999;
+    position: relative;
+    z-index: 10;
   }
 }

@@ -1,13 +1,6 @@
-<app-trainer></app-trainer>
-<app-filters></app-filters>
-
-<div class="contain">
-    <div class="container-pokemon">
-        <div *ngFor="let pokemon of capturedPokemons.slice(0, displayedPokemonCount)">
-            <app-card [pokemon]="pokemon"></app-card>
-        </div>
-    </div>
-    <div class="center-button">
-        <button (click)="loadMorePokemon()" class="btn-pokemon">Plus de Pokemons!!!</button>
-    </div>
-</div>
+<app-filters (searchFilter)="onSearchValue($event)"
+    [tabTypes]="tabTypes"
+    (newTypeEvent)="onFilterTypes($event)"
+    [tabGenerations]="tabGenerations"
+    (newGenerationEvent)="onFilterGeneration($event)"></app-filters>
+<app-captured-pokemons [capturedPokemons]="capturedPokemonsFilter"></app-captured-pokemons>

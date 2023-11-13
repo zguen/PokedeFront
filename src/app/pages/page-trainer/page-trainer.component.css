@@ -1,0 +1,4 @@
+.contain {
+    overflow-y: auto;
+    /* Active la barre de défilement verticale lorsque le contenu dépasse la hauteur maximale */
+}

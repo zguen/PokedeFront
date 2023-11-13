@@ -2,6 +2,8 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 80vh;
 }
 
 .sign-back h1 {
@@ -59,6 +61,7 @@
 .form-bottom {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .remember:not(:last-child) {
@@ -88,4 +91,5 @@ input[type="checkbox"] {
   padding-top: 0;
   padding-bottom: 0;
   margin-bottom: 0;
+ text-align: center;
 }

@@ -24,6 +24,7 @@ import { PokemonEditComponent } from './components/pokemon-edit/pokemon-edit.com
 import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
+import { CapturedPokemonsComponent } from './components/captured-pokemons/captured-pokemons.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { PageTrainerComponent } from './pages/page-trainer/page-trainer.componen
     PokemonEditComponent,
     PokemonAddComponent,
     PageTrainerComponent,
+    CapturedPokemonsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule],
   providers: [],

@@ -1,5 +1,18 @@
+.container {
+
+    display: flex;
+    justify-content: center;
+}
+
 #app-container {
     display: flex;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+}
+
+.pokemon {
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -8,7 +21,7 @@
 
     margin: 0;
 
-    margin-top: 1rem;
+    margin-top: 4rem;
     margin-bottom: 2rem;
 
     font-size: 2.5rem;
@@ -28,9 +41,40 @@
         margin-bottom: 30px;
 }
 
+.link {
+    text-align: center;
+    font-size: x-large;
+}
+
+.link a {
+    color: #e61515;
+    transition: all 500ms;
+}
+
+.link a:hover {
+    color: #fff;
+}
+
 .card-wrapper {
     flex: 0 0 calc(33.33% - 10px);
     /* Ajustez selon vos préférences */
     margin-right: 10px;
     /* Ajustez selon vos préférences */
+}
+
+.mainText {
+    background-color: rgba(242, 242, 242, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 48rem) {
+    
+    #app-container {
+        margin-top: 3rem;
+    }
+    .title {
+        margin-top: 3rem;
+    }
 }

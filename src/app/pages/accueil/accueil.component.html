@@ -1,28 +1,41 @@
-<h1 class="title custom-font-solid">ATTRAPEZ LES TOUS !!!</h1>
-<div id="app-container" class="row mx-auto">
+<div>
+  <h1 class="title custom-font-solid">ATTRAPEZ LES TOUS !!!</h1>
+  <div id="app-container" class="row mx-auto">
+    <div class="col-md-4 mainText">
+      <div>
+        <p><strong>Bienvenue dans le Monde Pokémon !</strong></p>
+
+        <p>
+          Plongez dans l'univers captivant des Pokémon avec notre application
+          unique. Explorez une vaste collection de créatures fascinantes,
+          chacune avec ses propres pouvoirs et charmes uniques.
+        </p>
+
+        <p>
+          🔍 Explorez les Pokémon : Parcourez notre Pokédex pour découvrir des
+          informations détaillées, des images éclatantes, et des faits
+          intéressants sur vos Pokémon préférés.
+        </p>
+
+        <p>
+          🏆 Attrapez vos Pokémon favoris : En créant un compte, vous pourrez
+          choisir parmi une myriade de créatures et créer une collection
+          personnalisée qui reflète votre style de dresseur.
+        </p>
+
+        <p>
+          Rejoignez-nous dans cette aventure épique où la découverte, la
+          collection, et la passion Pokémon vous attendent !
+        </p>
+      </div>
+      <div class="link">
+        <a [routerLink]="['/login']"><strong>En avant!!!!</strong></a>
+      </div>
+    </div>
 
     <!-- Affichage de la carte Pokémon aléatoire -->
-    <div class="col-md-4" *ngIf="randomPokemon">
-        <app-card [pokemon]="randomPokemon"></app-card>
+    <div class="col-md-4 pokemon d-none d-md-block" *ngIf="randomPokemon">
+      <app-card [pokemon]="randomPokemon"></app-card>
     </div>
-    <div class="col-md-4">
-        <p>Bienvenue dans le Monde Pokémon !</p>
-
-        <p>Plongez dans l'univers captivant des Pokémon avec notre application unique. Explorez une vaste collection de
-            créatures
-            fascinantes, chacune avec ses propres pouvoirs et charmes uniques.</p>
-
-        <p>🔍 Explorez les Pokémon : Parcourez notre Pokédex pour découvrir des informations détaillées, des images
-            éclatantes, et des faits intéressants sur vos Pokémon préférés.</p>
-
-        <p>🏆 Attrapez vos Pokémon favoris : En créant un compte, vous pourrez constituer votre propre équipe de
-            Pokémon.
-            Choisissez parmi une myriade de créatures et créez une collection personnalisée qui reflète votre style de
-            dresseur.</p>
-
-
-        <p>Rejoignez-nous dans cette aventure épique où la découverte, la collection, et la passion Pokémon vous
-            attendent à chaque
-            coin du monde !</p>
-    </div>
+  </div>
 </div>

@@ -28,6 +28,8 @@ export class LoginMasterComponent {
         next: (response) => {
           sessionStorage.setItem('token', response.accessToken);
           this.router.navigate(['/master']);
+          location.reload();
+          
         },
         error: (error) => {
           this.loginNone = true;

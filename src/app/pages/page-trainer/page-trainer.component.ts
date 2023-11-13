@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { AuthService } from 'src/app/services/auth.service';
 import { PokemonsService } from 'src/app/services/pokemons.service';
@@ -8,8 +8,19 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   templateUrl: './page-trainer.component.html',
   styleUrls: ['./page-trainer.component.css'],
 })
-export class PageTrainerComponent implements OnInit {
+export class PageTrainerComponent {
   capturedPokemons: Pokemon[] = [];
+
+  tabTypes: string[] = [];
+  tabGenerations: string[] = [];
+
+  capturedPokemonsFilter: Pokemon[] = [];
+
+  saveFilterTab = {
+    type: ['a'],
+    generation: [''],
+    valeur: '',
+  };
 
   constructor(
     private pokemonService: PokemonsService,
@@ -36,14 +47,84 @@ export class PageTrainerComponent implements OnInit {
                 capturedPokemon.pokedexid === pokemon.pokedexid
             )
           );
-        } else {
-          // Gérez le cas où loggedInTrainer ou loggedInTrainer.pokemon est undefined
-          console.error('Dresseur non connecté ou Pokémon non défini');
         }
+
+        // Nouvelles modifications
+        this.capturedPokemons.forEach((pokemon) => {
+          pokemon.types.forEach((type) => {
+            const tabAlreadyIn = this.tabTypes.some((t) => t === type.wording);
+            if (!tabAlreadyIn) {
+              this.tabTypes.push(type.wording);
+            }
+          });
+        });
+
+        this.tabGenerations = [
+          ...new Set(
+            this.capturedPokemons.map((pokemon) => pokemon.generation.wording)
+          ),
+        ];
+
+        this.saveFilterTab = {
+          type: this.tabTypes,
+          generation: this.tabGenerations,
+          valeur: '',
+        };
       },
       (error) => {
         console.error('Erreur lors de la récupération des Pokémon :', error);
       }
     );
+  }
+
+  onSearchValue(value: string) {
+    this.saveFilterTab.valeur = value;
+    this.saveFilter(this.saveFilterTab);
+  }
+
+  onFilterTypes(filterType: string[]) {
+    this.saveFilterTab.type = [...filterType];
+    this.saveFilter(this.saveFilterTab);
+  }
+
+  onFilterGeneration(filterGeneration: string[]) {
+    this.saveFilterTab.generation = [...filterGeneration];
+    this.saveFilter(this.saveFilterTab);
+  }
+
+  filterType(e: Pokemon): boolean {
+    for (let i = 0; i < e.types.length; i++) {
+      if (this.saveFilterTab.type.includes(e.types[i].wording)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  filterGeneration(e: Pokemon): boolean {
+    return (
+      this.saveFilterTab.generation.length === 0 ||
+      this.saveFilterTab.generation.includes(e.generation.wording)
+    );
+  }
+
+  saveFilter(saveFilter: any) {
+    if (
+      this.saveFilterTab.type.length >= 1 ||
+      this.saveFilterTab.valeur.length >= 1 ||
+      this.saveFilterTab.generation.length >= 1
+    ) {
+      this.capturedPokemonsFilter = this.capturedPokemons
+        .filter((e) =>
+          e.name
+            .toLowerCase()
+            .startsWith(this.saveFilterTab.valeur.toLocaleLowerCase())
+        )
+        .filter((e) => this.filterType(e))
+        .filter((e) => this.filterGeneration(e));
+    } else {
+      // Si la valeur de recherche est vide, réinitialisez la liste filtrée pour afficher tous les Pokémon.
+      this.capturedPokemonsFilter = [...this.capturedPokemons];
+    }
   }
 }

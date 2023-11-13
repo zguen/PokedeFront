@@ -6,7 +6,7 @@
     <div class="content">
       <h2>{{ pokemon.name }} #{{ pokemon.pokedexid }}</h2>
       <div id="flex">
-        <ng-container *ngFor="let type of pokemon.types" >
+        <ng-container *ngFor="let type of pokemon.types">
           <div class="type-container">
             <img [src]="type.picture" alt="{{ type.wording }}" />
             <p>{{ type.wording }}</p>
@@ -14,7 +14,12 @@
         </ng-container>
       </div>
       <div class="boutOn">
-      <button class="btn-pokemon" [routerLink]="['/pokemons/', pokemon.pokedexid]">Fiche Complete</button>
+        <button
+          class="btn-pokemon"
+          [routerLink]="['/pokemons/', pokemon.pokedexid]"
+        >
+          Fiche Complete
+        </button>
       </div>
     </div>
   </div>

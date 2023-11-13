@@ -28,3 +28,10 @@
     height: 100px;
     /* Ajustez la hauteur si nécessaire */
 }
+
+@media screen and (max-width: 48rem) {
+    .container-pokemon {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+}

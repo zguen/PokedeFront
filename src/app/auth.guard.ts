@@ -25,10 +25,6 @@ export class AuthGuard implements CanActivate {
       // Récupère l'ID de la page que l'utilisateur essaie de charger
       const requestedTrainerId = Number(route.paramMap.get('id'));
 
-      // Affiche dans la console les IDs pour déboguer
-      console.log('loggedTrainerId', loggedInTrainerId);
-      console.log('requestedTrainerId', requestedTrainerId);
-
       // Compare les IDs et prend la décision appropriée
       if (loggedInTrainerId === requestedTrainerId) {
         return true;

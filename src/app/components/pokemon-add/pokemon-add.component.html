@@ -123,7 +123,7 @@
 
         <div class="row justify-content-md-center">
           <!-- Bouton "Ajouter" -->
-          <div class="form-group testfont d-flex justify-content-center col-md-6">
+          <div class="form-group d-flex justify-content-center col">
             <button
               type="button"
               class="btn btn-primary"
@@ -133,9 +133,11 @@
               Ajouter
             </button>
           </div>
-          <button type="button" class="btn btn-color btn-block col-md-6">
-            Retour
-          </button>
+          <div class="d-flex justify-content-center col">
+            <button type="button" class="btn btn-color" [routerLink]="'/master'">
+              Retour
+            </button>
+          </div>
         </div>
 
         <!-- Modal de Confirmation -->

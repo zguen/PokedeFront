@@ -1,3 +1,4 @@
+<div class="contain">
 <div class="pokemon-card container" *ngIf="pokemon">
   <div
     [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
@@ -37,11 +38,12 @@
           </div>
         </ng-container>
       </div>
-
+      <div>
       <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Description:</span> {{ pokemon.description }}</p>
       <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Taille:</span> {{ pokemon.height }}</p>
       <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Poids:</span> {{ pokemon.weight }}</p>
       <p><span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Generation:</span> {{ pokemon.generation.wording }}</p>
+      </div>
     </div>
   </div>
 
@@ -113,3 +115,5 @@
     </ul>
   </div>
 </div>
+</div>
+

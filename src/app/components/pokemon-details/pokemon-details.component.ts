@@ -100,7 +100,6 @@ export class PokemonDetailsComponent implements OnInit {
     // Obtenez le dresseur connecté
     if (this.authService.isAuthenticated()) {
       const loggedInTrainerId = this.authService.getLoggedInTrainer()?.id;
-      console.log(loggedInTrainerId);
 
       // Vérifiez si loggedInTrainerId est défini
       if (loggedInTrainerId !== undefined) {
@@ -109,12 +108,9 @@ export class PokemonDetailsComponent implements OnInit {
           .capturePokemon(pokemon.pokedexid, loggedInTrainerId)
           .subscribe(
             () => {
-              console.log(`Le Pokémon ${pokemon.name} a été capturé !`);
-              // Vous pouvez également mettre à jour la liste des Pokémon après la capture
             },
             (erreur) => {
-              console.error('Erreur lors de la capture du Pokémon :', erreur);
-              // Gérer l'erreur, afficher un message à l'utilisateur, etc.
+             
             }
           );
       }

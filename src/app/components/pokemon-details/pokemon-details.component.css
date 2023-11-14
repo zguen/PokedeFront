@@ -1,3 +1,10 @@
+.contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
 .pokemon-card {
   background: #adb9c0;
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
@@ -5,7 +12,6 @@
   padding-top: 20px;
   clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
   width: 85%;
-  justify-content: center;
 }
 
 p {
@@ -23,7 +29,7 @@ p {
 }
 
 .pokeball {
-  background-image: url('../../../assets/img/pokeball.png');
+  background-image: url("../../../assets/img/pokeball.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -145,6 +151,9 @@ p {
 .evolution-img {
   max-height: 100%;
   width: auto;
+  display: flex;
+  justify-content: center;
+   margin-left: 5px;
 }
 
 .img-fluid {
@@ -170,4 +179,26 @@ ul {
 
 li {
   margin: 1rem;
+}
+
+@media screen and (max-width: 48rem) {
+  .row {
+    flex-direction: column;
+  }
+
+  .displayLittleScreen {
+    display: none;
+  }
+
+  .picturePoke {
+    border-right: none;
+    border-bottom: thick double black;
+    padding-bottom: 20px;
+    width: 92%;
+    margin-left: 4%;
+  }
+
+  .btn {
+    width: auto;
+  }
 }

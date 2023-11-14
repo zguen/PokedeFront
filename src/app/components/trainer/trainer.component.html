@@ -1,3 +1,6 @@
-<div *ngIf="trainer">
-  <p>Salut {{ trainer.nickname }}, voici ta collection de pokemons</p>
+<div class="profil-banner mb-3 shadow">
+  <div class="zoneProfil">
+    <h1 class="custom-font-solid"> Salut {{trainer.nickname}}, voici tes pokemons!!</h1>
+    <button class="btnDeconnect" (click)="logout()" [routerLink]="['/master']">Déconnexion</button>
+  </div>
 </div>

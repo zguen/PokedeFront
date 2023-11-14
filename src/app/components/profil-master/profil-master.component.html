@@ -1,7 +1,8 @@
 <div class="profil-banner mb-3 shadow">
     <div class="zoneProfil">
+        <button type="button" class="btn btn-primary" *ngIf="isAdmin" [routerLink]="['/pokemons/list/add']">Ajouter un Pokemon</button>
         <h1 class="custom-font-solid">Bienvenue aux dresseurs!</h1>
-        <span class="admin-indicator" *ngIf="profil.admin">#Admin</span>
-        <button class="btnDeconnect" (click)="logout()" [routerLink]="['']">Déconnexion</button>
+        <button class="btnDeconnect" (click)="logout()" [routerLink]="['']">Déconnexion</button> 
     </div>
+    <span class="admin-indicator" *ngIf="profil.admin">#Admin</span>
 </div>

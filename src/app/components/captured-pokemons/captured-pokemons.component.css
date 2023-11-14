@@ -1,0 +1,37 @@
+.contain {
+    margin-bottom: 50px;
+}
+
+.container-pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 85px;
+    margin-bottom: 20px;
+}
+
+.pokemon-card {
+    flex: 1 0 100%;
+    /* Par défaut, les cartes prennent toute la largeur du conteneur */
+    max-width: 100%;
+
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement (facultatif) */
+    height: 100px;
+    /* Ajustez la hauteur si nécessaire */
+}
+
+@media screen and (max-width: 48rem) {
+    .container-pokemon {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+}

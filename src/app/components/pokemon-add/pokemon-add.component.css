@@ -1,42 +1,70 @@
 .container {
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    width: 40vw;
+  height: 80vh;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
-
-h1 {
-    display: flex;
-    justify-content: center;
+.title {
+  margin-bottom: 4rem;
+  font-size: 2.5rem;
 }
 
+.center-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-back {
+  color: white;
+  background-color: grey;
+}
+
+.buttons {
+  margin-top: 1rem;
+}
 
 .ng-select.custom ::ng-deep .ng-select-container {
-    background-color: rgba(34, 87, 119, 0.6);
-    min-height: 0;
-    border-radius: 1.75rem;
-    height: 3.13rem;
-    width: 100%;
-    margin-bottom: 0.94rem;
-    display: flex;
-    line-height: 2.38rem;
-    padding-left: 2.5rem;
-}
-
-::placeholder {
-    opacity: 0.6;
+  background-color: rgba(34, 87, 119, 0.4);
+  min-height: 0;
+  border-radius: 1.75rem;
+  height: 3.13rem;
+  width: 100%;
+  margin-bottom: 0.94rem;
+  display: flex;
+  line-height: 2.38rem;
+  padding-left: 2.5rem;
 }
 
 .inputStyle {
-    background-color: rgba(34, 87, 119, 0.6);
-    min-height: 0;
-    border-radius: 1.75rem;
-    height: 3.13rem;
-    width: 100%;
-    margin-bottom: 0.94rem;
-    padding-left: 3rem;
-    font-size: medium;
+  background-color: rgba(34, 87, 119, 0.4);
+  min-height: 0;
+  border-radius: 1.75rem;
+  height: 3.13rem;
+  width: 100%;
+  margin-bottom: 0.94rem;
+  padding-left: 3rem;
+  font-size: medium;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 48rem) {
+
+    .container {
+        height: auto;
+    }
+
+  .title {
+    margin-bottom: 15px;
+  }
+  .ng-select.custom ::ng-deep .ng-select-container {
+    margin-bottom: 0px;
+  }
+  .inputStyle {
+    margin-bottom: 0px;
+  }
 }

@@ -22,7 +22,7 @@
 }
 
 .signup-row input {
-    width: 100%;
+  width: 100%;
   padding: 5px 0;
   border: 0;
   border-bottom: 1px solid #fff;
@@ -92,4 +92,10 @@ input[type="checkbox"] {
   padding-bottom: 0;
   margin-bottom: 0;
  text-align: center;
+}
+
+@media only screen and (max-width: 48rem) {
+  .sign-back {
+    width: 80%;
+  }
 }

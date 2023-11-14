@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { Trainer } from 'src/app/models/trainer';
+import { AuthService } from 'src/app/services/auth.service';
 import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class TrainerComponent {
   trainer!: Trainer
   trainerId!: string
 
-  constructor(private route: ActivatedRoute, private trainerService: TrainerService) {}
+  constructor(private route: ActivatedRoute, private trainerService: TrainerService, private authService: AuthService) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.trainerId = params['id'];
@@ -21,4 +22,10 @@ export class TrainerComponent {
       });
     });
   }
+
+  logout() {
+    this.authService.logoutTrainer()
+  }
+
+  
 }

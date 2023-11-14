@@ -1,6 +1,6 @@
-<div>
-  <h1 class="title custom-font-solid">ATTRAPEZ LES TOUS !!!</h1>
+<div class="contain">
   <div id="app-container" class="row mx-auto">
+    <h1 class="title custom-font-solid">ATTRAPEZ LES TOUS !!!</h1>
     <div class="col-md-4 mainText">
       <div>
         <p><strong>Bienvenue dans le Monde Pokémon !</strong></p>
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Affichage de la carte Pokémon aléatoire -->
-    <div class="col-md-4 pokemon d-none d-md-block" *ngIf="randomPokemon">
+    <div class="col-md-4 pokemon" *ngIf="randomPokemon">
       <app-card [pokemon]="randomPokemon"></app-card>
     </div>
   </div>

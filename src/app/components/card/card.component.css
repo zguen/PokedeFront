@@ -135,8 +135,7 @@ a:hover {
   .content {
     top: 160px;
     /* Rétablir la position initiale */
-    height: 35px;
-    /* Rétablir la hauteur initiale */
+    height: 80px
   }
 
   .card:hover .content {
@@ -151,6 +150,12 @@ a:hover {
 
   .boutOn {
     position: relative;
-    z-index: 10;
+    z-index: 10!important;
+  }
+  h2 {
+    margin-bottom: 0px;
+  }
+  .btn-pokemon {
+    padding: 4px;
   }
 }

@@ -18,6 +18,8 @@ export class PokemonEditComponent implements OnInit {
   selectedTypes: Type[] = [];
   pokemon!: Pokemon;
 
+  blockSelect: boolean = false;
+
   constructor(
     private pokemonService: PokemonsService,
     private router: Router,
@@ -51,7 +53,7 @@ export class PokemonEditComponent implements OnInit {
     types: Type[],
     description: string
   ) {
-       if (!pre_evolution) {
+    if (!pre_evolution) {
       pre_evolution = this.pokemon.pre_evolution;
     }
 
@@ -67,12 +69,12 @@ export class PokemonEditComponent implements OnInit {
       description = this.pokemon.description;
     }
 
-     let updatePokemon = {
-       pre_evolution: pre_evolution,
-       picture: picture,
-       types: types,
-       description: description,
-     };
+    let updatePokemon = {
+      pre_evolution: pre_evolution,
+      picture: picture,
+      types: types,
+      description: description,
+    };
     // Appelez votre service
     this.pokemonService
       .updatePokemon(this.pokemon.pokedexid, updatePokemon)

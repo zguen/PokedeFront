@@ -91,3 +91,9 @@ input[type="checkbox"] {
     padding-bottom: 0;
     margin-bottom: 0;
 }
+
+@media only screen and (max-width: 48rem) {
+    .sign-back {
+        width: 80%;
+    }
+}

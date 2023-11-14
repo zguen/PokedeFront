@@ -1,8 +1,13 @@
-<div class="container" *ngIf="pokemon">
+<div
+  class="container d-flex justify-content-center align-items-center"
+  *ngIf="pokemon"
+>
   <div class="">
     <div class="">
       <form>
-        <h1 class="title custom-font-solid">Modifier le Pokémon {{pokemon.name }}</h1>
+        <h1 class="title custom-font-solid d-flex justify-content-center">
+          Modifier le Pokémon {{ pokemon.name }} #{{ pokemon.pokedexid }}
+        </h1>
 
         <!-- Champ "Pré-Évolution" (modifiable) -->
         <div class="form-group">
@@ -51,10 +56,10 @@
           ></textarea>
         </div>
 
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-md-center buttons">
           <!-- Bouton "Modifier" -->
           <div
-            class="form-group testfont d-flex justify-content-center col-md-6"
+            class="form-group d-flex justify-content-center col-md-6"
           >
             <button
               type="button"
@@ -65,13 +70,15 @@
               Modifier
             </button>
           </div>
-          <button
-            type="button"
-            class="btn btn-color btn-block col-md-6"
-            [routerLink]="'/pokemon-list'"
-          >
-            Retour
-          </button>
+          <div class="d-flex justify-content-center col-md-6">
+            <button
+              type="button"
+              class="btn btn-primary"
+              [routerLink]="'/pokemon-list'"
+            >
+              Retour
+            </button>
+          </div>
         </div>
 
         <!-- Modal de Confirmation -->
@@ -126,34 +133,59 @@
           </div>
         </div>
       </form>
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+      <button
+        type="button"
+        class="btn btn-danger center-btn buttons"
+        data-bs-toggle="modal"
+        data-bs-target="#deleteConfirmationModal"
+      >
         Supprimer ce Pokémon
       </button>
-      
+
       <!-- Modal de Confirmation pour la suppression -->
-      <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel"
-        aria-hidden="true">
+      <div
+        class="modal fade"
+        id="deleteConfirmationModal"
+        tabindex="-1"
+        aria-labelledby="deleteConfirmationModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="deleteConfirmationModalLabel">
                 Confirmation de Suppression
               </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
               Êtes-vous sûr de vouloir supprimer ce Pokémon ?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
                 Annuler
               </button>
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deletePokemon(pokemon)">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+                (click)="deletePokemon(pokemon)"
+              >
                 Confirmer la Suppression
               </button>
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </div>

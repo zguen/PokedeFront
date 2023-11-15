@@ -1,6 +1,7 @@
 <div class="contain">
   <app-filters 
     (searchFilter)="onSearchValue($event)"
+    (searchId)="onSearchId($event)"
     [tabTypes]="tabTypes"
     (newTypeEvent)="onFilterTypes($event)"
     [tabGenerations]="tabGenerations"

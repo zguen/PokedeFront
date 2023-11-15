@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { PokemonsComponent } from './pages/pokemons/pokemons.component';
-import { PersonalComponent } from './pages/personal/personal.component';
 import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,13 +24,13 @@ import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.compon
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
 import { CapturedPokemonsComponent } from './components/captured-pokemons/captured-pokemons.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
     PokemonsComponent,
-    PersonalComponent,
     CardComponent,
     NavbarComponent,
     AllPokemonsComponent,
@@ -48,6 +47,7 @@ import { CapturedPokemonsComponent } from './components/captured-pokemons/captur
     PokemonAddComponent,
     PageTrainerComponent,
     CapturedPokemonsComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule],
   providers: [],

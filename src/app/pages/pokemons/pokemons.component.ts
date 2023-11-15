@@ -19,6 +19,7 @@ export class PokemonsComponent {
     type: ['a'],
     generation: [''],
     valeur: '',
+    idValeur: '',
   };
 
   constructor(private pokemonsService: PokemonsService) {}
@@ -48,12 +49,18 @@ export class PokemonsComponent {
         type: this.tabTypes,
         generation: this.tabGenerations,
         valeur: '',
+        idValeur: '',
       };
     });
   }
 
   onSearchValue(value: string) {
     this.saveFilterTab.valeur = value;
+    this.saveFilter(this.saveFilterTab);
+  }
+
+  onSearchId(idValue: string) {
+    this.saveFilterTab.idValeur = idValue;
     this.saveFilter(this.saveFilterTab);
   }
 
@@ -87,16 +94,18 @@ export class PokemonsComponent {
     if (
       this.saveFilterTab.type.length >= 1 ||
       this.saveFilterTab.valeur.length >= 1 ||
-      this.saveFilterTab.generation.length >= 1
+      this.saveFilterTab.generation.length >= 1 ||
+      this.saveFilterTab.idValeur.length >= 1
     ) {
-      this.pokemonsToDisplayFilter = this.pokemonsToDisplay
-        .filter((e) =>
+      this.pokemonsToDisplayFilter = this.pokemonsToDisplay.filter(
+        (e) =>
           e.name
             .toLowerCase()
-            .startsWith(this.saveFilterTab.valeur.toLocaleLowerCase())
-        )
-        .filter((e) => this.filterType(e))
-        .filter((e) => this.filterGeneration(e));
+            .startsWith(this.saveFilterTab.valeur.toLocaleLowerCase()) &&
+          e.pokedexid.toString().startsWith(this.saveFilterTab.idValeur) &&
+          this.filterType(e) &&
+          this.filterGeneration(e)
+      );
     } else {
       // Si la valeur de recherche est vide, réinitialisez la liste filtrée pour afficher tous les Pokémon.
       this.pokemonsToDisplayFilter = [...this.pokemonsToDisplay];

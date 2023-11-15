@@ -40,7 +40,6 @@ export class CardTrainerComponent {
             'Logged in trainer:',
             this.authService.getLoggedInTrainer()
           );
-          console.log(loginResponse.trainer.id);
 
           // Utilise l'ID du dresseur connecté pour la redirection
           this.router.navigate(['/trainer/', loginResponse.trainer.id]);

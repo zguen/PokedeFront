@@ -20,12 +20,13 @@ export class PageTrainerComponent {
     type: ['a'],
     generation: [''],
     valeur: '',
+    idValeur: '',
   };
 
   constructor(
     private pokemonService: PokemonsService,
     private authService: AuthService
-  ) {}
+  ) { }
 
   public displayedPokemonCount: number = 5; // Commencez avec les 20 premiers
 
@@ -69,6 +70,7 @@ export class PageTrainerComponent {
           type: this.tabTypes,
           generation: this.tabGenerations,
           valeur: '',
+          idValeur: '',
         };
       },
       (error) => {
@@ -79,6 +81,11 @@ export class PageTrainerComponent {
 
   onSearchValue(value: string) {
     this.saveFilterTab.valeur = value;
+    this.saveFilter(this.saveFilterTab);
+  }
+
+  onSearchId(idValue: string) {
+    this.saveFilterTab.idValeur = idValue;
     this.saveFilter(this.saveFilterTab);
   }
 
@@ -114,14 +121,15 @@ export class PageTrainerComponent {
       this.saveFilterTab.valeur.length >= 1 ||
       this.saveFilterTab.generation.length >= 1
     ) {
-      this.capturedPokemonsFilter = this.capturedPokemons
-        .filter((e) =>
+      this.capturedPokemonsFilter = this.capturedPokemons.filter(
+        (e) =>
           e.name
             .toLowerCase()
-            .startsWith(this.saveFilterTab.valeur.toLocaleLowerCase())
-        )
-        .filter((e) => this.filterType(e))
-        .filter((e) => this.filterGeneration(e));
+            .startsWith(this.saveFilterTab.valeur.toLocaleLowerCase()) &&
+          e.pokedexid.toString().startsWith(this.saveFilterTab.idValeur) &&
+          this.filterType(e) &&
+          this.filterGeneration(e)
+      );
     } else {
       // Si la valeur de recherche est vide, réinitialisez la liste filtrée pour afficher tous les Pokémon.
       this.capturedPokemonsFilter = [...this.capturedPokemons];

@@ -1,6 +1,11 @@
-<app-filters (searchFilter)="onSearchValue($event)"
-    [tabTypes]="tabTypes"
-    (newTypeEvent)="onFilterTypes($event)"
-    [tabGenerations]="tabGenerations"
-    (newGenerationEvent)="onFilterGeneration($event)"></app-filters>
-<app-captured-pokemons [capturedPokemons]="capturedPokemonsFilter"></app-captured-pokemons>
+<app-filters
+  (searchFilter)="onSearchValue($event)"
+  (searchId)="onSearchId($event)"
+  [tabTypes]="tabTypes"
+  (newTypeEvent)="onFilterTypes($event)"
+  [tabGenerations]="tabGenerations"
+  (newGenerationEvent)="onFilterGeneration($event)"
+></app-filters>
+<app-captured-pokemons
+  [capturedPokemons]="capturedPokemonsFilter"
+></app-captured-pokemons>

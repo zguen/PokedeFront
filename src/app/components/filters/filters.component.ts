@@ -10,6 +10,7 @@ export class FiltersComponent {
   @Input() tabTypes!: Array<string>;
   @Input() tabGenerations!: Array<string>;
   @Output() searchFilter = new EventEmitter<string>();
+  @Output() searchId = new EventEmitter<string>();
   @Output() newTypeEvent = new EventEmitter<string[]>();
   @Output() newGenerationEvent = new EventEmitter<string[]>();
   isAdmin: boolean = false;
@@ -27,6 +28,10 @@ export class FiltersComponent {
 
   onSearch(value: string) {
     this.searchFilter.emit(value);
+  }
+
+  onSearchId(value: string) {
+    this.searchId.emit(value);
   }
 
   onCheckType(e: Event) {

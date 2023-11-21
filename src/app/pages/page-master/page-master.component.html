@@ -1,94 +1,57 @@
 <div class="mainContainer">
-    <div *ngIf="master" class="background">
-      <app-profil-master [profil]="master"></app-profil-master>
-      <div class="d-flex flex-wrap justify-content-center container-principal">
-        <div class="card-mobile d-flex flex-wrap justify-content-center">
-          <!-- Button trigger modal -->
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            Nouveau dresseur, GO
-          </button>
+  <div *ngIf="master" class="background">
+    <app-profil-master [profil]="master"></app-profil-master>
+    <div class="d-flex flex-wrap justify-content-center container-principal">
+      <div class="card-mobile d-flex flex-wrap justify-content-center">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Nouveau dresseur, GO
+        </button>
 
-          
-          <!-- Modal -->
-          <div
-          class="modal fade"
-          id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <form (ngSubmit)="addTrainer()" class="modal-content">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      Présentes toi!
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <form (ngSubmit)="addTrainer()" class="modal-content">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Présentes toi!
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group position-input">
+                    <input [(ngModel)]="newTrainer.firstname" type="text" class="form-control shadow-sm style-input"
+                      name="firstname" placeholder="Prénom *" required />
                   </div>
-                  <div class="modal-body">
-                    <div class="form-group position-input">
-                      <input
-                        [(ngModel)]="newTrainer.firstname"
-                        type="text"
-                        class="form-control shadow-sm style-input"
-                        name="firstname"
-                        placeholder="Prénom *"
-                        required
-                      />
-                    </div>
-                    <div class="form-group position-input">
-                      <input
-                        [(ngModel)]="newTrainer.nickname"
-                        type="text"
-                        class="form-control shadow-sm style-input"
-                        name="nickname"
-                        placeholder="Ton nom de dresseur"
-                      />
-                    </div>
-                    <div class="form-group position-input">
-                      <input
-                        [(ngModel)]="newTrainer.password"
-                        type="password"
-                        class="form-control shadow-sm style-input"
-                        name="password"
-                        placeholder="Mot de passe (une majuscule et un caractère spécial) *"
-                        required
-                      />
-                    </div>
+                  <div class="form-group position-input">
+                    <input [(ngModel)]="newTrainer.nickname" type="text" class="form-control shadow-sm style-input"
+                      name="nickname" placeholder="Ton nom de dresseur" />
                   </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Fermer
-                    </button>
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
-                      En Avant!
-                    </button>
+                  <div class="form-group position-input">
+                    <input [(ngModel)]="newTrainer.password" type="password" class="form-control shadow-sm style-input"
+                      name="password" placeholder="Mot de passe (une majuscule et un caractère spécial) *" required />
                   </div>
                 </div>
-              </form>
-            </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Fermer
+                  </button>
+                  <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                    En Avant!
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <app-login-master *ngIf="!isConnected"></app-login-master>
-    <app-card-trainer
-      *ngFor="let trainer of trainers"
-      [trainer]="trainer"
-    ></app-card-trainer>
+  </div>
+  <app-login-master *ngIf="!isConnected"></app-login-master>
+  <div class="d-flex flex-wrap justify-content-center container-principal">
+    <div class="card-mobile d-flex flex-wrap justify-content-center">
+      <app-card-trainer *ngFor="let trainer of trainers" [trainer]="trainer" class="m-3"></app-card-trainer>
+    </div>
+  </div>
 </div>

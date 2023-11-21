@@ -1,16 +1,19 @@
-<div class="container-card">
-  <button
-    class="card-enfant d-flex justify-content-start button-shadow-hover"
-    data-bs-toggle="modal"
-    [attr.data-bs-target]="'#loginModal' + trainer.id"
-  >
-    <div class="card d-flex flex-wrap justify-content-center">
-      <div>
-        <p>{{ trainer.nickname }}</p>
-      </div>
+
+  <div class="card" style="width: 18rem">
+    <img src="../../../assets/img/trainer.jpg" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ trainer.nickname }}</h5>
+      <p class="card-text">Tu as actuellement x pokemon</p>
+      <button
+        class="button-shadow-hover"
+        data-bs-toggle="modal"
+        [attr.data-bs-target]="'#loginModal' + trainer.id"
+      >
+        Clic ici pour voire ta collection
+      </button>
     </div>
-  </button>
-</div>
+  </div>
+
 
 <!-- Modal -->
 <div
@@ -46,10 +49,13 @@
               [class.input-error-log]="loginNone"
             />
             <div *ngIf="nickname.invalid && isFormValidate" class="alert">
-                <div *ngIf="nickname.errors?.['required']">Le pseudo est obligatoire.</div>
-                <div *ngIf="nickname.errors?.['pattern']">Veuillez entrer un pseudo valide.</div>
+              <div *ngIf="nickname.errors?.['required']">
+                Le pseudo est obligatoire.
+              </div>
+              <div *ngIf="nickname.errors?.['pattern']">
+                Veuillez entrer un pseudo valide.
+              </div>
             </div>
-
           </div>
 
           <div class="mb-3">
@@ -73,7 +79,7 @@
               <div class="errorMdp" *ngIf="password.errors?.['pattern']">
                 Au moins 6 caractères, 1 majuscule, 1 chiffre et 1 symbole.
               </div>
-            <div>{{ trainerLog | json }}</div>
+              <div>{{ trainerLog | json }}</div>
             </div>
             <div *ngIf="loginNone" class="alert">
               Vérifiez votre pseudo et votre mot de passe.
@@ -88,7 +94,13 @@
             >
               Fermer
             </button>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Connexion</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Connexion
+            </button>
           </div>
         </form>
       </div>

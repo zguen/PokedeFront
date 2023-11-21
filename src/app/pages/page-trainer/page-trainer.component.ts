@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { AuthService } from 'src/app/services/auth.service';
 import { PokemonsService } from 'src/app/services/pokemons.service';
@@ -26,15 +26,20 @@ export class PageTrainerComponent {
   constructor(
     private pokemonService: PokemonsService,
     private authService: AuthService
-  ) { }
+  ) {}
 
-  public displayedPokemonCount: number = 5; // Commencez avec les 20 premiers
+  public displayedPokemonCount: number = 5; // Commencez avec les 5 premiers
+  public addDisplayedPokemon: number = 5;
 
-  public loadMorePokemon() {
-    this.displayedPokemonCount += 5; // Ajoute a chaque clic
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.adjustDisplayedPokemonCount(window.innerWidth);
   }
 
   ngOnInit(): void {
+    this.adjustDisplayedPokemonCount(window.innerWidth);
+    this.addAdjustDisplayedPokemon(window.innerWidth);
+
     this.pokemonService.getPokemons().subscribe(
       (allPokemons) => {
         // Obtenez le dresseur connecté
@@ -77,6 +82,29 @@ export class PageTrainerComponent {
         console.error('Erreur lors de la récupération des Pokémon :', error);
       }
     );
+  }
+
+  public loadMorePokemon() {
+    this.displayedPokemonCount += this.addDisplayedPokemon; // Ajoute a chaque clic
+  }
+
+  adjustDisplayedPokemonCount(screenWidth: number): void {
+    if (screenWidth < 768) {
+      this.displayedPokemonCount = 2;
+    } else if (screenWidth < 1700) {
+      this.displayedPokemonCount = 5;
+    } else {
+      this.displayedPokemonCount = 6;
+    }
+  }
+  addAdjustDisplayedPokemon(screenWidth: number): void {
+    if (screenWidth < 768) {
+      this.addDisplayedPokemon = 2;
+    } else if (screenWidth < 1700) {
+      this.addDisplayedPokemon = 5;
+    } else {
+      this.addDisplayedPokemon = 6;
+    }
   }
 
   onSearchValue(value: string) {

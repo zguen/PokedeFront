@@ -9,7 +9,7 @@ import { UpdatePokemon } from '../models/update-pokemon';
   providedIn: 'root',
 })
 export class PokemonsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   setHeaders() {
     const jwtToken = sessionStorage.getItem('token');
@@ -68,11 +68,31 @@ export class PokemonsService {
     );
   }
 
-  capturePokemon(pokemonId: number, trainerId: number): Observable<void> {
-    // Logique pour capturer le Pokémon avec l'ID spécifié
-    return this.http.post<void>(`http://localhost:3000/api/pokemon/capture`, {
+  capturePokemon(
+    pokemonId: number,
+    trainerId: number,
+    nickname?: string,
+    game?: string
+  ): Observable<void> {
+    const payload: any = {
       id_pokemon: pokemonId,
       id_trainer: trainerId,
-    });
+    };
+
+    // Ajoutez le nickname au payload s'il est défini
+    if (nickname !== undefined) {
+      payload.nickname = nickname;
+    }
+
+    // Ajoutez le game au payload s'il est défini
+    if (game !== undefined) {
+      payload.game = game;
+    }
+
+    // Envoyez la requête POST
+    return this.http.post<void>(
+      `http://localhost:3000/api/pokemon/capture`,
+      payload
+    );
   }
 }

@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
-import { TrainerService } from 'src/app/services/trainer.service';
-import { Trainer } from 'src/app/models/trainer';
 import { MasterService } from 'src/app/services/master.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -25,9 +23,9 @@ export class PokemonDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private pokemonService: PokemonsService,
-    private trainerService: TrainerService,
     private masterService: MasterService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -45,11 +43,11 @@ export class PokemonDetailsComponent implements OnInit {
 
           this.verifierConnexionTrainer();
 
-          // Effacez les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
+          // Efface les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
           this.evolutions = [];
           this.preEvolution = undefined;
           this.prePreEvolution = undefined;
-          this.postEvolutions = []; // Réinitialisez les post-évolutions ici
+          this.postEvolutions = []; // Réinitialise les post-évolutions
 
           if (this.pokemon.pre_evolution) {
             // Si le Pokémon a une pré-évolution:
@@ -108,12 +106,19 @@ export class PokemonDetailsComponent implements OnInit {
           .capturePokemon(pokemon.pokedexid, loggedInTrainerId)
           .subscribe(
             () => {
+              this.router.navigate(['/master']);
             },
-            (erreur) => {
-             
-            }
+            (erreur) => {}
           );
       }
     }
+  }
+  bonjourModal() {
+    const dialog = document.querySelector('dialog');
+    dialog?.showModal();
+  }
+  aurevoirModal() {
+    const dialog = document.querySelector('dialog');
+    dialog?.close();
   }
 }

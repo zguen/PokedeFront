@@ -1,19 +1,21 @@
-
-  <div class="card" style="width: 18rem">
-    <img src="../../../assets/img/trainer.jpg" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{ trainer.nickname }}</h5>
-      <p class="card-text">Tu as actuellement x pokemon</p>
-      <button
-        class="button-shadow-hover"
-        data-bs-toggle="modal"
-        [attr.data-bs-target]="'#loginModal' + trainer.id"
-      >
-        Clic ici pour voire ta collection
-      </button>
-    </div>
+<div class="card">
+  <img
+    src="../../../assets/img/trainer.jpg"
+    class="card-img-top cardImg"
+    alt="dresseur tenant un pokemon"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ trainer.nickname }}</h5>
+    <p class="card-text">Tu as actuellement x pokemon</p>
+    <button
+      class="button-shadow-hover"
+      data-bs-toggle="modal"
+      [attr.data-bs-target]="'#loginModal' + trainer.id"
+    >
+      Clic ici pour voire ta collection
+    </button>
   </div>
-
+</div>
 
 <!-- Modal -->
 <div
@@ -23,7 +25,7 @@
   aria-labelledby="loginModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="loginModalLabel">Connexion</h5>

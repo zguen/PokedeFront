@@ -25,6 +25,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
 import { CapturedPokemonsComponent } from './components/captured-pokemons/captured-pokemons.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     CapturedPokemonsComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

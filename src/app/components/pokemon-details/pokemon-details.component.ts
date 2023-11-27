@@ -106,6 +106,40 @@ export class PokemonDetailsComponent implements OnInit {
           .capturePokemon(pokemon.pokedexid, loggedInTrainerId)
           .subscribe(
             () => {
+                  this.pokemonService.getPokemons().subscribe(
+                    (allPokemons) => {
+                      // Obtenez le dresseur connecté
+                      const loggedInTrainer =
+                        this.authService.getLoggedInTrainer();
+
+                      if (loggedInTrainer && loggedInTrainer.pokemon) {
+                        // Filtrez les Pokémon capturés par le dresseur connecté
+                        const capturedPokemons = allPokemons.filter((pokemon) =>
+                          loggedInTrainer!.pokemon!.some(
+                            (capturedPokemon) =>
+                              capturedPokemon.pokedexid === pokemon.pokedexid
+                          )
+                        );
+                        console.log('capture', capturedPokemons);
+console.log(capturedPokemons,'dans détail');
+
+                        this.pokemonService.capturedPokemon$.next(
+                          capturedPokemons
+                        );
+                      } else {
+                        // Gérez le cas où loggedInTrainer ou loggedInTrainer.pokemon est undefined
+                        console.error(
+                          'Dresseur non connecté ou Pokémon non défini'
+                        );
+                      }
+                    },
+                    (error) => {
+                      console.error(
+                        'Erreur lors de la récupération des Pokémon :',
+                        error
+                      );
+                    }
+                  );
               this.router.navigate(['/master']);
             },
             (erreur) => {}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Pokemon } from '../models/pokemon';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { CreatePokemon } from '../models/create-pokemon';
 import { UpdatePokemon } from '../models/update-pokemon';
 
@@ -9,7 +9,10 @@ import { UpdatePokemon } from '../models/update-pokemon';
   providedIn: 'root',
 })
 export class PokemonsService {
-  constructor(private http: HttpClient) { }
+  capturedPokemon$ = new Subject<Pokemon[]>();
+  // capturedPokemon: Pokemon[] =[]
+
+  constructor(private http: HttpClient) {}
 
   setHeaders() {
     const jwtToken = sessionStorage.getItem('token');
@@ -94,5 +97,10 @@ export class PokemonsService {
       `http://localhost:3000/api/pokemon/capture`,
       payload
     );
+  }
+
+  getPokemonsByTrainer(trainerId: number): Observable<Pokemon[]> {
+    const url = `http://localhost:3000/api/pokemon/by-trainer/${trainerId}`;
+    return this.http.get<Pokemon[]>(url);
   }
 }

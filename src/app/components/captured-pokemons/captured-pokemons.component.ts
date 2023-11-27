@@ -19,31 +19,35 @@ export class CapturedPokemonsComponent implements OnInit {
   public displayedPokemonCount: number = 5; // Commencez avec les 5 premiers
 
   public loadMorePokemon() {
-    this.displayedPokemonCount += 5; // Ajoute a chaque clic
+    this.displayedPokemonCount += 5; // Ajoute à chaque clic
   }
 
   ngOnInit(): void {
-    this.pokemonService.getPokemons().subscribe(
-      (allPokemons) => {
-        // Obtenez le dresseur connecté
-        const loggedInTrainer = this.authService.getLoggedInTrainer();
+    this.loadCapturedPokemons();
+  }
 
-        if (loggedInTrainer && loggedInTrainer.pokemon) {
-          // Filtrez les Pokémon capturés par le dresseur connecté
-          this.capturedPokemons = allPokemons.filter((pokemon) =>
-            loggedInTrainer!.pokemon!.some(
-              (capturedPokemon) =>
-                capturedPokemon.pokedexid === pokemon.pokedexid
-            )
+  private loadCapturedPokemons() {
+    // Obtien le dresseur connecté
+    const loggedInTrainer = this.authService.getLoggedInTrainer();
+
+    if (loggedInTrainer && loggedInTrainer.id) {
+      
+      this.pokemonService.getPokemonsByTrainer(loggedInTrainer.id).subscribe(
+        (capturedPokemons) => {
+          
+          this.capturedPokemons = capturedPokemons.sort((a, b) => a.pokedexid - b.pokedexid);
+          this.pokemonService.capturedPokemon$.next(this.capturedPokemons);
+        },
+        (error) => {
+          console.error(
+            'Erreur lors de la récupération des Pokémon capturés :',
+            error
           );
-        } else {
-          // Gérez le cas où loggedInTrainer ou loggedInTrainer.pokemon est undefined
-          console.error('Dresseur non connecté ou Pokémon non défini');
         }
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des Pokémon :', error);
-      }
-    );
+      );
+    } else {
+      // Gérez le cas où loggedInTrainer ou loggedInTrainer.id est undefined
+      console.error('Dresseur non connecté ou ID non défini');
+    }
   }
 }

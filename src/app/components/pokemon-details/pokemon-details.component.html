@@ -12,7 +12,7 @@
         <div class="pokeball-container">
           <!-- Ouverture Modale capture pokemon-->
           <button
-            
+            *ngIf="isTrainerConnected"
             type="button"
             class="pokeball"
             (click)="bonjourModal()"

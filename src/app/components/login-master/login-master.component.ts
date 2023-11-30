@@ -36,7 +36,6 @@ export class LoginMasterComponent {
         },
         // En cas d'erreur lors de la requête
         error: (error) => {
-          // Activation du drapeau indiquant une erreur de connexion
           this.loginNone = true;
         },
       });

@@ -9,7 +9,7 @@ import { Pokemon } from 'src/app/models/pokemon';
 export class AllPokemonsComponent implements OnInit {
   @Input() allPokemons!: Pokemon[];
 
-  public displayedPokemonCount: number = 5; // Commencez avec les 5 premiers
+  public displayedPokemonCount: number = 5; // Commence avec les 5 premiers
   public addDisplayedPokemon: number = 5;
 
   @HostListener('window:resize', ['$event'])

@@ -56,7 +56,6 @@ export class PageMasterComponent {
   addTrainer() {
     this.masterService.addTrainerByMaster(this.newTrainer).subscribe({
       next: (response) => {
-        this.cdr.detectChanges();
         this.router.navigate([`/master`]);
       },
       error: (error) => {

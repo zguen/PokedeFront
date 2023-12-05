@@ -10,7 +10,6 @@ import { UpdatePokemon } from '../models/update-pokemon';
 })
 export class PokemonsService {
   capturedPokemon$ = new Subject<Pokemon[]>();
-  // capturedPokemon: Pokemon[] =[]
 
   constructor(private http: HttpClient) {}
 

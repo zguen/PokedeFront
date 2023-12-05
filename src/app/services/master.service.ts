@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { LoginMaster } from '../models/login-master';
 import { LoginAnswer } from '../models/login-answer';
 import { Master } from '../models/master';
@@ -12,7 +12,9 @@ import { Trainer } from '../models/trainer';
 export class MasterService {
   private baseApiUrl = 'http://localhost:3000/api';
 
-  public isLog$: BehaviorSubject<boolean>
+  public isLog$: BehaviorSubject<boolean>;
+  addedTrainers$ = new Subject<Trainer[]>();
+  addedTrainers: Trainer [] = []
 
   constructor(private http: HttpClient) {
     const token = sessionStorage.getItem('token');

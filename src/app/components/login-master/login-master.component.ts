@@ -23,9 +23,8 @@ export class LoginMasterComponent {
     this.isFormValidate = true;
     // Vérification si le formulaire est valide
     if (loginForm.valid) {
-      // Appel du service de connexion du "master" avec les informations saisies
+      // Appel du service de connexion
       this.masterService.loginMaster(this.master).subscribe({
-        // En cas de succès de la requête
         next: (response) => {
           // Stockage du jeton d'accès dans la session
           sessionStorage.setItem('token', response.accessToken);

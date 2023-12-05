@@ -55,10 +55,4 @@ export class CapturedPokemonsComponent implements OnInit {
       console.error('Dresseur non connecté ou ID non défini');
     }
   }
-
-  // Ajoutez la méthode ngOnDestroy dans votre composant pour gérer la désinscription
-  ngOnDestroy() {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
 }

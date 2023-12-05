@@ -21,7 +21,7 @@ export class ProfilMasterComponent {
     });
   }
   logout() {
+    this.masterService.isLog$.next(false)
     sessionStorage.clear();
-    this.router.navigate(['/login']);
   }
 }

@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PageMasterComponent {
   master!: Master;
   trainers?: Trainer[];
-  isConnected = false;
+  isConnected!: boolean;
 
   newTrainer: Trainer = {
     firstname: '',
@@ -32,18 +32,20 @@ export class PageMasterComponent {
   ) {}
 
   ngOnInit(): void {
-
-    this.masterService.getMasterConnected().subscribe((master) => {
-      this.isConnected = !!master;
+    this.masterService.isLog$.subscribe((resp) => {
+      this.isConnected = resp;      
+      if (this.isConnected) {
+        this.masterService.getMasterProfil().subscribe({
+          next: (response) => {
+            this.master = response;      
+            this.trainers = response.trainers;
+            this.newTrainer.id_master = this.master.id;
+          },
+        });
+      }
     });
     
-    this.masterService.getMasterProfil().subscribe({
-      next: (response) => {
-        this.master = response;
-        this.trainers = response.trainers;
-        this.newTrainer.id_master = this.master.id;
-      },
-    });
+
     if (this.authService.isAuthenticated()) {
       // Redirige vers la page du dresseur connecté
       const loggedInTrainerId = this.authService.getLoggedInTrainer()?.id;

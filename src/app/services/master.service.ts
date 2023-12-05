@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { LoginMaster } from '../models/login-master';
 import { LoginAnswer } from '../models/login-answer';
 import { Master } from '../models/master';
@@ -12,7 +12,16 @@ import { Trainer } from '../models/trainer';
 export class MasterService {
   private baseApiUrl = 'http://localhost:3000/api';
 
-  constructor(private http: HttpClient) {}
+  public isLog$: BehaviorSubject<boolean>
+
+  constructor(private http: HttpClient) {
+    const token = sessionStorage.getItem('token');
+    if (token) {
+      this.isLog$ = new BehaviorSubject(true);
+    } else {
+      this.isLog$ = new BehaviorSubject(false);
+    }
+  }
 
   setHeaders() {
     const jwtToken = sessionStorage.getItem('token');
@@ -44,11 +53,6 @@ export class MasterService {
         sessionStorage.setItem('profilMaster', master.admin.toString());
       })
     );
-  }
-
-  getMasterConnected(): Observable<Master> {
-    const headers = this.setHeaders();
-    return this.http.get<Master>(`${this.baseApiUrl}/master`, { headers });
   }
 
   addTrainerByMaster(trainer: Trainer): Observable<Master> {

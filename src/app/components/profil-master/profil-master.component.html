@@ -4,5 +4,5 @@
         <h1 class="custom-font-solid">Bienvenue aux dresseurs!</h1>
         <button class="btnDeconnect" (click)="logout()" [routerLink]="['']">Déconnexion</button> 
     </div>
-    <span class="admin-indicator" *ngIf="profil.admin">#Admin</span>
+    <span class="admin-indicator" *ngIf="isAdmin">#Admin</span>
 </div>

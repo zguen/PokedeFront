@@ -16,9 +16,9 @@
     </div>
 
     <div *ngIf="email.invalid && isFormValidate" class="alert">
-      <div *ngIf="email.errors?.['required']">L'email est obligatoire.</div>
+      <div *ngIf="email.errors?.['required']"><p>L'email est obligatoire.</p></div>
       <div *ngIf="email.errors?.['pattern']">
-        Veuillez entrer une adresse email valide.
+        <p>Veuillez entrer une adresse email valide.</p>
       </div>
     </div>
 

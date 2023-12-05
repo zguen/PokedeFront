@@ -29,10 +29,7 @@ export class LoginMasterComponent {
         next: (response) => {
           // Stockage du jeton d'accès dans la session
           sessionStorage.setItem('token', response.accessToken);
-          // Redirection vers la page réservée au "master"
-          this.router.navigate(['/master']);
-          // Rechargement de la page pour appliquer les éventuels changements
-          location.reload();
+          this.masterService.isLog$.next(true);
         },
         // En cas d'erreur lors de la requête
         error: (error) => {

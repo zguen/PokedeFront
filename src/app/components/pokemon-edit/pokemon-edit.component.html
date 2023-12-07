@@ -34,6 +34,7 @@
         <!-- Champ "Types" (modifiable) -->
         <div class="form-group">
           <ng-select
+            [disabled]="blockSelect"
             [items]="types"
             [multiple]="true"
             bindLabel="wording"

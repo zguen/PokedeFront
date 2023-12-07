@@ -37,6 +37,10 @@
     padding-left: 2.5rem;
 }
 
+.ng-select.custom ::ng-deep .ng-placeholder {
+    color: black;
+}
+
 .inputStyle {
     background-color: rgba(34, 87, 119, 0.4);
     min-height: 0;

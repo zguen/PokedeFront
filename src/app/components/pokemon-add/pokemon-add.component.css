@@ -52,6 +52,10 @@
   margin-bottom: 1rem;
 }
 
+.ng-select.custom ::ng-deep .ng-placeholder {
+  color: black;
+}
+
 @media only screen and (max-width: 48rem) {
 
     .container {

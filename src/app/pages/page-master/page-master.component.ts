@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class PageMasterComponent {
   master!: Master;
-  trainers?: Trainer[];
+  trainers: Trainer[] = [];
   isConnected!: boolean;
 
   newTrainer: Trainer = {
@@ -32,19 +32,23 @@ export class PageMasterComponent {
   ) {}
 
   ngOnInit(): void {
+    
     this.masterService.isLog$.subscribe((resp) => {
-      this.isConnected = resp;      
+      this.isConnected = resp;
       if (this.isConnected) {
         this.masterService.getMasterProfil().subscribe({
           next: (response) => {
-            this.master = response;      
-            this.trainers = response.trainers;
+            this.master = response;
+            this.trainers = response.trainers!;
+            this.masterService.addedTrainer$.subscribe(
+      (data) => (this.trainers = data)
+            );
+            this.masterService.addedTrainer$.next(this.trainers)
             this.newTrainer.id_master = this.master.id;
           },
         });
       }
     });
-    
 
     if (this.authService.isAuthenticated()) {
       // Redirige vers la page du dresseur connecté
@@ -56,7 +60,12 @@ export class PageMasterComponent {
   addTrainer() {
     this.masterService.addTrainerByMaster(this.newTrainer).subscribe({
       next: (response) => {
-        this.router.navigate([`/master`]);
+        this.masterService.getMasterProfil().subscribe({
+          next: (response) => {
+        this.masterService.addedTrainer$.next(response.trainers!);
+          },
+          error:(error)=>{}
+        })
       },
       error: (error) => {
         this.statutCreate = false;

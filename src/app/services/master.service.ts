@@ -13,8 +13,8 @@ export class MasterService {
   private baseApiUrl = 'http://localhost:3000/api';
 
   public isLog$: BehaviorSubject<boolean>;
-  addedTrainers$ = new Subject<Trainer[]>();
-  addedTrainers: Trainer [] = []
+
+  addedTrainer$ = new Subject<Trainer[]>();
 
   constructor(private http: HttpClient) {
     const token = sessionStorage.getItem('token');
@@ -60,12 +60,13 @@ export class MasterService {
   addTrainerByMaster(trainer: Trainer): Observable<Master> {
     const headers = this.setHeaders();
 
-    return this.http.post<Master>(
-      `http://localhost:3000/api/auth-trainer/register`,
-      trainer,
-      {
-        headers,
-      }
-    );
+    return this.http
+      .post<Master>(
+        `http://localhost:3000/api/auth-trainer/register`,
+        trainer,
+        {
+          headers,
+        }
+      )
   }
 }

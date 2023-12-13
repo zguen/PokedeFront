@@ -5,12 +5,13 @@ import { LoginMaster } from '../models/login-master';
 import { LoginAnswer } from '../models/login-answer';
 import { Master } from '../models/master';
 import { Trainer } from '../models/trainer';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MasterService {
-  private baseApiUrl = 'http://localhost:3000/api';
+  private baseApiUrl = environment.api;
 
   public isLog$: BehaviorSubject<boolean>;
 
@@ -62,7 +63,7 @@ export class MasterService {
 
     return this.http
       .post<Master>(
-        `http://localhost:3000/api/auth-trainer/register`,
+        `${this.baseApiUrl}/auth-trainer/register`,
         trainer,
         {
           headers,

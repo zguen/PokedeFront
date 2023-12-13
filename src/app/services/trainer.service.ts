@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Trainer } from '../models/trainer';
 import { LoginTrainer } from '../models/login-trainer';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrainerService {
-  private baseApiUrl = 'http://localhost:3000/api';
+  private baseApiUrl = environment.api;
 
   constructor(private http: HttpClient) {}
 

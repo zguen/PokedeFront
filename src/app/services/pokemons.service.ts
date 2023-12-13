@@ -4,11 +4,13 @@ import { Pokemon } from '../models/pokemon';
 import { Observable, Subject } from 'rxjs';
 import { CreatePokemon } from '../models/create-pokemon';
 import { UpdatePokemon } from '../models/update-pokemon';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonsService {
+  private baseApiUrl = environment.api;
   capturedPokemon$ = new Subject<Pokemon[]>();
 
   constructor(private http: HttpClient) {}
@@ -23,27 +25,23 @@ export class PokemonsService {
 
   createPokemon(pokemon: CreatePokemon): Observable<Pokemon> {
     const headers = this.setHeaders(); // Assurez-vous que la méthode setHeaders() est correcte pour votre application.
-    return this.http.post<Pokemon>(
-      `http://localhost:3000/api/pokemon`,
-      pokemon,
-      { headers }
-    );
+    return this.http.post<Pokemon>(`${this.baseApiUrl}/pokemon`, pokemon, {
+      headers,
+    });
   }
 
   getPokemons(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>('http://localhost:3000/api/pokemon');
+    return this.http.get<Pokemon[]>(`${this.baseApiUrl}/pokemon`);
   }
 
   getPokemonById(pokedexid: number): Observable<Pokemon> {
-    return this.http.get<Pokemon>(
-      `http://localhost:3000/api/pokemon/${pokedexid}`
-    );
+    return this.http.get<Pokemon>(`${this.baseApiUrl}/pokemon/${pokedexid}`);
   }
 
   getPreEvolution(pokedexid: number): Observable<Pokemon> {
     // Utilisez l'ID de la pré-évolution pour obtenir les détails de la pré-évolution
     return this.http.get<Pokemon>(
-      `http://localhost:3000/api/pokemon/${pokedexid}`
+      `${this.baseApiUrl}/pokemon/${pokedexid}`
     );
   }
 
@@ -53,7 +51,7 @@ export class PokemonsService {
   ): Observable<Pokemon> {
     const headers = this.setHeaders();
     return this.http.patch<Pokemon>(
-      `http://localhost:3000/api/pokemon/${pokedexid}`,
+      `${this.baseApiUrl}/pokemon/${pokedexid}`,
       pokemon,
       {
         headers,
@@ -65,7 +63,7 @@ export class PokemonsService {
     // recup le token dans le sessionstorage
     const headers = this.setHeaders();
     return this.http.delete<Pokemon>(
-      `http://localhost:3000/api/pokemon/${pokemon.pokedexid}`,
+      `${this.baseApiUrl}/pokemon/${pokemon.pokedexid}`,
       { headers }
     );
   }
@@ -93,13 +91,13 @@ export class PokemonsService {
 
     // Envoyez la requête POST
     return this.http.post<void>(
-      `http://localhost:3000/api/pokemon/capture`,
+      `${this.baseApiUrl}/pokemon/capture`,
       payload
     );
   }
 
   getPokemonsByTrainer(trainerId: number): Observable<Pokemon[]> {
-    const url = `http://localhost:3000/api/pokemon/by-trainer/${trainerId}`;
+    const url = `${this.baseApiUrl}/pokemon/by-trainer/${trainerId}`;
     return this.http.get<Pokemon[]>(url);
   }
 }

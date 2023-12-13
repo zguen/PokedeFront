@@ -30,7 +30,7 @@ export class RegisterMasterComponent {
 
     this.passwordConfirmError =
       this.master.password !== this.master.password_confirm;
-
+    
     if (form.valid && !this.passwordConfirmError) {
       this.masterService.registerMaster(this.master).subscribe({
         next: (response) => {

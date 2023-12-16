@@ -1,4 +1,3 @@
 export const environment = {
-    production: true,
-    api : 'http://api.pokedexjunior.fr/api'
+  api: 'https://api.pokedexjunior.fr/api',
 };

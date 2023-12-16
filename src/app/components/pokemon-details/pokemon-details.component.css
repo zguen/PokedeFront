@@ -200,6 +200,9 @@ li {
   .row {
     flex-direction: column;
   }
+  .contain {
+    height: auto;
+  }
 
   .displayLittleScreen {
     display: none;
@@ -216,5 +219,22 @@ li {
   .btn {
     width: auto;
   }
+  .types {
+    margin-top: 5px;
+  }
+  .img-types {
+    max-height: 50px;
+  }
+  .allPokemons {
+    margin-top: 0px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .pokeball-container {
+    width: 0%;
+  }
+  .pokemon-card {
+    padding-top: 8px;
+  }
 }
-

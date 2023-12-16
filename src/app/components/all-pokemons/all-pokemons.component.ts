@@ -9,8 +9,8 @@ import { Pokemon } from 'src/app/models/pokemon';
 export class AllPokemonsComponent implements OnInit {
   @Input() allPokemons!: Pokemon[];
 
-  public displayedPokemonCount: number = 5; // Commence avec les 5 premiers
-  public addDisplayedPokemon: number = 5;
+  public displayedPokemonCount: number = 20; // Commence avec les premiers
+  public addDisplayedPokemon: number = 20;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
@@ -28,20 +28,20 @@ export class AllPokemonsComponent implements OnInit {
 
   adjustDisplayedPokemonCount(screenWidth: number): void {
     if (screenWidth < 768) {
-      this.displayedPokemonCount = 2;
+      this.displayedPokemonCount = 20;
     } else if (screenWidth < 1700) {
-      this.displayedPokemonCount = 5;
+      this.displayedPokemonCount = 20;
     } else {
-      this.displayedPokemonCount = 6;
+      this.displayedPokemonCount = 24;
     }
   }
   addAdjustDisplayedPokemon(screenWidth: number): void {
     if (screenWidth < 768) {
-      this.addDisplayedPokemon = 2;
+      this.addDisplayedPokemon = 20;
     } else if (screenWidth < 1700) {
-      this.addDisplayedPokemon = 5;
+      this.addDisplayedPokemon = 20;
     } else {
-      this.addDisplayedPokemon = 6;
+      this.addDisplayedPokemon = 24;
     }
   }
 }

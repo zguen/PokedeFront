@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col picturePoke">
-        <div class="pokeball-container">
+        <div class="pokeball-container" [ngClass]="{'hidden-width': !isTrainerConnected}">
           <!-- Ouverture Modale capture pokemon-->
           <button
             *ngIf="isTrainerConnected"
@@ -46,7 +46,7 @@
       </div>
 
       <div class="col">
-        <div class="d-flex justify-content-evenly types">
+        <div class="d-flex justify-content-evenly types pokemon-item">
           <ng-container *ngFor="let type of pokemon.types">
             <div>
               <img
@@ -90,7 +90,7 @@
     <div class="d-flex allPokemons">
       <ul class="justify-content-center">
         <ng-container *ngIf="prePreEvolution">
-          <li>
+          <li class="pokemon-item">
             <a [routerLink]="['/pokemons/navigate', prePreEvolution.pokedexid]">
               <img
                 [src]="prePreEvolution.picture"
@@ -104,7 +104,7 @@
         </ng-container>
 
         <ng-container *ngIf="preEvolution">
-          <li>
+          <li class="pokemon-item">
             <a [routerLink]="['/pokemons/navigate', preEvolution.pokedexid]">
               <img
                 [src]="preEvolution.picture"
@@ -117,19 +117,19 @@
           </li>
         </ng-container>
 
-        <li>
+        <li class="pokemon-item">
           <a [routerLink]="['/pokemons/navigate', pokemon.pokedexid]">
             <img
               [src]="pokemon.picture"
               [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              class="imgEvo img-fluid"
+              class="imgPoke img-fluid"
               alt="Pokemon Image"
             />
             <p>{{ pokemon.name }}</p>
           </a>
         </li>
 
-        <li *ngFor="let evolution of evolutions">
+        <li *ngFor="let evolution of evolutions" class="pokemon-item">
           <a [routerLink]="['/pokemons/navigate', evolution.pokedexid]">
             <img
               class="evolution-img img-fluid"
@@ -141,7 +141,7 @@
           </a>
         </li>
 
-        <li *ngFor="let postEvolution of postEvolutions">
+        <li *ngFor="let postEvolution of postEvolutions" class="pokemon-item">
           <a [routerLink]="['/pokemons/navigate', postEvolution.pokedexid]">
             <img
               [src]="postEvolution.picture"

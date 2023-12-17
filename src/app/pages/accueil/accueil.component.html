@@ -8,8 +8,8 @@
 
         <p>
           Plonge dans l'univers captivant des Pokémon avec notre application
-          unique. Explore une vaste collection de créatures fascinantes,
-          chacune avec ses propres pouvoirs et charmes uniques.
+          unique. Explore une vaste collection de créatures fascinantes, chacune
+          avec ses propres pouvoirs et charmes uniques.
         </p>
 
         <p>
@@ -34,8 +34,15 @@
     </div>
 
     <!-- Affichage de la carte Pokémon aléatoire -->
-    <div class="col-md-4 pokemon" *ngIf="randomPokemon">
-      <app-card [pokemon]="randomPokemon"></app-card>
+    <div class="col-md-4 pokemon d-flex justify-content-evenly" *ngIf="randomPokemon">
+      <div>
+        <app-card [pokemon]="randomPokemon"></app-card>
+      </div>
+      <div>
+        <button class="btn-pokemon" (click)="generateRandomPokemon()">
+          Un Pokemon Sauvage Apparait !!!
+        </button>
+      </div>
     </div>
   </div>
 </div>

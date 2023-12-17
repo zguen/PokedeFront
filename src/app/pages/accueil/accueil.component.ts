@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
-import { MasterService } from 'src/app/services/master.service';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
 @Component({
@@ -9,16 +8,11 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   styleUrls: ['./accueil.component.css'],
 })
 export class AccueilComponent implements OnInit {
-  
-  randomPokemon: Pokemon | null = null; // Utilisation d'un seul Pokémon au lieu d'un tableau
+  randomPokemon: Pokemon | null = null;
 
-  constructor(
-    private masterService: MasterService,
-    private pokemonService: PokemonsService
-  ) {}
+  constructor(private pokemonService: PokemonsService) {}
 
   ngOnInit() {
-
     this.getRandomPokemon(); // Modification ici
   }
 
@@ -29,5 +23,8 @@ export class AccueilComponent implements OnInit {
         this.randomPokemon = allPokemons[randomIndex];
       }
     });
+  }
+  generateRandomPokemon() {
+    this.getRandomPokemon();
   }
 }

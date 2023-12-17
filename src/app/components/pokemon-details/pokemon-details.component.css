@@ -24,7 +24,6 @@ p {
 
 .pokeball-container {
   width: 20%;
-  /* Ajustez la largeur du conteneur pour réduire sa taille */
 }
 
 .pokeball {
@@ -179,6 +178,14 @@ li {
   margin: 1rem;
 }
 
+.pokemon-item {
+  text-align: center;
+}
+
+.pokemon-item a {
+  text-decoration: none;
+}
+
 .modalPerso {
   border-radius: 10px;
   border: 1px solid black;
@@ -194,6 +201,10 @@ li {
   display: flex;
   margin-top: 3rem;
   justify-content: space-around;
+}
+
+.hidden-width {
+  width: 0;
 }
 
 @media screen and (max-width: 48rem) {
@@ -230,9 +241,6 @@ li {
   }
   p {
     font-size: 12px;
-  }
-  .pokeball-container {
-    width: 0%;
   }
   .pokemon-card {
     padding-top: 8px;

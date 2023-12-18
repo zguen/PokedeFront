@@ -4,7 +4,7 @@ import { Pokemon } from '../models/pokemon';
 import { Observable, Subject } from 'rxjs';
 import { CreatePokemon } from '../models/create-pokemon';
 import { UpdatePokemon } from '../models/update-pokemon';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',

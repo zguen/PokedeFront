@@ -5,7 +5,7 @@ import { LoginMaster } from '../models/login-master';
 import { LoginAnswer } from '../models/login-answer';
 import { Master } from '../models/master';
 import { Trainer } from '../models/trainer';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',

@@ -132,7 +132,7 @@
         <li *ngFor="let evolution of evolutions" class="pokemon-item">
           <a [routerLink]="['/pokemons/navigate', evolution.pokedexid]">
             <img
-              class="evolution-img img-fluid"
+              class="img-fluid"
               [src]="evolution.picture"
               [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
               alt="Evolution Image"
@@ -146,7 +146,7 @@
             <img
               [src]="postEvolution.picture"
               [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              class="evolution-img img-fluid"
+              class="img-fluid"
               alt="Evolution Image"
             />
             <p>{{ postEvolution.name }}</p>

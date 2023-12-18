@@ -145,14 +145,6 @@ p {
   width: auto;
 }
 
-.evolution-img {
-  max-height: 100%;
-  width: auto;
-  display: flex;
-  justify-content: center;
-   margin-left: 5px;
-}
-
 .img-fluid {
   border-radius: 50%;
   border: 3px solid white;

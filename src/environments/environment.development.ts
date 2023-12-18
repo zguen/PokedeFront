@@ -1,3 +1,4 @@
 export const environment = {
-  api: 'https://api.pokedexjunior.fr/api',
+  
+  api: 'http://localhost:3000/api',
 };

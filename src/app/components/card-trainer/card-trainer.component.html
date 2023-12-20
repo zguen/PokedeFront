@@ -80,7 +80,6 @@
               <div class="errorMdp" *ngIf="password.errors?.['pattern']">
                 Au moins 6 caractères, 1 majuscule, 1 chiffre et 1 symbole.
               </div>
-              <div>{{ trainerLog | json }}</div>
             </div>
             <div *ngIf="loginNone" class="alert">
               Vérifiez votre pseudo et votre mot de passe.

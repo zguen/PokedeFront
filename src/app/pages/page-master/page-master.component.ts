@@ -27,7 +27,6 @@ export class PageMasterComponent {
   constructor(
     private masterService: MasterService,
     private router: Router,
-    private cdr: ChangeDetectorRef,
     private authService: AuthService
   ) {}
 

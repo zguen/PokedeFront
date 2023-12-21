@@ -65,7 +65,7 @@
               type="password"
               class="form-control"
               required
-              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}"
+              pattern="^(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$"
               [(ngModel)]="trainerLog.password"
               name="password"
               #password="ngModel"
@@ -78,7 +78,7 @@
                 Le mot de passe est obligatoire.
               </div>
               <div class="errorMdp" *ngIf="password.errors?.['pattern']">
-                Au moins 6 caractères, 1 majuscule, 1 chiffre et 1 symbole.
+                Au moins 6 caractères, dont 1 chiffre
               </div>
             </div>
             <div *ngIf="loginNone" class="alert">

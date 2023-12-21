@@ -1,6 +1,6 @@
 <div class="profil-banner mb-3 shadow">
   <div class="zoneProfil" *ngIf="trainer">
-    <h1 class="custom-font-solid"> Salut {{trainer.nickname}}, voici tes {{capturedPokemons.length}} pokemons !!!</h1>
+    <h1 class="custom-font-solid"> Salut {{trainer.nickname}}, tu as attrapé {{capturedPokemons.length}} pokemon !!!</h1>
     <button class="btnDeconnect" (click)="logout()" [routerLink]="['/master']">Déconnexion</button>
   </div>
 </div>

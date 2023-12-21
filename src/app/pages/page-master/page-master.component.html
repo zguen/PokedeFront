@@ -4,40 +4,124 @@
     <div class="d-flex flex-wrap justify-content-center container-principal">
       <div class="card-mobile d-flex flex-wrap justify-content-center">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
           Nouveau dresseur, GO
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
           <div class="modal-dialog modal-dialog-centered">
-            <form (ngSubmit)="addTrainer()" class="modal-content">
+            <form
+              #register="ngForm"
+              (ngSubmit)="addTrainer(register)"
+              class="modal-content"
+            >
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">
                     Présentes toi!
                   </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
+
                 <div class="modal-body">
                   <div class="form-group position-input">
-                    <input [(ngModel)]="newTrainer.firstname" type="text" class="form-control shadow-sm style-input"
-                      name="firstname" placeholder="Prénom *" required />
+                    <input
+                      type="text"
+                      required
+                      [(ngModel)]="newTrainer.nickname"
+                      name="nickname"
+                      #nickname="ngModel"
+                      [class.input-error]="nickname.invalid && isFormSubmit"
+                      class="form-control shadow-sm style-input"
+                      placeholder="Ton nom de dresseur"
+                    />
                   </div>
-                  <div class="form-group position-input">
-                    <input [(ngModel)]="newTrainer.nickname" type="text" class="form-control shadow-sm style-input"
-                      name="nickname" placeholder="Ton nom de dresseur" />
+                  <div *ngIf="nickname.invalid && isFormSubmit" class="alert">
+                    <div *ngIf="nickname.errors?.['required']">
+                      Ce champ est obligatoire.
+                    </div>
                   </div>
+
                   <div class="form-group position-input">
-                    <input [(ngModel)]="newTrainer.password" type="password" class="form-control shadow-sm style-input"
-                      name="password" placeholder="Mot de passe (une majuscule et un caractère spécial) *" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}"/>
+                    <input
+                      type="password"
+                      required
+                      pattern="^(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$"
+                      [(ngModel)]="newTrainer.password"
+                      name="password"
+                      #password="ngModel"
+                      [class.input-error]="password.invalid && isFormSubmit"
+                      class="form-control shadow-sm style-input"
+                      placeholder="Mot de passe (au moins un chiffre) *"
+                    />
+                  </div>
+                  <div *ngIf="password.invalid && isFormSubmit" class="alert">
+                    <div *ngIf="password.errors?.['required']">
+                      Le mot de passe est obligatoire.
+                    </div>
+                    <div class="errorMdp" *ngIf="password.errors?.['pattern']">
+                      Au moins 6 caractères dont 1 chiffre
+                    </div>
+                  </div>
+
+                  <div class="form-group position-input">
+                    <input
+                      type="password"
+                      required
+                      [(ngModel)]="newTrainer.password_confirm"
+                      name="password_confirm"
+                      #password_confirm="ngModel"
+                      [class.input-error]="
+                        newTrainer.password !== newTrainer.password_confirm &&
+                        isFormSubmit
+                      "
+                      class="form-control shadow-sm style-input"
+                      placeholder="confirmation du mot de passe"
+                    />
+                    <div
+                      *ngIf="
+                        newTrainer.password !== newTrainer.password_confirm &&
+                        isFormSubmit
+                      "
+                      class="alert"
+                    >
+                      <div class="errorConfirme">
+                        Les mots de passe ne correspondent pas.
+                      </div>
+                    </div>
                   </div>
                 </div>
+
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
                     Fermer
                   </button>
-                  <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                  >
                     En Avant!
                   </button>
                 </div>
@@ -51,7 +135,11 @@
   <app-login-master *ngIf="!isConnected"></app-login-master>
   <div class="d-flex flex-wrap justify-content-center container-principal">
     <div class="card-mobile d-flex flex-wrap justify-content-center">
-      <app-card-trainer *ngFor="let trainer of trainers" [trainer]="trainer" class="m-3"></app-card-trainer>
+      <app-card-trainer
+        *ngFor="let trainer of trainers"
+        [trainer]="trainer"
+        class="m-3"
+      ></app-card-trainer>
     </div>
   </div>
 </div>

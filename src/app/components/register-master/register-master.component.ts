@@ -34,6 +34,11 @@ export class RegisterMasterComponent {
     if (form.valid && !this.passwordConfirmError) {
       this.masterService.registerMaster(this.master).subscribe({
         next: (response) => {
+
+          window.alert(
+            'Un e-mail de confirmation a été envoyé. Veuillez le valider dans les deux heures.'
+          );
+          
           this.router.navigate(['/master']);
         },
         error: (error) => {

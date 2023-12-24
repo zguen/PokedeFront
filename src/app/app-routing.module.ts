@@ -11,6 +11,7 @@ import { PokemonAddComponent } from './components/pokemon-add/pokemon-add.compon
 import { AuthGuard } from './auth.guard';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ValidationMailComponent } from './pages/validation-mail/validation-mail.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     component: PageTrainerComponent,
     canActivate: [AuthGuard],
   },
+  {path: 'validationmail', component: ValidationMailComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

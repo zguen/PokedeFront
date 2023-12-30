@@ -9,10 +9,10 @@
 
     <div class="row">
       <div class="col picturePoke">
-        <div class="pokeball-container" [ngClass]="{'hidden-width': !isTrainerConnected || isAlreadyCaptured}">
+        <div class="pokeball-container" [ngClass]="{'hidden-width': !isTrainerConnected}">
           <!-- Ouverture Modale capture pokemon-->
           <button
-            *ngIf="isTrainerConnected && !isAlreadyCaptured"
+            *ngIf="isTrainerConnected"
             type="button"
             class="pokeball"
             (click)="bonjourModal()"

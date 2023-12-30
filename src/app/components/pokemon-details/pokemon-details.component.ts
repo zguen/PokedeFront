@@ -15,21 +15,22 @@ import { Subject, takeUntil } from 'rxjs';
 export class PokemonDetailsComponent implements OnInit {
   isAdmin: boolean = false;
   isTrainerConnected: boolean = false;
-  
+  isAlreadyCaptured: boolean = false;
+
   @Input() pokemon!: Pokemon;
   preEvolution: Pokemon | undefined;
   prePreEvolution: Pokemon | undefined;
   evolutions: Pokemon[] = [];
   postEvolutions: Pokemon[] = [];
   private unsubscribe$ = new Subject<void>();
-  
+
   constructor(
     private route: ActivatedRoute,
     private pokemonService: PokemonsService,
     private masterService: MasterService,
     private authService: AuthService,
     private router: Router
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.masterService.getMasterProfil().subscribe((master) => {
@@ -44,6 +45,7 @@ export class PokemonDetailsComponent implements OnInit {
           this.pokemon = data;
 
           this.verifierConnexionTrainer();
+          this.verifierCapturePokemon();
           // Efface les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
           this.evolutions = [];
           this.preEvolution = undefined;
@@ -90,9 +92,19 @@ export class PokemonDetailsComponent implements OnInit {
         });
     });
   }
-
   verifierConnexionTrainer(): void {
     this.isTrainerConnected = this.authService.isAuthenticated();
+  }
+
+  verifierCapturePokemon(): void {
+    if (this.isTrainerConnected && this.authService.getLoggedInTrainer()) {
+      const loggedInTrainer = this.authService.getLoggedInTrainer();
+      const isCaptured = loggedInTrainer!.pokemon?.some(
+        (capturedPokemon) =>
+          capturedPokemon.pokedexid === this.pokemon.pokedexid
+      );
+      this.isAlreadyCaptured = isCaptured || false;
+    }
   }
 
 
@@ -126,7 +138,6 @@ export class PokemonDetailsComponent implements OnInit {
       .subscribe({
         next: (allPokemons) => {
           if (!loggedInTrainer.pokemon) {
-            console.error('Pokémon non défini pour le dresseur connecté');
             return;
           }
           const capturedPokemons = allPokemons.filter((pokemon) =>

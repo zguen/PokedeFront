@@ -71,18 +71,12 @@ export class PokemonsService {
   capturePokemon(
     pokemonId: number,
     trainerId: number,
-    nickname?: string,
     game?: string
   ): Observable<void> {
     const payload: any = {
       id_pokemon: pokemonId,
       id_trainer: trainerId,
     };
-
-    // Ajoutez le nickname au payload s'il est défini
-    if (nickname !== undefined) {
-      payload.nickname = nickname;
-    }
 
     // Ajoutez le game au payload s'il est défini
     if (game !== undefined) {

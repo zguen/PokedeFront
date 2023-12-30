@@ -28,8 +28,8 @@ export class PageTrainerComponent {
     private authService: AuthService
   ) {}
 
-  public displayedPokemonCount: number = 5; // Commencez avec les 5 premiers
-  public addDisplayedPokemon: number = 5;
+  public displayedPokemonCount: number = 20; 
+  public addDisplayedPokemon: number = 20;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
@@ -85,7 +85,7 @@ export class PageTrainerComponent {
   }
 
   public loadMorePokemon() {
-    this.displayedPokemonCount += this.addDisplayedPokemon; // Ajoute a chaque clic
+    this.displayedPokemonCount += this.addDisplayedPokemon; 
   }
 
   adjustDisplayedPokemonCount(screenWidth: number): void {

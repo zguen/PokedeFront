@@ -4,8 +4,7 @@ import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 import { MasterService } from 'src/app/services/master.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { Trainer } from 'src/app/models/trainer';
-import { Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -15,7 +14,7 @@ import { Subject, takeUntil } from 'rxjs';
 export class PokemonDetailsComponent implements OnInit {
   isAdmin: boolean = false;
   isTrainerConnected: boolean = false;
-  isAlreadyCaptured: boolean = false;
+  isAlreadyCaptured$ = new BehaviorSubject<boolean>(false);
 
   @Input() pokemon!: Pokemon;
   preEvolution: Pokemon | undefined;
@@ -29,7 +28,7 @@ export class PokemonDetailsComponent implements OnInit {
     private pokemonService: PokemonsService,
     private masterService: MasterService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +44,6 @@ export class PokemonDetailsComponent implements OnInit {
           this.pokemon = data;
 
           this.verifierConnexionTrainer();
-          this.verifierCapturePokemon();
           // Efface les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
           this.evolutions = [];
           this.preEvolution = undefined;
@@ -96,19 +94,9 @@ export class PokemonDetailsComponent implements OnInit {
     this.isTrainerConnected = this.authService.isAuthenticated();
   }
 
-  verifierCapturePokemon(): void {
-    if (this.isTrainerConnected && this.authService.getLoggedInTrainer()) {
-      const loggedInTrainer = this.authService.getLoggedInTrainer();
-      const isCaptured = loggedInTrainer!.pokemon?.some(
-        (capturedPokemon) =>
-          capturedPokemon.pokedexid === this.pokemon.pokedexid
-      );
-      this.isAlreadyCaptured = isCaptured || false;
-    }
-  }
-
-
+ 
   capturePokemon(pokemon: Pokemon): void {
+
     if (!this.authService.isAuthenticated()) {
       return;
     }
@@ -123,33 +111,10 @@ export class PokemonDetailsComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: () => {
-          this.refreshCapturedPokemons(loggedInTrainer);
           this.router.navigate(['/master']);
         },
         error: (error) => {
           console.error('Erreur lors de la capture du Pokémon :', error);
-        },
-      });
-  }
-  private refreshCapturedPokemons(loggedInTrainer: Trainer): void {
-    this.pokemonService
-      .getPokemons()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe({
-        next: (allPokemons) => {
-          if (!loggedInTrainer.pokemon) {
-            return;
-          }
-          const capturedPokemons = allPokemons.filter((pokemon) =>
-            loggedInTrainer.pokemon!.some(
-              (capturedPokemon) =>
-                capturedPokemon.pokedexid === pokemon.pokedexid
-            )
-          );
-          this.pokemonService.capturedPokemon$.next(capturedPokemons);
-        },
-        error: (error) => {
-          console.error('Erreur lors de la récupération des Pokémon :', error);
         },
       });
   }

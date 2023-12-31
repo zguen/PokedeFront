@@ -196,10 +196,6 @@ li {
   justify-content: space-around;
 }
 
-.hidden-width {
-  width: 0;
-}
-
 @media screen and (max-width: 48rem) {
   .row {
     flex-direction: column;

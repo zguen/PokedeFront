@@ -9,24 +9,31 @@
 
     <div class="row">
       <div class="col picturePoke">
-        <div class="pokeball-container" [ngClass]="{'hidden-width': !isTrainerConnected || isAlreadyCaptured}"> {{isAlreadyCaptured}}
+        <div class="pokeball-container">
           <!-- Ouverture Modale capture pokemon-->
           <button
-            *ngIf="isTrainerConnected && !isAlreadyCaptured"
+            *ngIf="isTrainerConnected && !(isAlreadyCaptured$ | async)"
             type="button"
             class="pokeball"
             (click)="bonjourModal()"
-          ></button>
+          >
+          </button>
 
           <!-- Modal -->
           <dialog class="modalPerso">
-            <h1 class="custom-font-solid"> Tu t'apprètes à capturer {{pokemon.name}} </h1>
+            <h1 class="custom-font-solid">
+              Tu t'apprètes à capturer {{ pokemon.name }}
+            </h1>
             <div class="buttonContain">
-            <button class="btn-back" (click)="aurevoirModal()"> Zut, ça n'a pas fonctionnée</button>
-            <button class="btn-pokemon" (click)="capturePokemon(pokemon)">Pokemon attrapé!!!</button>
+              <button class="btn-back" (click)="aurevoirModal()">
+                Zut, ça n'a pas fonctionnée
+              </button>
+              <button class="btn-pokemon" (click)="capturePokemon(pokemon)">
+                Pokemon attrapé!!!
+              </button>
             </div>
           </dialog>
-          
+
           <button
             class="btn btn-primary"
             *ngIf="isAdmin"

@@ -36,10 +36,6 @@ export class CardTrainerComponent {
         next: (loginResponse) => {
           console.log('Complete login response:', loginResponse);
           this.authService.loginTrainer(loginResponse.trainer);
-          console.log(
-            'Logged in trainer:',
-            this.authService.getLoggedInTrainer()
-          );
 
           // Utilise l'ID du dresseur connecté pour la redirection
           this.router.navigate(['/trainer/', loginResponse.trainer.id]);

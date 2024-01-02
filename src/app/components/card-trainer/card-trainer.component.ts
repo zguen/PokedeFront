@@ -34,7 +34,6 @@ export class CardTrainerComponent {
     if (loginForm.valid) {
       this.trainerService.loginTrainer(this.trainerLog).subscribe({
         next: (loginResponse) => {
-          console.log('Complete login response:', loginResponse);
           this.authService.loginTrainer(loginResponse.trainer);
 
           // Utilise l'ID du dresseur connecté pour la redirection

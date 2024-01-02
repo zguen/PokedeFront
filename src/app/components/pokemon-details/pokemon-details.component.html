@@ -12,12 +12,11 @@
         <div class="pokeball-container">
           <!-- Ouverture Modale capture pokemon-->
           <button
-            *ngIf="isTrainerConnected && !(isAlreadyCaptured$ | async)"
+            *ngIf="isTrainerConnected && !isPokemonCaptured"
             type="button"
             class="pokeball"
             (click)="bonjourModal()"
-          >
-          </button>
+          ></button>
 
           <!-- Modal -->
           <dialog class="modalPerso">

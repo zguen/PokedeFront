@@ -4,6 +4,8 @@ import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 import { MasterService } from 'src/app/services/master.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Trainer } from 'src/app/models/trainer';
+import { CapturedPokemonService } from 'src/app/services/captured-pokemon.service';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -14,7 +16,7 @@ import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 export class PokemonDetailsComponent implements OnInit {
   isAdmin: boolean = false;
   isTrainerConnected: boolean = false;
-  isAlreadyCaptured$ = new BehaviorSubject<boolean>(false);
+  isPokemonCaptured: boolean = false; // Nouvelle variable
 
   @Input() pokemon!: Pokemon;
   preEvolution: Pokemon | undefined;
@@ -22,13 +24,15 @@ export class PokemonDetailsComponent implements OnInit {
   evolutions: Pokemon[] = [];
   postEvolutions: Pokemon[] = [];
   private unsubscribe$ = new Subject<void>();
+  isAlreadyCaptured$ = new BehaviorSubject<boolean>(false);
 
   constructor(
     private route: ActivatedRoute,
     private pokemonService: PokemonsService,
     private masterService: MasterService,
     private authService: AuthService,
-    private router: Router,
+    private capturedPokemonService: CapturedPokemonService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -87,16 +91,32 @@ export class PokemonDetailsComponent implements OnInit {
               }
             }
           });
+
+          if (this.authService.isAuthenticated()) {
+            const loggedInTrainer = this.authService.getLoggedInTrainer();
+            if (loggedInTrainer && loggedInTrainer.id !== undefined) {
+              this.capturedPokemonService.checkCaptureStatus(
+                loggedInTrainer.id,
+                this.pokemon.pokedexid
+              );
+
+              // Souscrire au BehaviorSubject
+              this.capturedPokemonService.isAlreadyCaptured$.subscribe(
+                (captured) => {
+                  this.isPokemonCaptured = captured;
+                }
+              );
+            }
+          }
         });
     });
   }
+
   verifierConnexionTrainer(): void {
     this.isTrainerConnected = this.authService.isAuthenticated();
   }
 
- 
   capturePokemon(pokemon: Pokemon): void {
-
     if (!this.authService.isAuthenticated()) {
       return;
     }

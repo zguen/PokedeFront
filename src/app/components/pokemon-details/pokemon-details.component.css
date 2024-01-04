@@ -258,6 +258,9 @@ li {
   p {
     font-size: 12px;
   }
+  .capture {
+    font-size: 12px;
+  }
   .pokemon-card {
     padding-top: 8px;
     clip-path: none;

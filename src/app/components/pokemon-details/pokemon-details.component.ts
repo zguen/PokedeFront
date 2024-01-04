@@ -49,9 +49,12 @@ export class PokemonDetailsComponent implements OnInit {
       this.isAdmin = master.admin;
     });
     this.gameService.getGames().subscribe((data) => {
-      this.games = data;
+      if (data) {
+        this.games = data;
+      } else {
+      }
     });
-  
+
     this.route.paramMap.subscribe((params) => {
       const pokemonIdFromRoute = Number(params.get('pokedexid'));
       this.pokemonService
@@ -60,10 +63,12 @@ export class PokemonDetailsComponent implements OnInit {
           this.pokemon = data;
 
           this.verifierConnexionTrainer();
-          this.pokemonService.getGamesByPokemonId(this.pokemon.pokedexid).subscribe((games) => {
-            this.selectedGames = games;
-          });
-          
+          this.pokemonService
+            .getGamesByPokemonId(this.pokemon.pokedexid)
+            .subscribe((games) => {
+              this.selectedGames = games;
+            });
+
           // Efface les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
           this.evolutions = [];
           this.preEvolution = undefined;
@@ -205,6 +210,4 @@ export class PokemonDetailsComponent implements OnInit {
     ) as HTMLDialogElement;
     selectionnerJeuxDialog?.close();
   }
-
-
 }

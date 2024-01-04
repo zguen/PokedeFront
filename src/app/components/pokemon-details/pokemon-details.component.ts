@@ -1,12 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, getModuleFactory } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 import { MasterService } from 'src/app/services/master.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { Trainer } from 'src/app/models/trainer';
+import { Game } from 'src/app/models/game';
 import { CapturedPokemonService } from 'src/app/services/captured-pokemon.service';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import { Capture } from 'src/app/models/capture';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -19,12 +21,18 @@ export class PokemonDetailsComponent implements OnInit {
   isPokemonCaptured: boolean = false; // Nouvelle variable
 
   @Input() pokemon!: Pokemon;
+  @Input() captures!: Capture;
+  capture!: Capture;
   preEvolution: Pokemon | undefined;
   prePreEvolution: Pokemon | undefined;
   evolutions: Pokemon[] = [];
+  games: Game[] = [];
+  selectedGames: Game[] = [];
   postEvolutions: Pokemon[] = [];
   private unsubscribe$ = new Subject<void>();
   isAlreadyCaptured$ = new BehaviorSubject<boolean>(false);
+
+  blockSelect: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +40,7 @@ export class PokemonDetailsComponent implements OnInit {
     private masterService: MasterService,
     private authService: AuthService,
     private capturedPokemonService: CapturedPokemonService,
+    private gameService: GameService,
     private router: Router
   ) {}
 
@@ -39,7 +48,10 @@ export class PokemonDetailsComponent implements OnInit {
     this.masterService.getMasterProfil().subscribe((master) => {
       this.isAdmin = master.admin;
     });
-
+    this.gameService.getGames().subscribe((data) => {
+      this.games = data;
+    });
+  
     this.route.paramMap.subscribe((params) => {
       const pokemonIdFromRoute = Number(params.get('pokedexid'));
       this.pokemonService
@@ -48,6 +60,10 @@ export class PokemonDetailsComponent implements OnInit {
           this.pokemon = data;
 
           this.verifierConnexionTrainer();
+          this.pokemonService.getGamesByPokemonId(this.pokemon.pokedexid).subscribe((games) => {
+            this.selectedGames = games;
+          });
+          
           // Efface les évolutions, les pré-évolutions et les pré-pré-évolutions précédentes
           this.evolutions = [];
           this.preEvolution = undefined;
@@ -139,6 +155,34 @@ export class PokemonDetailsComponent implements OnInit {
       });
   }
 
+  updateCapture(games: Game[]) {
+    if (games.length === 0) {
+      games = this.capture.games;
+    }
+    const loggedInTrainer = this.authService.getLoggedInTrainer();
+    if (!loggedInTrainer || loggedInTrainer.id === undefined) {
+      console.error('Dresseur non connecté ou ID non défini');
+      return;
+    }
+
+    const trainerId = loggedInTrainer.id;
+    const pokemonId = this.pokemon.pokedexid;
+
+    let updateCapture = {
+      games: games,
+    };
+    this.capturedPokemonService
+      .updateCapture(trainerId, pokemonId, updateCapture)
+      .subscribe({
+        next: (capture) => {
+          this.router.navigate([`/master`]);
+        },
+        error: (error) => {
+          console.error('Error updating capture:', error);
+        },
+      });
+  }
+
   bonjourModal() {
     const dialog = document.querySelector('dialog');
     dialog?.showModal();
@@ -147,4 +191,20 @@ export class PokemonDetailsComponent implements OnInit {
     const dialog = document.querySelector('dialog');
     dialog?.close();
   }
+
+  selectionnerJeuxModal() {
+    const selectionnerJeuxDialog = document.querySelector(
+      '#selectionnerJeuxModal'
+    ) as HTMLDialogElement;
+    selectionnerJeuxDialog?.showModal();
+  }
+
+  fermerSelectionnerJeuxModal() {
+    const selectionnerJeuxDialog = document.querySelector(
+      '#selectionnerJeuxModal'
+    ) as HTMLDialogElement;
+    selectionnerJeuxDialog?.close();
+  }
+
+
 }

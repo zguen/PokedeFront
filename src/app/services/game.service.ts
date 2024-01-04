@@ -11,7 +11,7 @@ export class GameService {
 
   constructor(private http: HttpClient) {}
 
-  getTypes(): Observable<Game[]> {
+  getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(environment.api + '/game');
   }
 }

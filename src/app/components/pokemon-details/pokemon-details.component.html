@@ -4,7 +4,7 @@
       [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
       class="typesOf"
     >
-      <h2>{{ pokemon.name }} # {{ pokemon.pokedexid }}</h2>
+      <h1>{{ pokemon.name }} # {{ pokemon.pokedexid }}</h1>
     </div>
 
     <div class="row">
@@ -18,11 +18,11 @@
             (click)="bonjourModal()"
           ></button>
 
-          <!-- Modal -->
+          <!-- Modale capture pokemon -->
           <dialog class="modalPerso">
-            <h1 class="custom-font-solid">
+            <h2 class="custom-font-solid">
               Tu t'apprètes à capturer {{ pokemon.name }}
-            </h1>
+            </h2>
             <div class="buttonContain">
               <button class="btn-back" (click)="aurevoirModal()">
                 Zut, ça n'a pas fonctionnée
@@ -40,6 +40,53 @@
           >
             Editer ce pokemon
           </button>
+
+          <div *ngIf="isTrainerConnected && isPokemonCaptured">
+            <p class="capture versions">Pokemon déjà capturé dans ces versions:</p>
+            <ng-container *ngIf="selectedGames.length > 0">
+              <ng-container *ngFor="let game of selectedGames">
+                <div>
+                  <p class="capture">{{ game }}</p>
+                </div>
+              </ng-container>
+            </ng-container>
+            <button class="btn-add" (click)="selectionnerJeuxModal()">
+              Ajouter des Jeux
+            </button>
+            <!-- Modal Selectionner Jeu(x) -->
+            <dialog id="selectionnerJeuxModal" class="modalPerso">
+              <h2 class="custom-font-solid">Sélectionner jeu(x)</h2>
+              <div class="form-group modalCapture">
+                <ng-select
+                  [disabled]="blockSelect"
+                  [items]="games"
+                  [multiple]="true"
+                  bindLabel="wording"
+                  [(ngModel)]="selectedGames"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Jeux *"
+                  class="custom"
+                >
+                </ng-select>
+              </div>
+              <div class="buttonContain">
+                <button
+                  class="btn-back"
+                  (click)="fermerSelectionnerJeuxModal()"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="button"
+                  class="btn-pokemon"
+                  data-bs-dismiss="modal"
+                  (click)="updateCapture(selectedGames)"
+                >
+                  Confirmer la sélection
+                </button>
+              </div>
+            </dialog>
+          </div>
         </div>
 
         <div class="d-flex justify-content-center align-self-center">

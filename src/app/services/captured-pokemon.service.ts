@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
 import { environment } from 'src/environments/environment';
-import { Capture } from '../models/capture';
+import { updateCapture } from '../models/update-capture';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Capture } from '../models/capture';
+import { Game } from '../models/game';
 
 @Injectable({
   providedIn: 'root',
@@ -53,11 +55,11 @@ export class CapturedPokemonService {
   updateCapture(
     trainerId: number,
     pokemonId: number,
-    capture: Capture
+    capture: updateCapture
   ): Observable<Capture> {
     const headers = this.setHeaders();
     return this.http.patch<Capture>(
-      `${this.baseApiUrl}/api/capture/${trainerId}/${pokemonId}`,
+      `${this.baseApiUrl}/capture/${trainerId}/${pokemonId}`,
       capture,
       {
         headers,

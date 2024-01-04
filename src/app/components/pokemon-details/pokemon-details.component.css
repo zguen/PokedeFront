@@ -196,6 +196,33 @@ li {
   justify-content: space-around;
 }
 
+.modalCapture {
+  margin-top: 2rem;
+}
+
+.capture {
+  font-size: small;
+  margin-bottom: auto;
+}
+
+.btn-add {
+  margin-top: 0.5rem;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  background: var(--clr);
+  color: white;
+  cursor: pointer;
+  background-color: #e61515;
+  border-radius: 12px;
+  line-height: normal;
+  font-size: smaller;
+}
+
+.versions {
+  margin-bottom: 0.5rem;
+}
+
 @media screen and (max-width: 48rem) {
   .row {
     flex-direction: column;

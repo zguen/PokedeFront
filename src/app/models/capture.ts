@@ -1,5 +1,7 @@
-import { Game } from "./game"
+import { Game } from "./game";
 
 export interface Capture {
-    game: Game[]
+    id_trainer: number,
+    id_pokemon: number,
+    games: Game[]
 }

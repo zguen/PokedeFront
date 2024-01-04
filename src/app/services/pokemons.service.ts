@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { CreatePokemon } from '../models/create-pokemon';
 import { UpdatePokemon } from '../models/update-pokemon';
 import { environment } from 'src/environments/environment';
+import { Game } from '../models/game';
 
 @Injectable({
   providedIn: 'root',
@@ -40,9 +41,7 @@ export class PokemonsService {
 
   getPreEvolution(pokedexid: number): Observable<Pokemon> {
     // Utilisez l'ID de la pré-évolution pour obtenir les détails de la pré-évolution
-    return this.http.get<Pokemon>(
-      `${this.baseApiUrl}/pokemon/${pokedexid}`
-    );
+    return this.http.get<Pokemon>(`${this.baseApiUrl}/pokemon/${pokedexid}`);
   }
 
   updatePokemon(
@@ -84,14 +83,15 @@ export class PokemonsService {
     }
 
     // Envoyez la requête POST
-    return this.http.post<void>(
-      `${this.baseApiUrl}/pokemon/capture`,
-      payload
-    );
+    return this.http.post<void>(`${this.baseApiUrl}/pokemon/capture`, payload);
   }
 
   getPokemonsByTrainer(trainerId: number): Observable<Pokemon[]> {
     const url = `${this.baseApiUrl}/pokemon/by-trainer/${trainerId}`;
     return this.http.get<Pokemon[]>(url);
+  }
+
+  getGamesByPokemonId(pokemonId: number): Observable<Game[]> {
+    return this.http.get<Game[]>(`${this.baseApiUrl}/pokemon/${pokemonId}/games`);
   }
 }

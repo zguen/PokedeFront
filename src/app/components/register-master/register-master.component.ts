@@ -36,7 +36,7 @@ export class RegisterMasterComponent {
         next: (response) => {
 
           window.alert(
-            'Un e-mail de confirmation a été envoyé. Veuillez le valider dans les deux heures.'
+            'Un e-mail de confirmation a été envoyé. Veuillez le valider dans les 24 heures.'
           );
           
           this.router.navigate(['/master']);

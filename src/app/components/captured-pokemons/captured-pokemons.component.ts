@@ -17,10 +17,10 @@ export class CapturedPokemonsComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  public displayedPokemonCount: number = 20; // Commencez avec les 5 premiers
+  public displayedPokemonCount: number = 40; // Commencez avec les 5 premiers
 
   public loadMorePokemon() {
-    this.displayedPokemonCount += 20; // Ajoute à chaque clic
+    this.displayedPokemonCount += 40; // Ajoute à chaque clic
   }
 
   ngOnInit(): void {

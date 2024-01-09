@@ -182,7 +182,7 @@ export class PokemonDetailsComponent implements OnInit {
       .updateCapture(trainerId, pokemonId, updateCapture)
       .subscribe({
         next: (capture) => {
-          this.router.navigate(['/master']);
+          this.router.navigate(['/pokemons/navigate', pokemonId]);
         },
         error: (error) => {
           console.error('Error updating capture:', error);

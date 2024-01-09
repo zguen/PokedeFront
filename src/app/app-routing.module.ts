@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'pokemons', component: PokemonsComponent },
   { path: 'pokemons/:pokedexid', component: PokemonDetailsComponent },
+  { path: 'pokemons/navigate/:pokedexid', component: PokemonDetailsComponent},
   { path: 'pokemons/edit/:pokedexid', component: PokemonEditComponent },
   { path: 'pokemons/list/add', component: PokemonAddComponent },
   { path: 'login', component: LoginMasterComponent },

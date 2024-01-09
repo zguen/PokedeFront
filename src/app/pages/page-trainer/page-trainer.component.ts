@@ -1,7 +1,10 @@
 import { Component, HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
+import { Trainer } from 'src/app/models/trainer';
 import { AuthService } from 'src/app/services/auth.service';
 import { PokemonsService } from 'src/app/services/pokemons.service';
+import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
   selector: 'app-page-trainer',
@@ -10,6 +13,8 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
 })
 export class PageTrainerComponent {
   capturedPokemons: Pokemon[] = [];
+  trainer!: Trainer;
+  trainerId!: string;
 
   tabTypes: string[] = [];
   tabGenerations: string[] = [];
@@ -25,10 +30,11 @@ export class PageTrainerComponent {
 
   constructor(
     private pokemonService: PokemonsService,
-    private authService: AuthService
+    private route: ActivatedRoute,
+    private trainerService: TrainerService
   ) {}
 
-  public displayedPokemonCount: number = 20; 
+  public displayedPokemonCount: number = 20;
   public addDisplayedPokemon: number = 20;
 
   @HostListener('window:resize', ['$event'])
@@ -40,22 +46,17 @@ export class PageTrainerComponent {
     this.adjustDisplayedPokemonCount(window.innerWidth);
     this.addAdjustDisplayedPokemon(window.innerWidth);
 
-    this.pokemonService.getPokemons().subscribe(
-      (allPokemons) => {
-        // Obtenez le dresseur connecté
-        const loggedInTrainer = this.authService.getLoggedInTrainer();
+    this.route.params.subscribe((params) => {
+      this.trainerId = params['id'];
+      this.trainerService.getTrainer(+this.trainerId).subscribe((data) => {
+        this.trainer = data;
+      });
+    });
 
-        if (loggedInTrainer && loggedInTrainer.pokemon) {
-          // Filtrez les Pokémon capturés par le dresseur connecté
-          this.capturedPokemons = allPokemons.filter((pokemon) =>
-            loggedInTrainer!.pokemon!.some(
-              (capturedPokemon) =>
-                capturedPokemon.pokedexid === pokemon.pokedexid
-            )
-          );
-        }
+    this.pokemonService.getPokemonsByTrainer(+this.trainerId).subscribe({
+      next: (capturedPokemons) => {
+        this.capturedPokemons = capturedPokemons;
 
-        // Nouvelles modifications
         this.capturedPokemons.forEach((pokemon) => {
           pokemon.types.forEach((type) => {
             const tabAlreadyIn = this.tabTypes.some((t) => t === type.wording);
@@ -77,15 +78,17 @@ export class PageTrainerComponent {
           valeur: '',
           idValeur: '',
         };
+
+        this.saveFilter(this.saveFilterTab);
       },
-      (error) => {
+      error: (error) => {
         console.error('Erreur lors de la récupération des Pokémon :', error);
-      }
-    );
+      },
+    });
   }
 
-  public loadMorePokemon() {
-    this.displayedPokemonCount += this.addDisplayedPokemon; 
+  loadMorePokemon() {
+    this.displayedPokemonCount += this.addDisplayedPokemon;
   }
 
   adjustDisplayedPokemonCount(screenWidth: number): void {

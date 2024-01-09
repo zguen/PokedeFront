@@ -1,6 +1,5 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
-
 @font-face {
   font-family: "Pokemon Hollow";
   src: url("fonts/Pokemon Hollow.ttf") format("truetype");
@@ -28,8 +27,8 @@ body {
   min-height: 100vh;
   height: 100%;
   margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .custom-font-hollow {
@@ -71,13 +70,21 @@ body {
 
 .btn-back {
   position: relative;
-    display: inline-block;
-    padding: 12px 25px;
-    text-decoration: none;
-    background: var(--clr);
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    background-color: grey;
-    border-radius: 12px;
+  display: inline-block;
+  padding: 12px 25px;
+  text-decoration: none;
+  background: var(--clr);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: grey;
+  border-radius: 12px;
+}
+
+.backButton {
+  border: 1px black;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: black;
+  background: #adb9c0;
 }

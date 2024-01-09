@@ -9,6 +9,7 @@ import { CapturedPokemonService } from 'src/app/services/captured-pokemon.servic
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { Capture } from 'src/app/models/capture';
 import { GameService } from 'src/app/services/game.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -41,7 +42,8 @@ export class PokemonDetailsComponent implements OnInit {
     private authService: AuthService,
     private capturedPokemonService: CapturedPokemonService,
     private gameService: GameService,
-    private router: Router
+    private router: Router,
+    private navigation: NavigationService,
   ) {}
 
   ngOnInit(): void {
@@ -180,7 +182,7 @@ export class PokemonDetailsComponent implements OnInit {
       .updateCapture(trainerId, pokemonId, updateCapture)
       .subscribe({
         next: (capture) => {
-          this.router.navigate(['/pokemons', pokemonId]);
+          this.router.navigate(['/master']);
         },
         error: (error) => {
           console.error('Error updating capture:', error);
@@ -209,5 +211,9 @@ export class PokemonDetailsComponent implements OnInit {
       '#selectionnerJeuxModal'
     ) as HTMLDialogElement;
     selectionnerJeuxDialog?.close();
+  }
+
+  back(): void {
+    this.navigation.back()
   }
 }

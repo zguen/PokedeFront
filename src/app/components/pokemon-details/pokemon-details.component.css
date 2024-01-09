@@ -7,7 +7,6 @@
 
 .pokemon-card {
   background: #adb9c0;
-  margin-top: 1rem;
   padding-top: 20px;
   clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
   width: 85%;

@@ -27,6 +27,7 @@ import { CapturedPokemonsComponent } from './components/captured-pokemons/captur
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ValidationMailComponent } from './pages/validation-mail/validation-mail.component';
+import { BackButtonDirective } from './directives/back-button.directive';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ValidationMailComponent } from './pages/validation-mail/validation-mail
     CapturedPokemonsComponent,
     NotFoundComponent,
     ValidationMailComponent,
+    BackButtonDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule, BrowserAnimationsModule],
   providers: [],

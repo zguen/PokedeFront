@@ -1,5 +1,7 @@
-<div class="d-flex align-items-center justify-content-center">
+<div class="d-flex align-items-center justify-content-evenly">
+  <button (click)="goToPreviousPokemon()" class="backButton">Pokemon précédent</button>
   <button backButton class="backButton">Retour</button>
+  <button (click)="goToNextPokemon()" class="backButton">Pokemon suivant</button>
 </div>
 <div class="contain">
   <div class="pokemon-card container" *ngIf="pokemon">
@@ -97,6 +99,7 @@
             [src]="pokemon.picture"
             [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
             class="imgPoke img-fluid"
+            alt="Image du pokemon {{pokemon.name}}"
           />
         </div>
       </div>
@@ -107,7 +110,7 @@
             <div>
               <img
                 [src]="type.picture"
-                alt="{{ type.wording }}"
+                alt="image du type {{ type.wording }} du pokemon {{pokemon.name}}"
                 class="img-fluid img-types"
               />
               <p>{{ type.wording }}</p>

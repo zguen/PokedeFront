@@ -32,6 +32,8 @@ export class PokemonDetailsComponent implements OnInit {
   postEvolutions: Pokemon[] = [];
   private unsubscribe$ = new Subject<void>();
   isAlreadyCaptured$ = new BehaviorSubject<boolean>(false);
+  previousPokedexId: number | undefined;
+  nextPokedexId: number | undefined;
 
   blockSelect: boolean = false;
 
@@ -43,7 +45,7 @@ export class PokemonDetailsComponent implements OnInit {
     private capturedPokemonService: CapturedPokemonService,
     private gameService: GameService,
     private router: Router,
-    private navigation: NavigationService,
+    private navigation: NavigationService
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +61,8 @@ export class PokemonDetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe((params) => {
       const pokemonIdFromRoute = Number(params.get('pokedexid'));
+      this.previousPokedexId = pokemonIdFromRoute - 1;
+      this.nextPokedexId = pokemonIdFromRoute + 1;
       this.pokemonService
         .getPokemonById(pokemonIdFromRoute)
         .subscribe((data) => {
@@ -133,6 +137,18 @@ export class PokemonDetailsComponent implements OnInit {
           }
         });
     });
+  }
+
+  goToPreviousPokemon(): void {
+    if (this.previousPokedexId !== undefined) {
+      this.router.navigate(['/pokemons', this.previousPokedexId]);
+    }
+  }
+
+  goToNextPokemon(): void {
+    if (this.previousPokedexId !== undefined) {
+      this.router.navigate(['/pokemons', this.nextPokedexId]);
+    }
   }
 
   verifierConnexionTrainer(): void {
@@ -214,6 +230,6 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   back(): void {
-    this.navigation.back()
+    this.navigation.back();
   }
 }

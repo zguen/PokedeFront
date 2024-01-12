@@ -28,9 +28,21 @@
           collection, et la passion Pokémon t'attendent !
         </p>
       </div>
-      <div class="link">
-        <a [routerLink]="['/master']"><strong>En avant!!!!</strong></a>
+      <div class="d-flex justify-content-evenly align-items-baseline">
+        <a [routerLink]="['/master']" class="link"><strong>En avant!!!</strong></a>
+        <a href="#" (click)="bonjourModal()" class="btnTuto"><strong>Tuto.</strong></a>
       </div>
+
+      <dialog id="carouselDialog">
+        <!-- Contenu de votre carrousel -->
+        <div>
+          <!-- ... Votre carrousel ici ... -->
+        </div>
+      
+        <button (click)="aurevoirModal()">Fermer</button>
+      </dialog>
+
+
     </div>
 
     <!-- Affichage de la carte Pokémon aléatoire -->

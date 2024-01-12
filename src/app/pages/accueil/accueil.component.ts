@@ -13,7 +13,7 @@ export class AccueilComponent implements OnInit {
   constructor(private pokemonService: PokemonsService) {}
 
   ngOnInit() {
-    this.getRandomPokemon(); // Modification ici
+    this.getRandomPokemon();
   }
 
   private getRandomPokemon() {
@@ -26,5 +26,14 @@ export class AccueilComponent implements OnInit {
   }
   generateRandomPokemon() {
     this.getRandomPokemon();
+  }
+
+  bonjourModal() {
+    const dialog = document.querySelector('dialog');
+    dialog?.showModal();
+  }
+  aurevoirModal() {
+    const dialog = document.querySelector('dialog');
+    dialog?.close();
   }
 }

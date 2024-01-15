@@ -34,11 +34,14 @@
       </div>
 
       <dialog id="carouselDialog">
-        <!-- Contenu de votre carrousel -->
-        <div>
-          <!-- ... Votre carrousel ici ... -->
-        </div>
-      
+        <ngb-carousel>
+          <ng-template ngbSlide>
+            <img src="../../../assets/img/Tuto1.png" alt="Tuto 1">
+          </ng-template>
+          <ng-template ngbSlide>
+            <img src="../../../assets/img/Tuto2.png" alt="Tuto 2">
+          </ng-template>
+        </ngb-carousel>  
         <button (click)="aurevoirModal()">Fermer</button>
       </dialog>
 

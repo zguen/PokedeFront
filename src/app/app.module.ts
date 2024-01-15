@@ -28,6 +28,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ValidationMailComponent } from './pages/validation-mail/validation-mail.component';
 import { BackButtonDirective } from './directives/back-button.directive';
+import { AlertModule } from '@coreui/angular';
+import { CarouselModule } from 'primeng/carousel';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,18 @@ import { BackButtonDirective } from './directives/back-button.directive';
     ValidationMailComponent,
     BackButtonDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgSelectModule, FormsModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgSelectModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    AlertModule,
+    CarouselModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

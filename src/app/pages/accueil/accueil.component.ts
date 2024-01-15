@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
+
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',

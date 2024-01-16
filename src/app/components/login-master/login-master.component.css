@@ -94,6 +94,11 @@ input[type="checkbox"] {
  text-align: center;
 }
 
+.password {
+  background-color: transparent;
+  border: none;
+}
+
 @media only screen and (max-width: 48rem) {
   .sign-back {
     width: 80%;

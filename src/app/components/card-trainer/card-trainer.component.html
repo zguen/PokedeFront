@@ -61,18 +61,27 @@
 
           <div class="mb-3">
             <label for="password" class="col-form-label">Mot de passe:</label>
-            <input
-              type="password"
-              class="form-control"
-              required
-              pattern="^(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$"
-              [(ngModel)]="trainerLog.password"
-              name="password"
-              #password="ngModel"
-              [class.input-error]="password.invalid && isFormValidate"
-              [class.input-error-nickname]="loginNone"
-              placeholder="Mot de passe"
-            />
+            <div class="d-flex">
+              <input
+                type="{{ showPassword ? 'text' : 'password' }}"
+                class="form-control"
+                required
+                pattern="^(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$"
+                [(ngModel)]="trainerLog.password"
+                name="password"
+                #password="ngModel"
+                [class.input-error]="password.invalid && isFormValidate"
+                [class.input-error-nickname]="loginNone"
+                placeholder="Mot de passe"
+              />
+              <button
+                type="button"
+                class="password"
+                (click)="togglePasswordVisibility()"
+              >
+                {{ showPassword ? "&#x1F441;" : "&#x1F440;" }}
+              </button>
+            </div>
             <div *ngIf="password.invalid && isFormValidate" class="alert">
               <div *ngIf="password.errors?.['required']">
                 Le mot de passe est obligatoire.

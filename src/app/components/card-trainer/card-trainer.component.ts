@@ -23,6 +23,8 @@ export class CardTrainerComponent {
   isFormValidate = false;
   loginNone = false;
 
+  showPassword: boolean = false;
+
   constructor(
     private trainerService: TrainerService,
     private router: Router,
@@ -45,5 +47,9 @@ export class CardTrainerComponent {
         },
       });
     }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

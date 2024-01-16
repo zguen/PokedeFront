@@ -22,9 +22,9 @@
       </div>
     </div>
 
-    <div class="signup-row">
+    <div class="signup-row d-flex">
       <input
-        type="password"
+        type="{{ showPassword ? 'text' : 'password' }}"
         required
         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
         [(ngModel)]="master.password"
@@ -34,6 +34,9 @@
         [class.input-error-email]="loginNone"
         placeholder="MOT DE PASSE"
       />
+      <button type="button" class="password" (click)="togglePasswordVisibility()">
+        {{ showPassword ? '&#x1F441;' : '&#x1F440;' }}
+      </button>
     </div>
     <div *ngIf="password.invalid && isFormValidate" class="alert">
       <div *ngIf="password.errors?.['required']">

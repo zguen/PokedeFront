@@ -16,6 +16,7 @@ export class LoginMasterComponent {
   };
   isFormValidate = false;
   loginNone = false;
+  showPassword: boolean = false;
 
   constructor(private masterService: MasterService, private router: Router) {}
 
@@ -36,5 +37,9 @@ export class LoginMasterComponent {
         },
       });
     }
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

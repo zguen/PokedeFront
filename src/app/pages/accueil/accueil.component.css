@@ -114,6 +114,7 @@
   color: #ff0000;
 }
 
+
 /* Media Queries */
 @media only screen and (max-width: 48rem) {
   #app-container {
@@ -134,6 +135,11 @@
   }
   .btn-pokemon {
     margin-top: 0.5rem;
+  }
+
+  .image-text {
+    font-size: 8px;
+    bottom: 30px;
   }
 }
 

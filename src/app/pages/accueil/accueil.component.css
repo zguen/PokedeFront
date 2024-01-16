@@ -65,15 +65,53 @@
 }
 
 .subtitle {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .btnTuto {
-  color: blue;
+  color: #e61515;
 }
 
 .btnTuto:hover {
   color: black;
+}
+
+#carouselDialog {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.slide-container {
+  position: relative;
+}
+
+.image-text {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  font-size: 16px;
+  background: linear-gradient(rgba(255, 202, 0, 0.6), #ffca00 150%);
+  border-radius: 10px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  z-index: 1000;
+}
+
+.close-icon:hover {
+  color: #ff0000;
 }
 
 /* Media Queries */

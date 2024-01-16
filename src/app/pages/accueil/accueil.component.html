@@ -29,27 +29,72 @@
         </p>
       </div>
       <div class="d-flex justify-content-evenly align-items-baseline">
-        <a [routerLink]="['/master']" class="link"><strong>En avant!!!</strong></a>
-        <a href="#" (click)="bonjourModal()" class="btnTuto"><strong>Tuto.</strong></a>
+        <a [routerLink]="['/master']" class="link"
+          ><strong>En avant!!!</strong></a
+        >
+        <a href="#" (click)="bonjourModal()" class="btnTuto"
+          ><strong>Tuto</strong></a
+        >
       </div>
 
       <dialog id="carouselDialog">
         <ngb-carousel>
           <ng-template ngbSlide>
-            <img src="../../../assets/img/Tuto1.png" alt="Tuto 1">
+            <div class="slide-container">
+              <img
+                src="../../../assets/img/Tuto1.png"
+                alt="Tuto 1"
+                class="img-fluid"
+              />
+              <span class="image-text d-flex text-center">
+                <strong
+                  >Créée toi un compte et un profil <br />
+                  Plusieurs profils possibles</strong
+                ></span
+              >
+              <span class="close-icon" (click)="aurevoirModal()">&times;</span>
+            </div>
           </ng-template>
           <ng-template ngbSlide>
-            <img src="../../../assets/img/Tuto2.png" alt="Tuto 2">
+            <div class="slide-container">
+              <img
+                src="../../../assets/img/Tuto2.png"
+                alt="Tuto 2"
+                class="img-fluid"
+              />
+              <span class="image-text d-flex text-center"
+                ><strong
+                  >Une fois connecté, clique sur la pokeball pour attraper ton
+                  pokemon</strong
+                ></span
+              >
+              <span class="close-icon" (click)="aurevoirModal()">&times;</span>
+            </div>
           </ng-template>
-        </ngb-carousel>  
-        <button (click)="aurevoirModal()">Fermer</button>
+          <ng-template ngbSlide>
+            <div class="slide-container">
+              <img
+                src="../../../assets/img/Tuto3.png"
+                alt="Tuto 3"
+                class="img-fluid"
+              />
+              <span class="image-text d-flex text-center"
+                ><strong
+                  >Le voilà aujouté à ta collection, tu peux personnaliser dans quel(s) jeu(x) tu l'as attrapé</strong
+                ></span
+              >
+              <span class="close-icon" (click)="aurevoirModal()">&times;</span>
+            </div>
+          </ng-template>
+        </ngb-carousel>
       </dialog>
-
-
     </div>
 
     <!-- Affichage de la carte Pokémon aléatoire -->
-    <div class="col-md-4 pokemon d-flex justify-content-evenly" *ngIf="randomPokemon">
+    <div
+      class="col-md-4 pokemon d-flex justify-content-evenly"
+      *ngIf="randomPokemon"
+    >
       <div>
         <app-card [pokemon]="randomPokemon"></app-card>
       </div>

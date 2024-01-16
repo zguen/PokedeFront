@@ -48,6 +48,10 @@ ul {
     text-align: right;
 }
 
+p{
+    margin: 0;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 48rem) {
     .droitReserve {

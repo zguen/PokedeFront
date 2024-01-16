@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
@@ -28,6 +28,7 @@ export class AccueilComponent implements OnInit {
   generateRandomPokemon() {
     this.getRandomPokemon();
   }
+
 
   bonjourModal() {
     const dialog = document.querySelector('dialog');

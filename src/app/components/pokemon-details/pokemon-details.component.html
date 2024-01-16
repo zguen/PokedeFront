@@ -33,7 +33,7 @@
                 Zut, ça n'a pas fonctionnée
               </button>
               <button class="btn-pokemon" (click)="capturePokemon(pokemon)">
-                Pokemon attrapé!!!
+                Pokémon attrapé!!!
               </button>
             </div>
           </dialog>
@@ -43,11 +43,11 @@
             *ngIf="isAdmin"
             [routerLink]="['/pokemons/edit/', pokemon.pokedexid]"
           >
-            Editer ce pokemon
+            Editer ce Pokémon
           </button>
 
           <div *ngIf="isTrainerConnected && isPokemonCaptured">
-            <p class="capture versions">Pokemon déjà capturé dans ces versions:</p>
+            <p class="capture versions">Pokémon déjà capturé dans ces versions:</p>
             <ng-container *ngIf="selectedGames.length > 0">
               <ng-container *ngFor="let game of selectedGames">
                 <div>

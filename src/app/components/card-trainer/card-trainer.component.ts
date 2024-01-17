@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { LoginTrainer } from 'src/app/models/login-trainer';
 import { Trainer } from 'src/app/models/trainer';
 import { TrainerService } from 'src/app/services/trainer.service';
-import { AuthService } from 'src/app/services/auth.service'; // Ajout de l'import
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-card-trainer',
@@ -48,7 +48,7 @@ export class CardTrainerComponent {
       });
     }
   }
-
+  
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }

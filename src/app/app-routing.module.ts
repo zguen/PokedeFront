@@ -12,23 +12,25 @@ import { AuthGuard } from './auth.guard';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ValidationMailComponent } from './pages/validation-mail/validation-mail.component';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'pokemons', component: PokemonsComponent },
   { path: 'pokemons/:pokedexid', component: PokemonDetailsComponent },
-  { path: 'pokemons/navigate/:pokedexid', component: PokemonDetailsComponent},
+  { path: 'pokemons/navigate/:pokedexid', component: PokemonDetailsComponent },
   { path: 'pokemons/edit/:pokedexid', component: PokemonEditComponent },
   { path: 'pokemons/list/add', component: PokemonAddComponent },
   { path: 'login', component: LoginMasterComponent },
   { path: 'register', component: RegisterMasterComponent },
   { path: 'master', component: PageMasterComponent },
+  { path: 'pokedex', component: PokedexComponent },
   {
     path: 'trainer/:id',
     component: PageTrainerComponent,
     canActivate: [AuthGuard],
   },
-  {path: 'validationmail', component: ValidationMailComponent},
+  { path: 'validationmail', component: ValidationMailComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
@@ -36,4 +38,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

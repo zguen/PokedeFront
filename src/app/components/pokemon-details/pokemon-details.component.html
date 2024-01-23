@@ -1,3 +1,6 @@
+<div class ="d-flex justify-content-end changeView">
+<button class="backButton">Coucou</button>
+</div>
 <div class="d-flex align-items-center justify-content-evenly">
   <button (click)="goToPreviousPokemon()" class="backButton">Précédent</button>
   <button backButton class="backButton">Retour</button>
@@ -113,7 +116,7 @@
                 alt="image du type {{ type.wording }} du pokemon {{pokemon.name}}"
                 class="img-fluid img-types"
               />
-              <p>{{ type.wording }}</p>
+              <h2>{{ type.wording }}</h2>
             </div>
           </ng-container>
         </div>

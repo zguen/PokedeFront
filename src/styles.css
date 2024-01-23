@@ -16,7 +16,7 @@
 
 body {
   background-image: linear-gradient(rgba(255, 202, 0, 0.4), #ffca00 150%),
-    url("../src/assets/img/imgdefont.jpg");
+    url("../src/assets/img/imgdefont.avif");
   /* Chemin de l'image depuis la racine du projet */
   background-size: cover;
   /* Ajuste l'image pour couvrir tout l'écran */

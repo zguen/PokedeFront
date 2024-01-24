@@ -13,6 +13,7 @@ import { PageTrainerComponent } from './pages/page-trainer/page-trainer.componen
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ValidationMailComponent } from './pages/validation-mail/validation-mail.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { TESTSComponent } from './components/tests/tests.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginMasterComponent },
   { path: 'register', component: RegisterMasterComponent },
   { path: 'master', component: PageMasterComponent },
-  { path: 'pokedex', component: PokedexComponent },
+  { path: 'pokedex/:pokedexid', component: PokedexComponent },
   {
     path: 'trainer/:id',
     component: PageTrainerComponent,
@@ -32,6 +33,7 @@ const routes: Routes = [
   },
   { path: 'validationmail', component: ValidationMailComponent },
   { path: '**', component: NotFoundComponent },
+  { path: 'test', component: TESTSComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 <div class ="d-flex justify-content-end changeView">
-<button class="backButton">Coucou</button>
+<a [routerLink]="['/pokedex', pokemon.pokedexid]" *ngIf="pokemon">Coucou</a>
 </div>
 <div class="d-flex align-items-center justify-content-evenly">
   <button (click)="goToPreviousPokemon()" class="backButton">Précédent</button>

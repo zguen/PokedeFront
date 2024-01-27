@@ -17,7 +17,7 @@ h2 {
 }
 
 a {
-  color:#000000 ;
+  color: #000000;
 }
 
 p {
@@ -49,7 +49,6 @@ p {
 
 .typesOf {
   text-transform: uppercase;
-  font: bolder;
   text-align: center;
   margin-left: -12px;
   margin-right: -12px;
@@ -57,6 +56,18 @@ p {
   /* Ajoute une bordure blanche de 2 pixels en haut */
   border-bottom: 3px solid white;
   /* Ajoute une bordure blanche de 2 pixels en haut */
+}
+
+.pokeChange {
+  display: inline-block;
+  background-image: url("../../../assets/img/pokedex.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  width: 100px;
+  height: 50px;
+  margin-right: 5px;
 }
 
 .row {
@@ -189,12 +200,12 @@ li {
 .modalPerso {
   border-radius: 10px;
   border: 1px solid black;
-  background: linear-gradient(rgba(255, 202, 0, 0.6), #ffca00 150%)
+  background: linear-gradient(rgba(255, 202, 0, 0.6), #ffca00 150%);
 }
 
 .custom-font-solid {
   font-size: 36px;
-  color: #e61515
+  color: #e61515;
 }
 
 .buttonContain {
@@ -224,10 +235,6 @@ li {
   border-radius: 12px;
   line-height: normal;
   font-size: smaller;
-}
-
-.changeView {
-  margin-right: 50px;
 }
 
 .versions {

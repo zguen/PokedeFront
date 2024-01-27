@@ -31,9 +31,9 @@ const routes: Routes = [
     component: PageTrainerComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'test/:pokedexid', component: TESTSComponent},
   { path: 'validationmail', component: ValidationMailComponent },
   { path: '**', component: NotFoundComponent },
-  { path: 'test', component: TESTSComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
-<div class ="d-flex justify-content-end changeView">
-<a [routerLink]="['/pokedex', pokemon.pokedexid]" *ngIf="pokemon">Coucou</a>
+<div class="d-flex justify-content-end changeView">
+
 </div>
 <div class="d-flex align-items-center justify-content-evenly">
   <button (click)="goToPreviousPokemon()" class="backButton">Précédent</button>
@@ -8,23 +8,23 @@
 </div>
 <div class="contain">
   <div class="pokemon-card container" *ngIf="pokemon">
-    <div
-      [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-      class="typesOf"
-    >
-      <h1>{{ pokemon.name }} # {{ pokemon.pokedexid }}</h1>
+    <div [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" class="typesOf d-flex align-items-center">
+      <div class="text-center flex-grow-1">
+        <h1>{{ pokemon.name }} # {{ pokemon.pokedexid }}</h1>
+      </div>
+      <div class="ml-auto">
+        <a [routerLink]="['/pokedex', pokemon.pokedexid]" class="pokeChange"></a>
+      </div>
     </div>
+
+
 
     <div class="row">
       <div class="col picturePoke">
         <div class="pokeball-container">
           <!-- Ouverture Modale capture pokemon-->
-          <button
-            *ngIf="isTrainerConnected && !isPokemonCaptured"
-            type="button"
-            class="pokeball"
-            (click)="bonjourModal()"
-          ></button>
+          <button *ngIf="isTrainerConnected && !isPokemonCaptured" type="button" class="pokeball"
+            (click)="bonjourModal()"></button>
 
           <!-- Modale capture pokemon -->
           <dialog class="modalPerso">
@@ -41,11 +41,7 @@
             </div>
           </dialog>
 
-          <button
-            class="btn btn-primary"
-            *ngIf="isAdmin"
-            [routerLink]="['/pokemons/edit/', pokemon.pokedexid]"
-          >
+          <button class="btn btn-primary" *ngIf="isAdmin" [routerLink]="['/pokemons/edit/', pokemon.pokedexid]">
             Editer ce Pokémon
           </button>
 
@@ -65,31 +61,17 @@
             <dialog id="selectionnerJeuxModal" class="modalPerso">
               <h2 class="custom-font-solid">Sélectionner jeu(x)</h2>
               <div class="form-group modalCapture">
-                <ng-select
-                  [disabled]="blockSelect"
-                  [items]="games"
-                  [multiple]="true"
-                  bindLabel="wording"
-                  [(ngModel)]="selectedGames"
-                  [ngModelOptions]="{ standalone: true }"
-                  placeholder="Jeux *"
-                  class="custom"
-                >
+                <ng-select [disabled]="blockSelect" [items]="games" [multiple]="true" bindLabel="wording"
+                  [(ngModel)]="selectedGames" [ngModelOptions]="{ standalone: true }" placeholder="Jeux *"
+                  class="custom">
                 </ng-select>
               </div>
               <div class="buttonContain">
-                <button
-                  class="btn-back"
-                  (click)="fermerSelectionnerJeuxModal()"
-                >
+                <button class="btn-back" (click)="fermerSelectionnerJeuxModal()">
                   Annuler
                 </button>
-                <button
-                  type="button"
-                  class="btn-pokemon"
-                  data-bs-dismiss="modal"
-                  (click)="updateCapture(selectedGames)"
-                >
+                <button type="button" class="btn-pokemon" data-bs-dismiss="modal"
+                  (click)="updateCapture(selectedGames)">
                   Confirmer la sélection
                 </button>
               </div>
@@ -98,12 +80,8 @@
         </div>
 
         <div class="d-flex justify-content-center align-self-center">
-          <img
-            [src]="pokemon.picture"
-            [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-            class="imgPoke img-fluid"
-            alt="Image du pokemon {{pokemon.name}}"
-          />
+          <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+            class="imgPoke img-fluid" alt="Image du pokemon {{pokemon.name}}" />
         </div>
       </div>
 
@@ -111,38 +89,27 @@
         <div class="d-flex justify-content-evenly types pokemon-item">
           <ng-container *ngFor="let type of pokemon.types">
             <div>
-              <img
-                [src]="type.picture"
-                alt="image du type {{ type.wording }} du pokemon {{pokemon.name}}"
-                class="img-fluid img-types"
-              />
+              <img [src]="type.picture" alt="image du type {{ type.wording }} du pokemon {{pokemon.name}}"
+                class="img-fluid img-types" />
               <h2>{{ type.wording }}</h2>
             </div>
           </ng-container>
         </div>
         <div>
           <p>
-            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              >Description:</span
-            >
+            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Description:</span>
             {{ pokemon.description }}
           </p>
           <p>
-            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              >Taille:</span
-            >
+            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Taille:</span>
             {{ pokemon.height }}
           </p>
           <p>
-            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              >Poids:</span
-            >
+            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Poids:</span>
             {{ pokemon.weight }}
           </p>
           <p>
-            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              >Generation:</span
-            >
+            <span [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()">Generation:</span>
             {{ pokemon.generation.wording }}
           </p>
         </div>
@@ -154,12 +121,8 @@
         <ng-container *ngIf="prePreEvolution">
           <li class="pokemon-item">
             <a [routerLink]="['/pokemons/', prePreEvolution.pokedexid]">
-              <img
-                [src]="prePreEvolution.picture"
-                [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-                class="imgEvo img-fluid"
-                alt="Pre-Evolution Image"
-              />
+              <img [src]="prePreEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+                class="imgEvo img-fluid" alt="Pre-Evolution Image" />
               <p>{{ prePreEvolution.name }}</p>
             </a>
           </li>
@@ -168,12 +131,8 @@
         <ng-container *ngIf="preEvolution">
           <li class="pokemon-item">
             <a [routerLink]="['/pokemons', preEvolution.pokedexid]">
-              <img
-                [src]="preEvolution.picture"
-                [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-                class="imgEvo img-fluid"
-                alt="Pre-Evolution Image"
-              />
+              <img [src]="preEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+                class="imgEvo img-fluid" alt="Pre-Evolution Image" />
               <p>{{ preEvolution.name }}</p>
             </a>
           </li>
@@ -181,36 +140,24 @@
 
         <li class="pokemon-item">
           <a [routerLink]="['/pokemons', pokemon.pokedexid]">
-            <img
-              [src]="pokemon.picture"
-              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              class="imgPoke img-fluid"
-              alt="Pokemon Image"
-            />
+            <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+              class="imgPoke img-fluid" alt="Pokemon Image" />
             <p>{{ pokemon.name }}</p>
           </a>
         </li>
 
         <li *ngFor="let evolution of evolutions" class="pokemon-item">
           <a [routerLink]="['/pokemons', evolution.pokedexid]">
-            <img
-              class="img-fluid"
-              [src]="evolution.picture"
-              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              alt="Evolution Image"
-            />
+            <img class="img-fluid" [src]="evolution.picture"
+              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" alt="Evolution Image" />
             <p>{{ evolution.name }}</p>
           </a>
         </li>
 
         <li *ngFor="let postEvolution of postEvolutions" class="pokemon-item">
           <a [routerLink]="['/pokemons', postEvolution.pokedexid]">
-            <img
-              [src]="postEvolution.picture"
-              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              class="img-fluid"
-              alt="Evolution Image"
-            />
+            <img [src]="postEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
+              class="img-fluid" alt="Evolution Image" />
             <p>{{ postEvolution.name }}</p>
           </a>
         </li>

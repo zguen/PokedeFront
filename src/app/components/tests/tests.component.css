@@ -1,7 +1,3 @@
-h1 {
-    color: white;
-}
-
 #buttonGlass {
     width: 60px;
     height: 60px;
@@ -49,6 +45,7 @@ h1 {
 }
 
 #screen {
+    margin-top: 20px;
     height: 245px;
     padding: 0 20px;
     background-color: #b0b0b0;
@@ -67,13 +64,9 @@ h1 {
     border-radius: 15px;
 }
 
-#picture img {
-    display: block;
-    margin: 0 auto;
-}
-
 #topPicture {
-    margin: 6px auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
     width: 40px;
 }
 
@@ -116,12 +109,19 @@ h1 {
     border-radius: 30px;
 }
 
+.back-left {
+    margin-top: 4px;
+}
 #blackbutton {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 100px;
     background: linear-gradient(to bottom, #666666 0%, #000000 80%);
     box-shadow: -3px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.back-left-center {
+    margin-top: 10px;
 }
 
 #barbutton1 {
@@ -139,6 +139,121 @@ h1 {
     background: #0B7082;
     border: black solid 1px;
 }
+
+#leftBox {
+    width: 160px;
+    height: 70px;
+    border: 1px solid black;
+    background-color: #5FC480;
+    border-radius: 15px;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+h2 {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+#cross {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    margin-top: 10px;
+}
+
+#topcross, #leftcross, #rightcross, #botcross {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #222;
+    box-shadow: -3px 2px #010101;
+    border-radius: 5px;
+}
+
+#topcross {
+    top: 0;
+    left: 30px;
+}
+
+#leftcross {
+    top: 30px;
+    left: 0;
+}
+
+#midcross {
+    width: 30px;
+    height: 30px;
+    background-color: #222;
+    box-shadow: -3px 2px #010101;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+#rightcross {
+    top: 30px;
+    left: 60px;
+}
+
+#botcross {
+    top: 60px;
+    left: 30px;
+}
+
+#upT, #downT, #leftT, #rightT {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+}
+
+#upT {
+    border-bottom: 10px solid #111;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+#downT {
+    border-top: 10px solid #111;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+#leftT {
+    border-right: 10px solid #111;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+#rightT {
+    border-left: 10px solid #111;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+#midCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(#111, #222);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 body {
     margin: 0;
@@ -164,9 +279,11 @@ body {
 }
 
 .pokedex {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #e61515;
     width: 848px;
-    margin: 0 auto;
     padding: 1em;
     border-radius: 15px;
     border: double black 10px;
@@ -251,13 +368,11 @@ body {
 }
 
 .screen {
-    background: linear-gradient(14deg,
-            rgb(165, 205, 83) 60%,
-            rgb(193, 217, 144) 65%);
+    background: black;
     padding: 5px;
     border-radius: 3px;
     font-family: "VT323";
-    border: inset #879a65 3px;
+    color: white;
 }
 
 .pokemon-name {

@@ -66,13 +66,14 @@
         <input
           type="password"
           required
-          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\.-])[A-Za-z\d@$!%*?&\.-]{12,}"
           [(ngModel)]="master.password"
           name="password"
           #password="ngModel"
           [class.input-error]="password.invalid && isFormSubmit"
           placeholder="MOT DE PASSE"
         />
+
         <div *ngIf="password.invalid && isFormSubmit" class="alert">
           <div *ngIf="password.errors?.['required']">
             Le mot de passe est obligatoire.

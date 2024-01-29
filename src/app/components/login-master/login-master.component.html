@@ -26,7 +26,7 @@
       <input
         type="{{ showPassword ? 'text' : 'password' }}"
         required
-        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
+        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\.-])[A-Za-z\d@$!%*?&\.-]{12,}"
         [(ngModel)]="master.password"
         name="password"
         #password="ngModel"

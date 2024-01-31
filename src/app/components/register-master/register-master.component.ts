@@ -22,6 +22,7 @@ export class RegisterMasterComponent {
   passwordConfirmError = false;
   registerOk = true;
   isFormSubmit = false;
+  message: string | null = null;
 
   constructor(private masterService: MasterService, private router: Router) {}
 
@@ -30,16 +31,17 @@ export class RegisterMasterComponent {
 
     this.passwordConfirmError =
       this.master.password !== this.master.password_confirm;
-    
+
     if (form.valid && !this.passwordConfirmError) {
       this.masterService.registerMaster(this.master).subscribe({
         next: (response) => {
+          this.message =
+            'Un e-mail de confirmation a été envoyé. Veuillez le valider dans les 24 heures.';
 
-          window.alert(
-            'Un e-mail de confirmation a été envoyé. Veuillez le valider dans les 24 heures.'
-          );
-          
-          this.router.navigate(['/master']);
+          setTimeout(() => {
+            this.message = null;
+            this.router.navigate(['/master']);
+          }, 5000); // Ferme le message après 5 secondes
         },
         error: (error) => {
           this.registerOk = false;
@@ -47,5 +49,4 @@ export class RegisterMasterComponent {
       });
     }
   }
-
 }

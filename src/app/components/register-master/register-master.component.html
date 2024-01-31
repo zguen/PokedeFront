@@ -110,6 +110,9 @@
         <div class="remember">
           <button class="btn-pokemon" type="submit">S'inscrire</button>
         </div>
+        <div *ngIf="message" class="notification">
+          {{ message }}
+        </div>
 
         <div class="remember">
           <a [routerLink]="['/login']">J'ai déjà un compte</a>

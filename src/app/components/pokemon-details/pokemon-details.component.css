@@ -249,10 +249,6 @@ li {
     height: auto;
   }
 
-  .displayLittleScreen {
-    display: none;
-  }
-
   .picturePoke {
     border-right: none;
     border-bottom: thick double black;

@@ -446,3 +446,32 @@ ul {
 .img-types {
     height: 30px;
 }
+
+@media (max-width: 48rem) {
+    .pokedex {
+        flex-direction: column;
+        /* Affichage en colonne sur les petits écrans */
+        align-items: center;
+        /* Centrage des éléments */
+        width: 100%;
+        /* La largeur prend toute la largeur disponible */
+        height: auto;
+    }
+    .panel,
+    .right-panel,
+    .divider {
+        width: 100%;
+        /* Les panneaux occupent toute la largeur sur les petits écrans */
+        margin-bottom: 20px;
+        /* Espace entre les panneaux */
+    }
+    .divider {
+        display: none;
+        /* Masquer la divider sur les petits écrans */
+    }
+    .panel.left-panel,
+    .panel.right-panel {
+        padding: 10px;
+        /* Ajoutez un peu d'espace intérieur aux panneaux */
+    }
+}

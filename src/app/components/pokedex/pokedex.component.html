@@ -1,9 +1,6 @@
-<div id="pokedex" *ngIf="pokemon">
-    <div id="left">
-        <div id="logo"></div>
-        <div id="bg_curve1_left"></div>
-        <div id="bg_curve2_left"></div>
-        <div id="curve1_left">
+<div class="pokedex d-flex justify-content-center">
+    <div class="panel left-panel">
+        <div id="up-left" class="d-flex">
             <div id="buttonGlass">
                 <div id="reflect"> </div>
             </div>
@@ -11,20 +8,13 @@
             <div id="miniButtonGlass2"></div>
             <div id="miniButtonGlass3"></div>
         </div>
-        <div id="curve2_left">
-            <div id="junction">
-                <div id="junction1"></div>
-                <div id="junction2"></div>
-            </div>
-        </div>
-        <div id="screen">
-            <div id="topPicture">
+        <div id="screen" class="container">
+            <div id="topPicture" class="mx-auto">
                 <div id="buttontopPicture1"></div>
                 <div id="buttontopPicture2"></div>
             </div>
-            <div id="picture">
-                <img [src]="pokemon.picture" alt="Image du pokemon {{pokemon.name}}"
-                    height="170" />
+            <div id="picture" class="mx-auto" *ngIf="pokemon">
+                <img [src]="pokemon.picture" alt="Image du pokemon {{pokemon.name}}" />
             </div>
             <div id="buttonbottomPicture"></div>
             <div id="speakers">
@@ -34,62 +24,131 @@
                 <div class="sp"></div>
             </div>
         </div>
-        <div id="bigbluebutton"></div>
-        <div id="barbutton1"></div>
-        <div id="barbutton2"></div>
-        <div id="cross">
-            <div id="leftcross" (click)="goToPreviousPokemon()">
-                <div id="leftT"></div>
+
+        <div class="back-left d-flex">
+            <div class="col-auto">
+                <div id="blackbutton" *ngIf="pokemon">
+                    <button [routerLink]="['/pokemons', pokemon.pokedexid]" class="returnButton"></button>
+                </div>
             </div>
-            <div id="topcross">
-                <div id="upT"></div>
+            <div class="col back-left-center">
+                <div class="d-flex justify-content-around">
+                    <div id="barbutton1"></div>
+                    <div id="barbutton2"></div>
+                </div>
+                <div id="leftBox" class="text-center" *ngIf="pokemon">
+                    <h1>{{pokemon.name}}</h1>
+                    <h2>#{{pokemon.pokedexid}}</h2>
+                </div>
             </div>
-            <div id="rightcross" (click)="goToNextPokemon()">
-                <div id="rightT"></div>
-            </div>
-            <div id="midcross">
-                <div id="midCircle"></div>
-            </div>
-            <div id="botcross">
-                <div id="downT"></div>
+            <div class="col-auto">
+                <div id="cross">
+                    <div id="leftcross" (click)="goToPreviousPokemon()">
+                        <div id="leftT"></div>
+                    </div>
+                    <div id="topcross">
+                        <div id="upT"></div>
+                    </div>
+                    <div id="rightcross" (click)="goToNextPokemon()">
+                        <div id="rightT"></div>
+                    </div>
+                    <div id="midcross">
+                        <div id="midCircle"></div>
+                    </div>
+                    <div id="botcross">
+                        <div id="downT"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div id="right">
-        <div id="stats">
-            <strong>Nom:</strong> {{pokemon.name}}<br />
-            <strong>Taille:</strong> {{pokemon.height}}<br />
-            <strong>Poids:</strong> {{pokemon.weight}}<br />
-            <strong>Description: </strong>{{pokemon.description}}<br />
+    <div class="divider">
+        <div class="hinge"></div>
+        <div class="gap"></div>
+        <div class="hinge"></div>
+        <div class="gap"></div>
+        <div class="hinge"></div>
+    </div>
+
+    <div class="panel right-panel">
+        <div class="panel-row">
+            <div class="screen stats" *ngIf="pokemon">
+                <p><strong>{{pokemon.description}}</strong></p>
+            </div>
         </div>
-        <div id="blueButtons1">
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
+
+        <div class="container g-0">
+            <!-- Première ligne -->
+            <div class="row g-0 d-flex">
+                <ng-container *ngFor="let pokemonItem of getPokemonItems().slice(0, 5); let i = index">
+                    <div class="col blue-button">
+                        <a *ngIf="pokemonItem" [routerLink]="['/pokedex', pokemonItem.pokedexid]">
+                            <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture"
+                                [ngClass]="'type-' + pokemonItem.types[0]?.wording.toLowerCase()"
+                                class="imgEvo img-fluid" alt="Pokemon Image" />
+                        </a>
+                    </div>
+                </ng-container>
+            </div>
+
+            <!-- Deuxième ligne -->
+            <div class="row g-0 d-flex">
+                <ng-container *ngFor="let pokemonItem of getPokemonItems().slice(5, 10); let i = index">
+                    <div class="col blue-button">
+                        <a *ngIf="pokemonItem" [routerLink]="['/pokedex', pokemonItem.pokedexid]">
+                            <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture"
+                                [ngClass]="'type-' + pokemonItem.types[0]?.wording.toLowerCase()"
+                                class="imgEvo img-fluid" alt="Pokemon Image" />
+                        </a>
+                    </div>
+                </ng-container>
+            </div>
         </div>
-        <div id="blueButtons2">
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
-            <div class="blueButton"></div>
+
+        <div class="controls d-flex justify-content-end">
+            <div class="barButtonRight"></div>
+            <div class="barButtonRight"></div>
         </div>
-        <div id="miniButtonGlass4"></div>
-        <div id="miniButtonGlass5"></div>
-        <div id="barbutton3"></div>
-        <div id="barbutton4"></div>
-        <div id="yellowBox1">
-            <span *ngIf="pokemon.types && pokemon.types.length > 0">{{ pokemon.types[0].wording.toLocaleUpperCase() }}</span>
+
+        <div class="controlsWhite d-flex justify-content-between" *ngIf="pokemon">
+            <div class="d-flex">
+                <div class="white-button d-flex align-items-center">
+                    <p><strong> {{pokemon.height}}</strong></p>
+                </div>
+                <div class="white-button d-flex align-items-center">
+                    <p><strong>{{pokemon.weight}}</strong></p>
+                </div>
+            </div>
+            <div class="d-flex align-items-end">
+                <div class="miniButtonGlassRight"></div>
+            </div>
         </div>
-        
-        <div id="yellowBox2">
-            <span *ngIf="pokemon.types && pokemon.types.length > 1">{{ pokemon.types[1].wording.toUpperCase() }}</span>
+
+        <div class="d-flex">
+            <div class="screenRightBack col">
+                <div class="row g-0" *ngIf="pokemon">
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <img [src]="pokemon.types[0].picture"
+                            alt="image du type {{ pokemon.types[0].wording }} du pokemon {{pokemon.name}}"
+                            class="img-types img-fluid" />
+                    </div>
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <p>{{ pokemon.types[0].wording }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="screenRightBack col">
+                <div class="row g-0" *ngIf="pokemon && pokemon.types[1]">
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <img [src]="pokemon.types[1].picture"
+                            alt="image du type {{ pokemon.types[1].wording }} du pokemon {{pokemon.name}}"
+                            class="img-types img-fluid" />
+                    </div>
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <p>{{ pokemon.types[1].wording }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="bg_curve1_right"></div>
-        <div id="bg_curve2_right"></div>
-        <div id="curve1_right"></div>
-        <div id="curve2_right"></div>
     </div>
 </div>

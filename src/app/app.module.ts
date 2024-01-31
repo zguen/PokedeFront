@@ -32,7 +32,6 @@ import { BackButtonDirective } from './directives/back-button.directive';
 import { AlertModule } from '@coreui/angular';
 import { CarouselModule } from 'primeng/carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TESTSComponent } from './components/tests/tests.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +57,7 @@ import { TESTSComponent } from './components/tests/tests.component';
     PokedexComponent,
     NotFoundComponent,
     ValidationMailComponent,
-    BackButtonDirective,
-    TESTSComponent
+    BackButtonDirective
   ],
   imports: [
     BrowserModule,

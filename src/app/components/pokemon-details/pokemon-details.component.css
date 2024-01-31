@@ -65,9 +65,9 @@ p {
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;
-  width: 100px;
+  width: 50px;
   height: 50px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .row {
@@ -282,5 +282,8 @@ li {
   .pokemon-card {
     padding-top: 8px;
     clip-path: none;
+  }
+  .pokeChange {
+    margin: 0px;
   }
 }

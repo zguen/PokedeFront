@@ -13,7 +13,6 @@ import { PageTrainerComponent } from './pages/page-trainer/page-trainer.componen
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ValidationMailComponent } from './pages/validation-mail/validation-mail.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
-import { TESTSComponent } from './components/tests/tests.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -31,7 +30,6 @@ const routes: Routes = [
     component: PageTrainerComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'test/:pokedexid', component: TESTSComponent},
   { path: 'validationmail', component: ValidationMailComponent },
   { path: '**', component: NotFoundComponent },
 ];

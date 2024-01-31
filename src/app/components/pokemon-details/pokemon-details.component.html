@@ -5,11 +5,11 @@
 </div>
 <div class="contain">
   <div class="pokemon-card container" *ngIf="pokemon">
-    <div [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" class="typesOf d-flex align-items-center">
+    <div [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" class="typesOf d-flex align-items-center justify-content-between ">
       <div class="text-center flex-grow-1">
         <h1>{{ pokemon.name }} # {{ pokemon.pokedexid }}</h1>
       </div>
-      <div class="ml-auto">
+      <div class="ml-auto d-flex align-items-center">
         <a [routerLink]="['/pokedex', pokemon.pokedexid]" class="pokeChange"></a>
       </div>
     </div>

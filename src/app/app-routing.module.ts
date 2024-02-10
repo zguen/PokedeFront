@@ -13,6 +13,7 @@ import { PageTrainerComponent } from './pages/page-trainer/page-trainer.componen
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ValidationMailComponent } from './pages/validation-mail/validation-mail.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'validationmail', component: ValidationMailComponent },
+  { path: 'contact', component: ContactComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

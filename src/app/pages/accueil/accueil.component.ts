@@ -25,6 +25,7 @@ export class AccueilComponent implements OnInit {
       }
     });
   }
+  
   generateRandomPokemon() {
     this.getRandomPokemon();
   }

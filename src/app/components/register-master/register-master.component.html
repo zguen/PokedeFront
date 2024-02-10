@@ -63,16 +63,25 @@
       </div>
 
       <div class="signup-row">
-        <input
-          type="password"
-          required
-          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\.-])[A-Za-z\d@$!%*?&\.-]{12,}"
-          [(ngModel)]="master.password"
-          name="password"
-          #password="ngModel"
-          [class.input-error]="password.invalid && isFormSubmit"
-          placeholder="MOT DE PASSE"
-        />
+        <div class="d-flex">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            required
+            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\.-])[A-Za-z\d@$!%*?&\.-]{12,}"
+            [(ngModel)]="master.password"
+            name="password"
+            #password="ngModel"
+            [class.input-error]="password.invalid && isFormSubmit"
+            placeholder="MOT DE PASSE"
+          />
+          <button
+            type="button"
+            class="password"
+            (click)="togglePasswordVisibility()"
+          >
+            {{ showPassword ? "&#x1F441;" : "&#x1F440;" }}
+          </button>
+        </div>
 
         <div *ngIf="password.invalid && isFormSubmit" class="alert">
           <div *ngIf="password.errors?.['required']">
@@ -85,17 +94,27 @@
       </div>
 
       <div class="signup-row">
-        <input
-          type="password"
-          required
-          [(ngModel)]="master.password_confirm"
-          name="password_confirm"
-          #password_confirm="ngModel"
-          [class.input-error]="
-            master.password !== master.password_confirm && isFormSubmit
-          "
-          placeholder="CONFIRMATION DU MOT DE PASSE"
-        />
+        <div class="d-flex">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            required
+            [(ngModel)]="master.password_confirm"
+            name="password_confirm"
+            #password_confirm="ngModel"
+            [class.input-error]="
+              master.password !== master.password_confirm && isFormSubmit
+            "
+            placeholder="CONFIRMATION DU MOT DE PASSE"
+          />
+          <button
+            type="button"
+            class="password"
+            (click)="togglePasswordVisibility()"
+          >
+            {{ showPassword ? "&#x1F441;" : "&#x1F440;" }}
+          </button>
+        </div>
+
         <div
           *ngIf="master.password !== master.password_confirm && isFormSubmit"
           class="alert"

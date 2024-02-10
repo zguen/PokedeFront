@@ -23,6 +23,7 @@ export class RegisterMasterComponent {
   registerOk = true;
   isFormSubmit = false;
   message: string | null = null;
+  showPassword: boolean = false;
 
   constructor(private masterService: MasterService, private router: Router) {}
 
@@ -48,5 +49,8 @@ export class RegisterMasterComponent {
         },
       });
     }
+  }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

@@ -15,11 +15,8 @@
 .center-button {
     display: flex;
     justify-content: center;
-    /* Centre horizontalement */
     align-items: center;
-    /* Centre verticalement (facultatif) */
     height: 100px;
-    /* Ajustez la hauteur si nécessaire */
 }
 
 @media screen and (max-width: 48rem) {

@@ -1,477 +1,486 @@
 #buttonGlass {
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
-    border: 5px solid #fff;
-    box-shadow: 0 0 10px #490000;
-    background: radial-gradient(#0ebdd2, #29abe3);
-    border-radius: 35px;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px #490000;
+  background: radial-gradient(#0ebdd2, #29abe3);
+  border-radius: 35px;
 }
 
 #reflect {
-    width: 30px;
-    height: 18px;
-    margin: 3px 0 0 15px;
-    background: #fff;
-    opacity: 0.6;
-    border-radius: 15px 9px;
+  width: 30px;
+  height: 18px;
+  margin: 3px 0 0 15px;
+  background: #fff;
+  opacity: 0.6;
+  border-radius: 15px 9px;
 }
 
 #miniButtonGlass1 {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    box-shadow: 0 0 10px #490000;
-    border-radius: 20px;
-    background: radial-gradient(#fb7b7b, #fb0505);
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #490000;
+  border-radius: 20px;
+  background: radial-gradient(#fb7b7b, #fb0505);
 }
 
 #miniButtonGlass2 {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    box-shadow: 0 0 10px #490000;
-    border-radius: 20px;
-    background: radial-gradient(#fbfb9b, #fbfb05);
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #490000;
+  border-radius: 20px;
+  background: radial-gradient(#fbfb9b, #fbfb05);
 }
 
 #miniButtonGlass3 {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    box-shadow: 0 0 10px #490000;
-    border-radius: 20px;
-    background: radial-gradient(#b0fb7b, #50fb05);
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #490000;
+  border-radius: 20px;
+  background: radial-gradient(#b0fb7b, #50fb05);
 }
 
 #screen {
-    margin-top: 20px;
-    height: 245px;
-    padding: 0 20px;
-    background-color: #b0b0b0;
-    border-radius: 15px;
+  margin-top: 20px;
+  height: 245px;
+  padding: 0 20px;
+  background-color: #b0b0b0;
+  border-radius: 15px;
 }
 
 .screen p {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 #picture {
-    display: flex;
-    justify-content: center;
-    height: 175px;
-    width: 254px;
-    margin-top: 20px;
-    margin-bottom: 9px;
-    background-color: #fff;
-    border: 3px solid #494949;
-    border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  height: 175px;
+  width: 254px;
+  margin-top: 20px;
+  margin-bottom: 9px;
+  background-color: #fff;
+  border: 3px solid #494949;
+  border-radius: 15px;
 }
 
 #topPicture {
-    margin-top: 6px;
-    margin-bottom: 6px;
-    width: 40px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  width: 40px;
 }
 
 #buttontopPicture1,
 #buttontopPicture2 {
-    height: 8px;
-    width: 8px;
-    background-color: #c00d0d;
-    border: 1px solid #000;
-    float: left;
-    border-radius: 15px;
+  height: 8px;
+  width: 8px;
+  background-color: #c00d0d;
+  border: 1px solid #000;
+  float: left;
+  border-radius: 15px;
 }
 
 #buttontopPicture1 {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 #buttonbottomPicture {
-    height: 26px;
-    width: 26px;
-    background-color: #c00d0d;
-    margin-left: 35px;
-    float: left;
-    border-radius: 30px;
-    box-shadow: -2px 1px #5e0000;
-    background: linear-gradient(to bottom, #c00d0d 0%, #8b0000 80%);
+  height: 26px;
+  width: 26px;
+  margin-left: 35px;
+  float: left;
+  border-radius: 30px;
+  box-shadow: -2px 1px #5e0000;
+  background: linear-gradient(to bottom, #c00d0d 0%, #8b0000 80%);
 }
 
 #speakers {
-    float: right;
-    width: 75px;
-    height: 25px;
-    margin-right: 20px;
+  float: right;
+  width: 75px;
+  height: 25px;
+  margin-right: 20px;
 }
 
 .sp {
-    height: 3px;
-    margin-bottom: 5px;
-    background-color: #494949;
-    border-radius: 30px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: #494949;
+  border-radius: 30px;
 }
 
 .back-left {
-    margin-top: 4px;
+  margin-top: 4px;
 }
 
 #blackbutton {
-    height: 40px;
-    width: 40px;
-    border-radius: 100px;
-    background: linear-gradient(to bottom, #666666 0%, #000000 80%);
-    box-shadow: -3px 2px 5px rgba(0, 0, 0, 0.8);
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  background: linear-gradient(to bottom, #666666 0%, #000000 80%);
+  box-shadow: -3px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 .returnButton {
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    height: 100%;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
 }
 
 .returnButton:hover::after {
-    content: "Affichage classique";
-    display: block;
-    position: absolute;
-    background-color: #f0f0f0;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 10px;
+  content: "Affichage classique";
+  display: block;
+  position: absolute;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
 .back-left-center {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 #barbutton1 {
-    height: 13px;
-    width: 50px;
-    border-radius: 100px;
-    background: #CB0420;
-    border: black solid 1px;
+  height: 13px;
+  width: 50px;
+  border-radius: 100px;
+  background: #cb0420;
+  border: black solid 1px;
 }
 
 #barbutton2 {
-    height: 13px;
-    width: 50px;
-    border-radius: 100px;
-    background: #0B7082;
-    border: black solid 1px;
+  height: 13px;
+  width: 50px;
+  border-radius: 100px;
+  background: #0b7082;
+  border: black solid 1px;
 }
 
 #leftBox {
-    width: 160px;
-    height: 70px;
-    border: 1px solid black;
-    background-color: #5FC480;
-    border-radius: 15px;
-    margin-top: 35px;
-    text-transform: uppercase;
+  width: 160px;
+  height: 70px;
+  border: 1px solid black;
+  background-color: #5fc480;
+  border-radius: 15px;
+  margin-top: 35px;
+  text-transform: uppercase;
 }
 
 h1 {
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
 }
 
 h2 {
-    font-size: 19px;
-    font-weight: bold;
+  font-size: 19px;
+  font-weight: bold;
 }
 
 #cross {
-    width: 90px;
-    height: 90px;
-    position: relative;
-    margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  position: relative;
+  margin-top: 10px;
 }
 
 #topcross,
 #leftcross,
 #rightcross,
 #botcross {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #222;
-    box-shadow: -3px 2px #010101;
-    border-radius: 5px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #222;
+  box-shadow: -3px 2px #010101;
+  border-radius: 5px;
 }
 
 #topcross {
-    top: 0;
-    left: 30px;
+  top: 0;
+  left: 30px;
 }
 
 #leftcross {
-    top: 30px;
-    left: 0;
+  top: 30px;
+  left: 0;
+}
+#leftcross:hover::after {
+  content: "Pokemon Précédent";
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  z-index: 1000;
 }
 
 #midcross {
-    width: 30px;
-    height: 30px;
-    background-color: #222;
-    box-shadow: -3px 2px #010101;
-    position: absolute;
-    top: 30px;
-    left: 30px;
+  width: 30px;
+  height: 30px;
+  background-color: #222;
+  box-shadow: -3px 2px #010101;
+  position: absolute;
+  top: 30px;
+  left: 30px;
 }
 
 #rightcross {
-    top: 30px;
-    left: 60px;
+  top: 30px;
+  left: 60px;
 }
 
 #botcross {
-    top: 60px;
-    left: 30px;
+  top: 60px;
+  left: 30px;
 }
 
 #upT,
 #downT,
 #leftT,
 #rightT {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-color: transparent;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
 }
 
 #upT {
-    border-bottom: 10px solid #111;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
+  border-bottom: 10px solid #111;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
 }
 
 #downT {
-    border-top: 10px solid #111;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
+  border-top: 10px solid #111;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
 }
 
 #leftT {
-    border-right: 10px solid #111;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+  border-right: 10px solid #111;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 #rightT {
-    border-left: 10px solid #111;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
+  border-left: 10px solid #111;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 
 #midCircle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(#111, #222);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(#111, #222);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pokedex {
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #e61515;
-    width: 848px;
-    height: 590px;
-    padding: 1em;
-    border-radius: 15px;
-    border: double black 10px;
-    display: flex;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e61515;
+  width: 848px;
+  height: 590px;
+  padding: 1em;
+  border-radius: 15px;
+  border: double black 10px;
+  display: flex;
 }
 
 .panel {
-    width: 359px;
-    padding: 10px;
-    border: inset #b31818 3px;
-    border-radius: 3px;
-    display: flex;
-    flex-direction: column;
+  width: 359px;
+  padding: 10px;
+  border: inset #b31818 3px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
 }
 
 .right-panel {
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 379px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 379px;
 }
 
 .panel-row {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .divider {
-    display: flex;
-    flex-direction: column;
-    width: 30px;
-    margin: 0 20px;
-    align-items: center;
-    border: inset #460f0f 4px;
-    border-radius: 4px;
-    background: #460f0f;
+  display: flex;
+  flex-direction: column;
+  width: 30px;
+  margin: 0 20px;
+  align-items: center;
+  border: inset #460f0f 4px;
+  border-radius: 4px;
+  background: #460f0f;
 }
 
-.divider>* {
-    border-radius: 4px;
-    border: solid #2d0d0d 2px;
+.divider > * {
+  border-radius: 4px;
+  border: solid #2d0d0d 2px;
 }
 
 .hinge {
-    background: linear-gradient(90deg,
-            #891313 0,
-            #b31818 30%,
-            #e61515 45%,
-            #fd5555 65%,
-            #e61515 95%);
-    border-right-color: #fd5555;
-    border-top-color: #fd5555;
-    flex: 10;
-    width: 100%;
-    border-left-color: #5f1010;
+  background: linear-gradient(
+    90deg,
+    #891313 0,
+    #b31818 30%,
+    #e61515 45%,
+    #fd5555 65%,
+    #e61515 95%
+  );
+  border-right-color: #fd5555;
+  border-top-color: #fd5555;
+  flex: 10;
+  width: 100%;
+  border-left-color: #5f1010;
 }
 
 .gap:first-child {
-    border-radius: 0 0 5px 5px;
-    border-top: none;
+  border-radius: 0 0 5px 5px;
+  border-top: none;
 }
 
 .gap:last-child {
-    border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .gap {
-    background: linear-gradient(90deg,
-            #460f0f 0,
-            #891313 30%,
-            #b31818 45%,
-            #fd5555 65%,
-            #b31818 95%);
-    border-top-color: #891313;
-    border-right-color: #b31818;
-    flex: 1;
-    width: 95%;
+  background: linear-gradient(
+    90deg,
+    #460f0f 0,
+    #891313 30%,
+    #b31818 45%,
+    #fd5555 65%,
+    #b31818 95%
+  );
+  border-top-color: #891313;
+  border-right-color: #b31818;
+  flex: 1;
+  width: 95%;
 }
 
 .screen {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    background: #222;
-    padding: 5px;
-    border-radius: 10px;
-    font-family: "VT323";
-    color: white;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  background: #222;
+  padding: 5px;
+  border-radius: 10px;
+  font-family: "VT323";
+  color: white;
 }
 
 .blue-button {
-    height: 65px;
-    border: groove #6c96e6 3px;
-    background: linear-gradient(15deg,
-            rgba(128, 128, 128, 0.5) 64%,
-            rgba(138, 138, 138, 0.5) 70%,
-            rgba(230, 230, 230, 0.5) 81%,
-            rgba(255, 255, 255, 0.5) 86%,
-            rgba(220, 220, 220, 0.5) 89%,
-            rgba(230, 230, 230, 0.5) 100%);
-    background-blend-mode: hard-light;
-    background-color: #09a8ff;
+  height: 65px;
+  border: groove #6c96e6 3px;
+  background: linear-gradient(
+    15deg,
+    rgba(128, 128, 128, 0.5) 64%,
+    rgba(138, 138, 138, 0.5) 70%,
+    rgba(230, 230, 230, 0.5) 81%,
+    rgba(255, 255, 255, 0.5) 86%,
+    rgba(220, 220, 220, 0.5) 89%,
+    rgba(230, 230, 230, 0.5) 100%
+  );
+  background-blend-mode: hard-light;
+  background-color: #09a8ff;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .controls {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 .barButtonRight {
-    height: 13px;
-    width: 50px;
-    margin: 2px;
-    border-radius: 100px;
-    background: black;
-    border: black solid 1px;
+  height: 13px;
+  width: 50px;
+  margin: 2px;
+  border-radius: 100px;
+  background: black;
+  border: black solid 1px;
 }
 
 .controlsWhite {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .white-button {
-    border: 3px groove black;
-    border-radius: 2px;
-    background-color: white;
-    height: 40px;
+  border: 3px groove black;
+  border-radius: 2px;
+  background-color: white;
+  height: 40px;
 }
 
 .white-button p {
-    margin: 0;
+  margin: 0;
 }
 
 .miniButtonGlassRight {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    box-shadow: 0 0 10px #490000;
-    border-radius: 20px;
-    background: radial-gradient(#fbfb9b, #fbfb05);
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #490000;
+  border-radius: 20px;
+  background: radial-gradient(#fbfb9b, #fbfb05);
 }
 
 .screenRightBack {
-    margin-top: 30px;
-    background: #222;
-    padding: 5px;
-    border-radius: 10px;
-    font-family: "VT323";
-    color: white;
-
+  margin-top: 30px;
+  background: #222;
+  padding: 5px;
+  border-radius: 10px;
+  font-family: "VT323";
+  color: white;
 }
 
 .img-types {
-    height: 30px;
+  height: 30px;
 }
 
 @media (max-width: 48rem) {
-    .pokedex {
-        flex-direction: column;
-        /* Affichage en colonne sur les petits écrans */
-        align-items: center;
-        /* Centrage des éléments */
-        width: 100%;
-        /* La largeur prend toute la largeur disponible */
-        height: auto;
-    }
-    .panel,
-    .right-panel,
-    .divider {
-        width: 100%;
-        /* Les panneaux occupent toute la largeur sur les petits écrans */
-        margin-bottom: 20px;
-        /* Espace entre les panneaux */
-    }
-    .divider {
-        display: none;
-        /* Masquer la divider sur les petits écrans */
-    }
-    .panel.left-panel,
-    .panel.right-panel {
-        padding: 10px;
-        /* Ajoutez un peu d'espace intérieur aux panneaux */
-    }
+  .pokedex {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  .panel,
+  .right-panel,
+  .divider {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .divider {
+    display: none;
+  }
+  .panel.left-panel,
+  .panel.right-panel {
+    padding: 10px;
+  }
 }

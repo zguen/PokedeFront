@@ -39,9 +39,6 @@
 .link {
   text-align: center;
   font-size: x-large;
-}
-
-.link {
   color: #e61515;
   transition: all 500ms;
 }
@@ -114,8 +111,6 @@
   color: #ff0000;
 }
 
-
-/* Media Queries */
 @media only screen and (max-width: 48rem) {
   #app-container {
     margin-top: auto;

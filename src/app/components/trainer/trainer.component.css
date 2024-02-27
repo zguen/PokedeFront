@@ -31,7 +31,6 @@ h1 {
     margin: 1rem
 }
 
-/* Media Queries */
 @media only screen and (max-width: 48rem) {
     .zoneInitalHello {
         align-self: flex-start;

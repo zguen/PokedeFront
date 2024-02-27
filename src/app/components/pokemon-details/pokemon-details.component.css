@@ -53,9 +53,7 @@ p {
   margin-left: -12px;
   margin-right: -12px;
   border-top: 3px solid white;
-  /* Ajoute une bordure blanche de 2 pixels en haut */
   border-bottom: 3px solid white;
-  /* Ajoute une bordure blanche de 2 pixels en haut */
 }
 
 .pokeChange {

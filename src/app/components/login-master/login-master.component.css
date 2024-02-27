@@ -76,6 +76,7 @@
 }
 
 .remember a:hover {
+    cursor: pointer;
     text-decoration: none;
     color: #fff;
 }
@@ -97,6 +98,29 @@ input[type="checkbox"] {
 .password {
   background-color: transparent;
   border: none;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  z-index: 1000;
+}
+
+.close-icon:hover {
+  color: #ff0000;
+}
+
+#resetDialog {
+  border-radius: 10px;
+}
+
+#email{
+  width: 75%;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 48rem) {

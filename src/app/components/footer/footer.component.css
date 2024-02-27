@@ -10,6 +10,11 @@
 
 ul {
     margin-left: 1rem;
+    list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
 }
 
 li {
@@ -21,9 +26,8 @@ li {
 .droitReserve {
     margin-right: 1rem;
     font-size: 0.88rem;
+    text-align: right;
 }
-
-/* Styles CSS pour le footer */
 
 .footer {
     background-color: #f2f2f2;
@@ -33,20 +37,8 @@ li {
     margin: 0;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
-}
-
 .footer li {
     margin: 0;
-}
-
-.droitReserve {
-    text-align: right;
 }
 
 p{
@@ -57,7 +49,6 @@ p{
     font-size: 25px;
 }
 
-/* Media Queries */
 @media only screen and (max-width: 48rem) {
     .droitReserve {
         width: 40%;

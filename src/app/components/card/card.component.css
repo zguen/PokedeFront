@@ -102,45 +102,36 @@ a:hover {
 @media screen and (max-width: 48rem) {
   .type-container {
     display: none;
-    /* Cacher les types */
   }
   .card {
     transition: none;
-    /* Supprimer la transition */
     position: relative;
     height: 250px;
   }
 
   .card:hover {
     height: 250px;
-    /* Annuler l'animation au survol */
   }
 
   .card .img-box {
     top: 20px;
-    /* Rétablir la position initiale */
     transform: none;
-    /* Annuler la transformation */
     box-shadow: none;
-    /* Supprimer l'ombre */
   }
 
   .card:hover .img-box {
     top: 20px;
-    /* Annuler la transition au survol */
     transform: none;
     box-shadow: none;
   }
 
   .content {
     top: 160px;
-    /* Rétablir la position initiale */
     height: 80px
   }
 
   .card:hover .content {
     top: 160px;
-    /* Annuler l'animation au survol */
     height: 35px;
   }
   .img-box {

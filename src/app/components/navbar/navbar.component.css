@@ -28,7 +28,6 @@ nav {
 
 .text-curved {
     transform: skewY(-5deg);
-    /* Ajustez l'angle selon vos préférences */
 }
 
 @keyframes swing {

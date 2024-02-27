@@ -10,6 +10,5 @@
 @media screen and (max-width: 48rem) {
     .displayLittleScreen {
         display: none;
-        /* Cacher les types */
     }
 }

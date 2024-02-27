@@ -13,19 +13,14 @@
 
 .pokemon-card {
     flex: 1 0 100%;
-    /* Par défaut, les cartes prennent toute la largeur du conteneur */
     max-width: 100%;
-
 }
 
 .center-button {
     display: flex;
     justify-content: center;
-    /* Centre horizontalement */
     align-items: center;
-    /* Centre verticalement (facultatif) */
     height: 100px;
-    /* Ajustez la hauteur si nécessaire */
 }
 
 @media screen and (max-width: 48rem) {

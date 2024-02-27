@@ -42,4 +42,12 @@ export class LoginMasterComponent {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+  bonjourModal() {
+    const dialog = document.querySelector('dialog');
+    dialog?.showModal();
+  }
+  aurevoirModal() {
+    const dialog = document.querySelector('dialog');
+    dialog?.close();
+  }
 }

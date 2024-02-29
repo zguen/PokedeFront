@@ -11,6 +11,7 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
 })
 export class PokedexComponent implements OnInit {
   @Input() pokemon!: Pokemon;
+  pokedexid: number | undefined;
   previousPokedexId: number | undefined;
   nextPokedexId: number | undefined;
   preEvolution: Pokemon | undefined;
@@ -35,6 +36,7 @@ export class PokedexComponent implements OnInit {
         .getPokemonById(pokemonIdFromRoute)
         .subscribe((data) => {
           this.pokemon = data;
+          this.pokedexid = data.pokedexid;
 
           this.evolutions = [];
           this.preEvolution = undefined;
@@ -130,5 +132,11 @@ export class PokedexComponent implements OnInit {
 
   back(): void {
     this.navigation.back();
+  }
+  goToSearchedPokemon(): void {
+    if (this.pokedexid !== undefined && this.pokedexid > 0 && this.pokedexid < 1018) {
+      this.router.navigate(['/pokedex', this.pokedexid]);
+    }
+
   }
 }

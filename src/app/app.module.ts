@@ -65,7 +65,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     NgSelectModule,
-    FormsModule,
     BrowserAnimationsModule,
     AlertModule,
     CarouselModule,

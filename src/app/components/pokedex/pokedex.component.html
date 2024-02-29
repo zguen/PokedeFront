@@ -2,7 +2,7 @@
     <div class="panel left-panel">
         <div id="up-left" class="d-flex">
             <div id="buttonGlass">
-                <div id="reflect"> </div>
+                <div id="reflect"></div>
             </div>
             <div id="miniButtonGlass1"></div>
             <div id="miniButtonGlass2"></div>
@@ -14,7 +14,7 @@
                 <div id="buttontopPicture2"></div>
             </div>
             <div id="picture" class="mx-auto" *ngIf="pokemon">
-                <img [src]="pokemon.picture" alt="Image du pokemon {{pokemon.name}}" />
+                <img [src]="pokemon.picture" alt="Image du pokemon {{ pokemon.name }}" />
             </div>
             <div id="buttonbottomPicture"></div>
             <div id="speakers">
@@ -37,19 +37,22 @@
                     <div id="barbutton2"></div>
                 </div>
                 <div id="leftBox" class="text-center" *ngIf="pokemon">
-                    <h1>{{pokemon.name}}</h1>
-                    <h2>#{{pokemon.pokedexid}}</h2>
+                    <h1>{{ pokemon.name }}</h1>
+                    <h2><input type="number" placeholder="{{pokemon.pokedexid}}" id="pokedexIdInput" [(ngModel)]="pokedexid" (ngModelChange)="goToSearchedPokemon()" /></h2>
                 </div>
             </div>
             <div class="col-auto">
                 <div id="cross">
-                    <div id="leftcross" (click)="goToPreviousPokemon()">
-                        <div id="leftT"></div>
+                    <div id="leftcross">
+                        <button class="leftButton" (click)="goToPreviousPokemon()">
+                            <div id="leftT"></div>
+                        </button>
                     </div>
                     <div id="topcross">
                         <div id="upT"></div>
                     </div>
-                    <div id="rightcross" (click)="goToNextPokemon()">
+                    <div id="rightcross">
+                        <button class="leftButton" (click)="goToNextPokemon()" ></button>
                         <div id="rightT"></div>
                     </div>
                     <div id="midcross">
@@ -62,7 +65,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Partie centrale -->
     <div class="divider">
         <div class="hinge"></div>
@@ -76,19 +79,24 @@
     <div class="panel right-panel d-flex justify-content-evenly">
         <div class="panel-row">
             <div class="screen stats" *ngIf="pokemon">
-                <p><strong>{{pokemon.description}}</strong></p>
+                <p>
+                    <strong>{{ pokemon.description }}</strong>
+                </p>
             </div>
         </div>
 
         <div class="container g-0">
             <!-- Première ligne -->
             <div class="row g-0 d-flex">
-                <ng-container *ngFor="let pokemonItem of getPokemonItems().slice(0, 5); let i = index">
+                <ng-container *ngFor="
+            let pokemonItem of getPokemonItems().slice(0, 5);
+            let i = index
+          ">
                     <div class="col blue-button">
                         <a *ngIf="pokemonItem" [routerLink]="['/pokedex', pokemonItem.pokedexid]">
-                            <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture"
-                                [ngClass]="'type-' + pokemonItem.types[0]?.wording.toLowerCase()"
-                                class="imgEvo img-fluid" alt="Pokemon Image" />
+                            <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture" [ngClass]="
+                  'type-' + pokemonItem.types[0]?.wording.toLowerCase()
+                " class="imgEvo img-fluid" alt="Pokemon Image" />
                         </a>
                     </div>
                 </ng-container>
@@ -96,12 +104,15 @@
 
             <!-- Deuxième ligne -->
             <div class="row g-0 d-flex">
-                <ng-container *ngFor="let pokemonItem of getPokemonItems().slice(5, 10); let i = index">
+                <ng-container *ngFor="
+            let pokemonItem of getPokemonItems().slice(5, 10);
+            let i = index
+          ">
                     <div class="col blue-button">
                         <a *ngIf="pokemonItem" [routerLink]="['/pokedex', pokemonItem.pokedexid]">
-                            <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture"
-                                [ngClass]="'type-' + pokemonItem.types[0]?.wording.toLowerCase()"
-                                class="imgEvo img-fluid" alt="Pokemon Image" />
+                            <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture" [ngClass]="
+                  'type-' + pokemonItem.types[0]?.wording.toLowerCase()
+                " class="imgEvo img-fluid" alt="Pokemon Image" />
                         </a>
                     </div>
                 </ng-container>
@@ -116,10 +127,14 @@
         <div class="controlsWhite d-flex justify-content-between" *ngIf="pokemon">
             <div class="d-flex">
                 <div class="white-button d-flex align-items-center">
-                    <p><strong> {{pokemon.height}}</strong></p>
+                    <p>
+                        <strong> {{ pokemon.height }}</strong>
+                    </p>
                 </div>
                 <div class="white-button d-flex align-items-center">
-                    <p><strong>{{pokemon.weight}}</strong></p>
+                    <p>
+                        <strong>{{ pokemon.weight }}</strong>
+                    </p>
                 </div>
             </div>
             <div class="d-flex align-items-end">
@@ -131,9 +146,9 @@
             <div class="screenRightBack col">
                 <div class="row g-0" *ngIf="pokemon">
                     <div class="col d-flex align-items-center justify-content-center">
-                        <img [src]="pokemon.types[0].picture"
-                            alt="image du type {{ pokemon.types[0].wording }} du pokemon {{pokemon.name}}"
-                            class="img-types img-fluid" />
+                        <img [src]="pokemon.types[0].picture" alt="image du type {{ pokemon.types[0].wording }} du pokemon {{
+                pokemon.name
+              }}" class="img-types img-fluid" />
                     </div>
                     <div class="col d-flex align-items-center justify-content-center">
                         <p>{{ pokemon.types[0].wording }}</p>
@@ -143,9 +158,9 @@
             <div class="screenRightBack col">
                 <div class="row g-0" *ngIf="pokemon && pokemon.types[1]">
                     <div class="col d-flex align-items-center justify-content-center">
-                        <img [src]="pokemon.types[1].picture"
-                            alt="image du type {{ pokemon.types[1].wording }} du pokemon {{pokemon.name}}"
-                            class="img-types img-fluid" />
+                        <img [src]="pokemon.types[1].picture" alt="image du type {{ pokemon.types[1].wording }} du pokemon {{
+                pokemon.name
+              }}" class="img-types img-fluid" />
                     </div>
                     <div class="col d-flex align-items-center justify-content-center">
                         <p>{{ pokemon.types[1].wording }}</p>

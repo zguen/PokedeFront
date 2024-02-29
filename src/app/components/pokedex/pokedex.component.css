@@ -124,7 +124,8 @@
   box-shadow: -3px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
-.returnButton {
+.returnButton,
+.leftButton {
   background-color: transparent;
   border: none;
   width: 100%;
@@ -183,6 +184,31 @@ h2 {
   font-weight: bold;
 }
 
+#pokedexIdInput {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-weight: bold;
+  text-align: center;
+  color: inherit;
+  width: 100%;
+}
+
+#pokedexIdInput::-webkit-inner-spin-button,
+#pokedexIdInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#pokedexIdInput::placeholder {
+  color: inherit;
+  opacity: 1;
+  font-weight: bold;
+}
+
 #cross {
   width: 90px;
   height: 90px;
@@ -211,9 +237,9 @@ h2 {
   top: 30px;
   left: 0;
 }
+
 #leftcross:hover::after {
-  content: "Pokemon Précédent";
-  cursor: pointer;
+  content: "Pokemon précédent";
   display: block;
   position: absolute;
   background-color: #f0f0f0;
@@ -237,6 +263,18 @@ h2 {
 #rightcross {
   top: 30px;
   left: 60px;
+}
+
+#rightcross:hover::after {
+  content: "Pokemon suivant";
+  display: block;
+  position: absolute;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  z-index: 1000;
 }
 
 #botcross {
@@ -338,20 +376,18 @@ h2 {
   background: #460f0f;
 }
 
-.divider > * {
+.divider>* {
   border-radius: 4px;
   border: solid #2d0d0d 2px;
 }
 
 .hinge {
-  background: linear-gradient(
-    90deg,
-    #891313 0,
-    #b31818 30%,
-    #e61515 45%,
-    #fd5555 65%,
-    #e61515 95%
-  );
+  background: linear-gradient(90deg,
+      #891313 0,
+      #b31818 30%,
+      #e61515 45%,
+      #fd5555 65%,
+      #e61515 95%);
   border-right-color: #fd5555;
   border-top-color: #fd5555;
   flex: 10;
@@ -369,14 +405,12 @@ h2 {
 }
 
 .gap {
-  background: linear-gradient(
-    90deg,
-    #460f0f 0,
-    #891313 30%,
-    #b31818 45%,
-    #fd5555 65%,
-    #b31818 95%
-  );
+  background: linear-gradient(90deg,
+      #460f0f 0,
+      #891313 30%,
+      #b31818 45%,
+      #fd5555 65%,
+      #b31818 95%);
   border-top-color: #891313;
   border-right-color: #b31818;
   flex: 1;
@@ -396,15 +430,13 @@ h2 {
 .blue-button {
   height: 65px;
   border: groove #6c96e6 3px;
-  background: linear-gradient(
-    15deg,
-    rgba(128, 128, 128, 0.5) 64%,
-    rgba(138, 138, 138, 0.5) 70%,
-    rgba(230, 230, 230, 0.5) 81%,
-    rgba(255, 255, 255, 0.5) 86%,
-    rgba(220, 220, 220, 0.5) 89%,
-    rgba(230, 230, 230, 0.5) 100%
-  );
+  background: linear-gradient(15deg,
+      rgba(128, 128, 128, 0.5) 64%,
+      rgba(138, 138, 138, 0.5) 70%,
+      rgba(230, 230, 230, 0.5) 81%,
+      rgba(255, 255, 255, 0.5) 86%,
+      rgba(220, 220, 220, 0.5) 89%,
+      rgba(230, 230, 230, 0.5) 100%);
   background-blend-mode: hard-light;
   background-color: #09a8ff;
 }
@@ -470,15 +502,18 @@ ul {
     width: 100%;
     height: auto;
   }
+
   .panel,
   .right-panel,
   .divider {
     width: 100%;
     margin-bottom: 20px;
   }
+
   .divider {
     display: none;
   }
+
   .panel.left-panel,
   .panel.right-panel {
     padding: 10px;

@@ -2,7 +2,6 @@ import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
 import { Trainer } from 'src/app/models/trainer';
-import { AuthService } from 'src/app/services/auth.service';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 import { TrainerService } from 'src/app/services/trainer.service';
 
@@ -131,8 +130,8 @@ export class PageTrainerComponent {
   }
 
   filterType(e: Pokemon): boolean {
-    for (let i = 0; i < e.types.length; i++) {
-      if (this.saveFilterTab.type.includes(e.types[i].wording)) {
+    for (const element of e.types) {
+      if (this.saveFilterTab.type.includes(element.wording)) {
         return true;
       }
     }

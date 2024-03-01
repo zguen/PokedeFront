@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
 import { Trainer } from 'src/app/models/trainer';
 import { AuthService } from 'src/app/services/auth.service';

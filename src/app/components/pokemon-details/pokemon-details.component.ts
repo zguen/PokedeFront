@@ -55,8 +55,7 @@ export class PokemonDetailsComponent implements OnInit {
     this.gameService.getGames().subscribe((data) => {
       if (data) {
         this.games = data;
-      } else {
-      }
+      } 
     });
 
     this.route.paramMap.subscribe((params) => {

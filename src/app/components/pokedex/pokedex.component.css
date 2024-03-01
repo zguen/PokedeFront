@@ -195,6 +195,7 @@ h2 {
   text-align: center;
   color: inherit;
   width: 100%;
+  cursor: pointer;
 }
 
 #pokedexIdInput::-webkit-inner-spin-button,

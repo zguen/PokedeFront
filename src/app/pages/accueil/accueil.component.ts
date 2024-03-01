@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
@@ -9,21 +9,28 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   styleUrls: ['./accueil.component.css'],
 })
 export class AccueilComponent implements OnInit {
-  randomPokemon: Pokemon | null = null;
+  pokemon! : Pokemon
 
   constructor(private pokemonService: PokemonsService) {}
 
   ngOnInit() {
     this.getRandomPokemon();
+    this.getPikachu();
   }
 
   private getRandomPokemon() {
     this.pokemonService.getPokemons().subscribe((allPokemons) => {
       if (allPokemons && allPokemons.length > 0) {
         const randomIndex = Math.floor(Math.random() * allPokemons.length);
-        this.randomPokemon = allPokemons[randomIndex];
+        this.pokemon = allPokemons[randomIndex];
       }
     });
+  }
+  
+  getPikachu() {
+    this.pokemonService.getPokemonById(25).subscribe((pokemon) => {
+      this.pokemon = pokemon
+    })
   }
   
   generateRandomPokemon() {

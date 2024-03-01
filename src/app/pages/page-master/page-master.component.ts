@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Master } from 'src/app/models/master';
 import { Trainer } from 'src/app/models/trainer';
 import { MasterService } from 'src/app/services/master.service';

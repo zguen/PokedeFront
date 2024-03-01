@@ -75,8 +75,8 @@ export class PokemonsComponent {
   }
 
   filterType(e: Pokemon): boolean {
-    for (let i = 0; i < e.types.length; i++) {
-      if (this.saveFilterTab.type.includes(e.types[i].wording)) {
+    for (const element of e.types) {
+      if (this.saveFilterTab.type.includes(element.wording)) {
         return true;
       }
     }

@@ -93,10 +93,10 @@
     <!-- Affichage de la carte Pokémon aléatoire -->
     <div
       class="col-md-4 pokemon d-flex justify-content-evenly"
-      *ngIf="randomPokemon"
+      *ngIf="pokemon"
     >
       <div class="taille">
-        <app-card [pokemon]="randomPokemon"></app-card>
+        <app-card [pokemon]="pokemon"></app-card>
       </div>
       <div>
         <button class="btn-pokemon" (click)="generateRandomPokemon()">

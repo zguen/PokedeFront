@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MasterService } from 'src/app/services/master.service';
 
 @Component({
@@ -45,13 +45,11 @@ export class FiltersComponent {
       } else {
         this.typeFilter.push(target.value);
       }
-    } else {
-      if (this.typeFilter.includes(target.value)) {
+    } else if (this.typeFilter.includes(target.value)) {
         this.typeFilter = this.typeFilter.filter((e) => e != target.value);
       } else {
         this.typeFilter.push(target.value);
       }
-    }
 
     if (this.typeFilter.length === 0) {
       this.typeFilter = [...this.tabTypes];
@@ -71,15 +69,13 @@ export class FiltersComponent {
       } else {
         this.generationFilter.push(target.value);
       }
-    } else {
-      if (this.generationFilter.includes(target.value)) {
+    } else if (this.generationFilter.includes(target.value)) {
         this.generationFilter = this.generationFilter.filter(
           (e) => e != target.value
         );
       } else {
         this.generationFilter.push(target.value);
       }
-    }
 
     if (this.generationFilter.length === 0) {
       this.generationFilter = [...this.tabGenerations];

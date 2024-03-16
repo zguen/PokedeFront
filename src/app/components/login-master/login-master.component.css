@@ -61,7 +61,6 @@
 .form-bottom {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
 }
 
 .remember:not(:last-child) {

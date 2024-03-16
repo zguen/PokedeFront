@@ -17,12 +17,10 @@ export class AuthService {
   }
 
   logoutTrainer(): void {
-    // Logique de déconnexion
     this.loggedInTrainer = null;
   }
 
   isAuthenticated(): boolean {
-    // Vérifie si un trainer est connecté
     return !!this.loggedInTrainer;
   }
 

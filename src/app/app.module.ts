@@ -32,6 +32,7 @@ import { BackButtonDirective } from './directives/back-button.directive';
 import { AlertModule } from '@coreui/angular';
 import { CarouselModule } from 'primeng/carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PokedexComponent,
     NotFoundComponent,
     ValidationMailComponent,
-    BackButtonDirective
+    BackButtonDirective,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

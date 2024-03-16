@@ -6,6 +6,8 @@ import { LoginAnswer } from '../models/login-answer';
 import { Master } from '../models/master';
 import { Trainer } from '../models/trainer';
 import { environment } from 'src/environments/environment';
+import { ResetToken } from '../models/reset-token';
+import { UpdateMaster } from '../models/update-master';
 
 @Injectable({
   providedIn: 'root',
@@ -61,13 +63,28 @@ export class MasterService {
   addTrainerByMaster(trainer: Trainer): Observable<Master> {
     const headers = this.setHeaders();
 
-    return this.http
-      .post<Master>(
-        `${this.baseApiUrl}/auth-trainer/register`,
-        trainer,
-        {
-          headers,
-        }
-      )
+    return this.http.post<Master>(
+      `${this.baseApiUrl}/auth-trainer/register`,
+      trainer,
+      {
+        headers,
+      }
+    );
+  }
+  envoyerMail(email: string): Observable<ResetToken> {
+    return this.http.post<ResetToken>(`${this.baseApiUrl}/auth/reset-token`, {
+      email,
+    });
+  }
+
+  resetPassword(resetToken: string, master: UpdateMaster): Observable<Master> {
+    const headers = this.setHeaders();
+    return this.http.patch<Master>(
+      `${this.baseApiUrl}/auth/${resetToken}`,
+      master,
+      {
+        headers,
+      }
+    );
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginMaster } from 'src/app/models/login-master';
+import { ResetToken } from 'src/app/models/reset-token';
 import { MasterService } from 'src/app/services/master.service';
 
 @Component({
@@ -17,6 +18,8 @@ export class LoginMasterComponent {
   isFormValidate = false;
   loginNone = false;
   showPassword: boolean = false;
+  email: string = '';
+  resetEmail: string = '';
 
   constructor(private masterService: MasterService, private router: Router) {}
 
@@ -49,5 +52,24 @@ export class LoginMasterComponent {
   aurevoirModal() {
     const dialog = document.querySelector('dialog');
     dialog?.close();
+  }
+  envoyerMail(): void {
+    this.masterService.envoyerMail(this.resetEmail).subscribe({
+      next: (response: ResetToken) => {
+        if (response.master) {
+          // Ajoutez cette vérification
+          alert('Le mail de réinitialisation a été envoyé avec succès.');
+          this.aurevoirModal();
+        } else {
+          alert('Aucun utilisateur trouvé avec cet email.');
+        }
+      },
+      error: (error) => {
+        console.error('Erreur lors de la requête:', error);
+        alert(
+          "Une erreur s'est produite lors de l'envoi du mail de réinitialisation."
+        );
+      },
+    });
   }
 }

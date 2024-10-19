@@ -115,28 +115,39 @@ export class PokedexComponent implements OnInit {
   }
 
   goToPreviousPokemon(): void {
-    if (this.previousPokedexId !== undefined && this.previousPokedexId > 0) {
-      this.router.navigate(['/pokedex', this.previousPokedexId]);
-    } else {
-      this.router.navigate(['/pokedex', this.pokemon.pokedexid]);
-    }
+    this.pokemonService.getPokemons().subscribe((allPokemons) => {
+      const lastPokedexId = Math.max(...allPokemons.map((p) => p.pokedexid)); // Obtenir le dernier pokedexId
+      const targetPokedexId =
+        this.previousPokedexId !== undefined && this.previousPokedexId > 0
+          ? this.previousPokedexId
+          : lastPokedexId; // Retour au dernier Pokémon si previousPokedexId est undefined ou <= 0
+
+      this.router.navigate(['/pokedex', targetPokedexId]);
+    });
   }
 
   goToNextPokemon(): void {
-    if (this.nextPokedexId !== undefined && this.nextPokedexId <= 1017) {
-      this.router.navigate(['/pokedex', this.nextPokedexId]);
-    } else {
-      this.router.navigate(['/pokedex', this.pokemon.pokedexid]);
-    }
+    this.pokemonService.getPokemons().subscribe((allPokemons) => {
+      const lastPokedexId = Math.max(...allPokemons.map((p) => p.pokedexid)); // Obtenir le dernier pokedexId
+      const targetPokedexId =
+        this.nextPokedexId && this.nextPokedexId <= lastPokedexId
+          ? this.nextPokedexId
+          : 1; // Revenir au premier Pokémon si out of range
+
+      this.router.navigate(['/pokedex', targetPokedexId]);
+    });
   }
 
   back(): void {
     this.navigation.back();
   }
   goToSearchedPokemon(): void {
-    if (this.pokedexid !== undefined && this.pokedexid > 0 && this.pokedexid < 1018) {
+    if (
+      this.pokedexid !== undefined &&
+      this.pokedexid > 0 &&
+      this.pokedexid < 1018
+    ) {
       this.router.navigate(['/pokedex', this.pokedexid]);
     }
-
   }
 }

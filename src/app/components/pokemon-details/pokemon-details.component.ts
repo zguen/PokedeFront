@@ -55,7 +55,7 @@ export class PokemonDetailsComponent implements OnInit {
     this.gameService.getGames().subscribe((data) => {
       if (data) {
         this.games = data;
-      } 
+      }
     });
 
     this.route.paramMap.subscribe((params) => {
@@ -139,19 +139,27 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   goToPreviousPokemon(): void {
-    if (this.previousPokedexId !== undefined && this.previousPokedexId>0) {
-      this.router.navigate(['/pokemons', this.previousPokedexId]);
-    } else {
-      this.router.navigate(['/pokemons', this.pokemon.pokedexid])
-    }
+  this.pokemonService.getPokemons().subscribe((allPokemons) => {
+    const lastPokedexId = Math.max(...allPokemons.map(p => p.pokedexid)); // Obtenir le dernier pokedexId
+    const targetPokedexId = (this.previousPokedexId !== undefined && this.previousPokedexId > 0)
+      ? this.previousPokedexId 
+      : lastPokedexId; // Retour au dernier Pokémon si on est à 1
+
+    this.router.navigate(['/pokemons', targetPokedexId]);
+  });
   }
 
+
   goToNextPokemon(): void {
-    if (this.nextPokedexId !== undefined && this.nextPokedexId<=1017) {
-      this.router.navigate(['/pokemons', this.nextPokedexId]);
-    } else {
-      this.router.navigate(['/pokemons', this.pokemon.pokedexid])
-    }
+    this.pokemonService.getPokemons().subscribe((allPokemons) => {
+      const lastPokedexId = Math.max(...allPokemons.map((p) => p.pokedexid)); // Obtenir le dernier pokedexId
+      const targetPokedexId =
+        this.nextPokedexId && this.nextPokedexId <= lastPokedexId
+          ? this.nextPokedexId
+          : 1; // Retour à la première page si out of range
+
+      this.router.navigate(['/pokemons', targetPokedexId]);
+    });
   }
 
   verifierConnexionTrainer(): void {

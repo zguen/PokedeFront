@@ -10,7 +10,11 @@
         <h1>{{ pokemon.name }} # {{ pokemon.pokedexid }}</h1>
       </div>
       <div class="ml-auto d-flex align-items-center">
-        <a [routerLink]="['/pokedex', pokemon.pokedexid]" class="pokeChange" alt="Passage en visuel Pokedex"></a>
+        <a [routerLink]="['/pokedex', pokemon.pokedexid]" class="pokeChange"
+          [attr.aria-label]="'Passage en visuel Pokedex de ' + pokemon.name">
+          <!-- Intentionally left empty for visual purposes -->
+        </a>
+
       </div>
     </div>
 
@@ -78,7 +82,7 @@
 
         <div class="d-flex justify-content-center align-self-center">
           <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-            class="imgPoke img-fluid" alt="Image du pokemon {{pokemon.name}}" />
+            class="imgPoke img-fluid" alt="Pokemon {{pokemon.name}}" />
         </div>
       </div>
 
@@ -86,7 +90,7 @@
         <div class="d-flex justify-content-evenly types pokemon-item">
           <ng-container *ngFor="let type of pokemon.types">
             <div>
-              <img [src]="type.picture" alt="image du type {{ type.wording }} du pokemon {{pokemon.name}}"
+              <img [src]="type.picture" alt="Type {{ type.wording }} du pokemon {{pokemon.name}}"
                 class="img-fluid img-types" />
               <h2>{{ type.wording }}</h2>
             </div>
@@ -119,7 +123,7 @@
           <li class="pokemon-item">
             <a [routerLink]="['/pokemons/', prePreEvolution.pokedexid]">
               <img [src]="prePreEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-                class="imgEvo img-fluid" alt="Pre-Evolution Image" />
+                class="imgEvo img-fluid" alt="Pre-Pre-Evolution du pokemon {{pokemon.name}}" />
               <p>{{ prePreEvolution.name }}</p>
             </a>
           </li>
@@ -129,7 +133,7 @@
           <li class="pokemon-item">
             <a [routerLink]="['/pokemons', preEvolution.pokedexid]">
               <img [src]="preEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-                class="imgEvo img-fluid" alt="Pre-Evolution Image" />
+                class="imgEvo img-fluid" alt="Pre-Evolution du pokemon {{pokemon.name}}" />
               <p>{{ preEvolution.name }}</p>
             </a>
           </li>
@@ -138,7 +142,7 @@
         <li class="pokemon-item">
           <a [routerLink]="['/pokemons', pokemon.pokedexid]">
             <img [src]="pokemon.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              class="imgPoke img-fluid" alt="Pokemon Image" />
+              class="imgPoke img-fluid" alt="Pokemon {{pokemon.name}}" />
             <p>{{ pokemon.name }}</p>
           </a>
         </li>
@@ -146,7 +150,7 @@
         <li *ngFor="let evolution of evolutions" class="pokemon-item">
           <a [routerLink]="['/pokemons', evolution.pokedexid]">
             <img class="img-fluid" [src]="evolution.picture"
-              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" alt="Evolution Image" />
+              [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()" alt="Evolution du pokemon {{pokemon.name}}" />
             <p>{{ evolution.name }}</p>
           </a>
         </li>
@@ -154,7 +158,7 @@
         <li *ngFor="let postEvolution of postEvolutions" class="pokemon-item">
           <a [routerLink]="['/pokemons', postEvolution.pokedexid]">
             <img [src]="postEvolution.picture" [ngClass]="'type-' + pokemon.types[0].wording.toLowerCase()"
-              class="img-fluid" alt="Evolution Image" />
+              class="img-fluid" alt="Post-Evolution du pokemon {{pokemon.name}}" />
             <p>{{ postEvolution.name }}</p>
           </a>
         </li>

@@ -14,7 +14,7 @@
                 <div id="buttontopPicture2"></div>
             </div>
             <div id="picture" class="mx-auto" *ngIf="pokemon">
-                <img [src]="pokemon.picture" alt="Image du pokemon {{ pokemon.name }}" />
+                <img [src]="pokemon.picture" alt="Pokemon {{ pokemon.name }}" />
             </div>
             <div id="buttonbottomPicture"></div>
             <div id="speakers">
@@ -96,7 +96,7 @@
                         <a *ngIf="pokemonItem" [routerLink]="['/pokedex', pokemonItem.pokedexid]">
                             <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture" [ngClass]="
                   'type-' + pokemonItem.types[0]?.wording.toLowerCase()
-                " class="imgEvo img-fluid" alt="Pokemon Image" />
+                " class="imgEvo img-fluid" alt="Pokemon" />
                         </a>
                     </div>
                 </ng-container>
@@ -112,7 +112,7 @@
                         <a *ngIf="pokemonItem" [routerLink]="['/pokedex', pokemonItem.pokedexid]">
                             <img *ngIf="pokemonItem.picture" [src]="pokemonItem.picture" [ngClass]="
                   'type-' + pokemonItem.types[0]?.wording.toLowerCase()
-                " class="imgEvo img-fluid" alt="Pokemon Image" />
+                " class="imgEvo img-fluid" alt="Pokemon" />
                         </a>
                     </div>
                 </ng-container>
@@ -146,7 +146,7 @@
             <div class="screenRightBack col">
                 <div class="row g-0" *ngIf="pokemon">
                     <div class="col d-flex align-items-center justify-content-center">
-                        <img [src]="pokemon.types[0].picture" alt="image du type {{ pokemon.types[0].wording }} du pokemon {{
+                        <img [src]="pokemon.types[0].picture" alt="Type {{ pokemon.types[0].wording }} du pokemon {{
                 pokemon.name
               }}" class="img-types img-fluid" />
                     </div>
@@ -158,7 +158,7 @@
             <div class="screenRightBack col">
                 <div class="row g-0" *ngIf="pokemon && pokemon.types[1]">
                     <div class="col d-flex align-items-center justify-content-center">
-                        <img [src]="pokemon.types[1].picture" alt="image du type {{ pokemon.types[1].wording }} du pokemon {{
+                        <img [src]="pokemon.types[1].picture" alt="Type {{ pokemon.types[1].wording }} du pokemon {{
                 pokemon.name
               }}" class="img-types img-fluid" />
                     </div>

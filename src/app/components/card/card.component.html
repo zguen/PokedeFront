@@ -1,14 +1,14 @@
 <div class="container">
   <div class="card">
     <div class="img-box">
-      <img src="{{ pokemon.picture }}"  alt="Image du Pokémon {{pokemon.name}}"/>
+      <img src="{{ pokemon.picture }}"  alt="Pokémon {{pokemon.name}}"/>
     </div>
     <div class="content">
       <h2>{{ pokemon.name }} #{{ pokemon.pokedexid }}</h2>
       <div id="flex">
         <ng-container *ngFor="let type of pokemon.types">
           <div class="type-container">
-            <img [src]="type.picture" alt="image du type {{ type.wording }} du Pokémon {{pokemon.name}}" />
+            <img [src]="type.picture" alt="Type {{ type.wording }} du Pokémon {{pokemon.name}}" />
             <p>{{ type.wording }}</p>
           </div>
         </ng-container>

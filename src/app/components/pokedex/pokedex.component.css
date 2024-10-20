@@ -1,3 +1,13 @@
+.contain-all {
+  display: flex;
+  flex-direction: column;
+  /* Aligne les éléments en colonne */
+  justify-content: center;
+  /* Centre horizontalement */
+  height: 100vh;
+  /* Prend toute la hauteur de la fenêtre */
+}
+
 #buttonGlass {
   width: 60px;
   height: 60px;
@@ -334,7 +344,6 @@ h2 {
 }
 
 .pokedex {
-  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   background-color: #e61515;

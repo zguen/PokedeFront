@@ -1,3 +1,13 @@
+.contain-all {
+  display: flex;
+  flex-direction: column;
+  /* Aligne les éléments en colonne */
+  justify-content: center;
+  /* Centre horizontalement */
+  height: 100vh;
+  /* Prend toute la hauteur de la fenêtre */
+}
+
 .contain {
   display: flex;
   justify-content: center;
